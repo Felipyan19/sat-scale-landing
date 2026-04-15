@@ -1,0 +1,32 @@
+---
+import type { Lang } from '../utils/i18n';
+import { getContent } from '../utils/i18n';
+
+interface Props { lang: Lang; }
+const { lang } = Astro.props;
+const t = getContent(lang).how;
+---
+
+<section class="how-section" id="how-it-works" data-section="how">
+  <div class="section-copy">
+    <p class="section-kicker">Workflow</p>
+    <h2 class="section-title">{t.sectionTitle}</h2>
+    <p class="section-intro">{t.intro}</p>
+  </div>
+
+  <div class="steps-container">
+    {t.steps.map((step, i) => (
+      <>
+        <div class="step-card">
+          <span class="step-icon">{step.icon}</span>
+          <span class="step-number">{step.number}</span>
+          <h3>{step.title}</h3>
+          <p>{step.description}</p>
+        </div>
+        {i < t.steps.length - 1 && (
+          <div class="step-arrow" aria-hidden="true">&#8250;</div>
+        )}
+      </>
+    ))}
+  </div>
+</section>

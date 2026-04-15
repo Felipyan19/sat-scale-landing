@@ -1,0 +1,166 @@
+---
+import type { Lang } from '../utils/i18n';
+import { getContent } from '../utils/i18n';
+
+interface Props { lang: Lang; }
+const { lang } = Astro.props;
+const t = getContent(lang).contact;
+const endpoint = import.meta.env.PUBLIC_CONTACT_FORM_ENDPOINT?.trim() ?? '';
+const fallbackEmail = 'contact@satscale.ai';
+---
+
+<section class="contact-section" id="contact" data-section="contact">
+  <div class="section-copy">
+    <p class="section-kicker">Contact</p>
+    <h2 class="section-title">{t.sectionTitle}</h2>
+    <p class="section-intro">{t.description}</p>
+  </div>
+
+  <div class="contact-form-wrapper">
+    <p class="contact-helper">{endpoint ? t.helperEndpoint : t.helperFallback}</p>
+    <form
+      class="contact-form"
+      id="contact-form"
+      method="post"
+      data-endpoint={endpoint}
+      data-fallback-email={fallbackEmail}
+      data-fallback-notice={t.fallbackNotice}
+      data-success-message={t.success}
+      data-error-message={t.error}
+      data-busy-label={t.submitBusy}
+    >
+      <div class="fields-grid">
+        <label class="text-field">
+          <span>{t.emailLabel}</span>
+          <input
+            id="contact-email"
+            name="email"
+            type="email"
+            required
+            autocomplete="email"
+            placeholder={t.emailPlaceholder}
+          />
+        </label>
+        <label class="text-field">
+          <span>{t.nameLabel}</span>
+          <input
+            id="contact-name"
+            name="name"
+            type="text"
+            required
+            autocomplete="name"
+            placeholder={t.namePlaceholder}
+          />
+        </label>
+        <label class="text-field">
+          <span>{t.orgLabel}</span>
+          <input
+            id="contact-org"
+            name="org"
+            type="text"
+            required
+            autocomplete="organization"
+            placeholder={t.orgPlaceholder}
+          />
+        </label>
+        <label class="text-field text-field-full">
+          <span>{t.messageLabel}</span>
+          <textarea
+            id="contact-message"
+            name="message"
+            rows="5"
+            placeholder={t.messagePlaceholder}
+          ></textarea>
+        </label>
+        <input class="contact-honeypot" name="company_website" type="text" tabindex="-1" autocomplete="off" />
+      </div>
+      <div class="contact-actions">
+        <button class="contact-submit" type="submit">{t.submit}</button>
+        <p class="contact-privacy">{t.privacyNote}</p>
+      </div>
+      <p class="contact-status" id="contact-status" role="status" aria-live="polite"></p>
+    </form>
+  </div>
+</section>
+
+<script>
+  if (typeof window !== 'undefined') {
+    window.addEventListener('DOMContentLoaded', () => {
+      const form = document.querySelector<HTMLFormElement>('#contact-form');
+      const status = document.querySelector<HTMLElement>('#contact-status');
+      const submit = form?.querySelector<HTMLButtonElement>('button[type="submit"]');
+      if (!form) return;
+
+      const endpoint = form.dataset.endpoint ?? '';
+      const fallbackEmail = form.dataset.fallbackEmail ?? 'contact@satscale.ai';
+      const fallbackNotice = form.dataset.fallbackNotice ?? '';
+      const successMessage = form.dataset.successMessage ?? '';
+      const errorMessage = form.dataset.errorMessage ?? '';
+      const busyLabel = form.dataset.busyLabel ?? submit?.textContent ?? '';
+
+      const setStatus = (message: string, state: 'idle' | 'success' | 'error') => {
+        if (!status) return;
+        status.textContent = message;
+        status.dataset.state = state;
+      };
+
+      form.addEventListener('submit', (event) => {
+        event.preventDefault();
+        setStatus('', 'idle');
+
+        if (!form.reportValidity()) return;
+
+        const data = new FormData(form);
+        if ((data.get('company_website') ?? '').toString().trim()) return;
+
+        const email = (data.get('email') ?? '').toString();
+        const name = (data.get('name') ?? '').toString();
+        const org = (data.get('org') ?? '').toString();
+        const message = (data.get('message') ?? '').toString();
+
+        const fallbackToMail = () => {
+          const subject = encodeURIComponent('SatScale - Evaluation request');
+          const body = encodeURIComponent(
+            `Email: ${email}\nName: ${name}\nOrganization: ${org}\nMessage: ${message}`
+          );
+          setStatus(fallbackNotice, 'idle');
+          window.location.href = `mailto:${fallbackEmail}?subject=${subject}&body=${body}`;
+        };
+
+        const submitRequest = async () => {
+          submit?.setAttribute('disabled', 'true');
+          const originalLabel = submit?.textContent ?? '';
+          if (submit) submit.textContent = busyLabel;
+
+          try {
+            if (!endpoint) {
+              fallbackToMail();
+              return;
+            }
+
+            const response = await fetch(endpoint, {
+              method: 'POST',
+              body: data,
+              headers: {
+                Accept: 'application/json'
+              }
+            });
+
+            if (!response.ok) throw new Error(`Request failed with ${response.status}`);
+
+            form.reset();
+            setStatus(successMessage, 'success');
+          } catch (error) {
+            console.error(error);
+            setStatus(errorMessage, 'error');
+          } finally {
+            submit?.removeAttribute('disabled');
+            if (submit) submit.textContent = originalLabel;
+          }
+        };
+
+        submitRequest();
+      });
+    });
+  }
+</script>

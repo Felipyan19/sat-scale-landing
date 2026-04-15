@@ -1,0 +1,41 @@
+---
+import type { Lang } from '../utils/i18n';
+import { getContent } from '../utils/i18n';
+
+interface Props { lang: Lang; }
+const { lang } = Astro.props;
+const t = getContent(lang).hero;
+---
+
+<section class="hero-section" id="top" data-section="hero">
+  <div class="hero-text">
+    <p class="hero-eyebrow">{t.eyebrow}</p>
+    <h1>{t.title}</h1>
+    <p class="hero-subtitle">{t.subtitle}</p>
+    <div class="hero-actions">
+      <a href="#contact" class="hero-cta hero-cta-primary">{t.primaryCta}</a>
+      <a href="#demo" class="hero-cta hero-cta-secondary">{t.secondaryCta}</a>
+    </div>
+    <ul class="hero-stats">
+      {t.stats.map((item) => <li>{item}</li>)}
+    </ul>
+  </div>
+
+  <div class="hero-visual">
+    <div class="hero-image-placeholder" role="img" aria-label={t.visualLabel}>
+      <svg width="180" height="180" viewBox="0 0 180 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="16" y="16" width="148" height="148" rx="18" stroke="white" stroke-width="1.5" stroke-opacity="0.25" />
+        <rect x="28" y="28" width="56" height="56" rx="10" fill="white" fill-opacity="0.06" />
+        <rect x="96" y="28" width="56" height="56" rx="10" fill="white" fill-opacity="0.12" />
+        <rect x="28" y="96" width="56" height="56" rx="10" fill="white" fill-opacity="0.16" />
+        <rect x="96" y="96" width="56" height="56" rx="10" fill="white" fill-opacity="0.22" />
+        <path d="M54 114C65 100 78 88 96 78C112 69 125 55 135 40" stroke="white" stroke-width="3" stroke-linecap="round" stroke-opacity="0.6" />
+        <path d="M116 36H140V60" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.75" />
+        <circle cx="54" cy="114" r="5" fill="white" fill-opacity="0.8" />
+        <circle cx="96" cy="78" r="5" fill="white" fill-opacity="0.8" />
+        <circle cx="135" cy="40" r="5" fill="white" fill-opacity="0.8" />
+      </svg>
+      <span>{t.visualLabel}</span>
+    </div>
+  </div>
+</section>

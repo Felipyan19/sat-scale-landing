@@ -1,0 +1,215 @@
+@use './constants.scss' as *;
+
+.navbar-container {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid $border-soft;
+  backdrop-filter: blur(24px);
+  background: rgba(11, 7, 17, 0.74);
+}
+
+.logo-container {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.85rem;
+  text-decoration: none;
+  flex-shrink: 0;
+
+  p {
+    font-size: 1.15rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  svg {
+    width: 2.7rem;
+    height: 2.7rem;
+  }
+}
+
+.navbar-nav {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+}
+
+.navbar-panel {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.navbar-pages-container {
+  display: flex;
+  align-items: center;
+  gap: 1.1rem;
+  list-style: none;
+}
+
+.navbar-page a,
+.navbar-alt-link {
+  text-decoration: none;
+  color: $text-secondary;
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition:
+    color $transition,
+    opacity $transition;
+
+  &:hover {
+    color: $text-primary;
+  }
+}
+
+.navbar-language-item {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  margin-left: 0.3rem;
+
+  span {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: $text-muted;
+  }
+}
+
+.language-switcher {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.25rem;
+  border: 1px solid $border-soft;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.03);
+
+  a {
+    text-decoration: none;
+    padding: 0.45rem 0.7rem;
+    border-radius: 999px;
+    color: $text-secondary;
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    transition:
+      background $transition,
+      color $transition;
+
+    &[aria-current='page'] {
+      background: linear-gradient(135deg, $accent-primary 0%, $accent-strong 100%);
+      color: #22140e;
+    }
+  }
+}
+
+.navbar-alt-link {
+  display: none;
+}
+
+.burger-button {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  border: 1px solid $border-soft;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.02);
+  color: $text-primary;
+  cursor: pointer;
+
+  span[aria-hidden='true'] {
+    position: absolute;
+    width: 1.15rem;
+    height: 2px;
+    background: currentColor;
+    transition:
+      transform $transition,
+      opacity $transition;
+  }
+
+  span[aria-hidden='true']:nth-of-type(3) {
+    transform: translateY(-0.35rem);
+  }
+
+  span[aria-hidden='true']:nth-of-type(4) {
+    transform: translateY(0.35rem);
+  }
+}
+
+.burger-button.active span[aria-hidden='true']:nth-of-type(2) {
+  opacity: 0;
+}
+
+.burger-button.active span[aria-hidden='true']:nth-of-type(3) {
+  transform: rotate(45deg);
+}
+
+.burger-button.active span[aria-hidden='true']:nth-of-type(4) {
+  transform: rotate(-45deg);
+}
+
+.navbar-footer {
+  height: 0;
+}
+
+@media screen and (max-width: $mobile-max-width) {
+  .navbar-container {
+    padding: 0.85rem 1rem;
+  }
+
+  .burger-button {
+    display: inline-flex;
+    position: relative;
+    z-index: 24;
+  }
+
+  .navbar-panel {
+    position: fixed;
+    top: 5rem;
+    right: 1rem;
+    left: 1rem;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1rem;
+    padding: 1.2rem;
+    border: 1px solid $border-strong;
+    border-radius: $roundness-l;
+    background: rgba(16, 10, 24, 0.96);
+    box-shadow: $shadow-strong;
+  }
+
+  .navbar-pages-container {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .navbar-page a {
+    display: block;
+    padding: 0.9rem 1rem;
+    border-radius: $roundness-s;
+    background: rgba(255, 255, 255, 0.04);
+  }
+
+  .navbar-language-item {
+    flex-direction: column;
+    align-items: flex-start;
+    padding-top: 0.5rem;
+  }
+
+  .navbar-alt-link {
+    display: inline-flex;
+    justify-content: center;
+    padding: 0.9rem 1rem;
+    border-radius: $roundness-s;
+    border: 1px solid $border-soft;
+  }
+}

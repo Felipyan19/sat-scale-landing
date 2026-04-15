@@ -1,0 +1,242 @@
+{
+  "es": {
+    "seo": {
+      "title": "SatScale | Superresolucion satelital para equipos geoespaciales",
+      "description": "Mejora la resolucion de imagenes satelitales con un flujo pensado para analisis geoespacial, validacion privada y entregables listos para GIS."
+    },
+    "nav": {
+      "howItWorks": "Como funciona",
+      "demo": "Resultados",
+      "trust": "Evaluacion",
+      "contact": "Contacto",
+      "language": "Idioma",
+      "skipToContent": "Saltar al contenido",
+      "openMenu": "Abrir menu",
+      "closeMenu": "Cerrar menu",
+      "primaryNavLabel": "Navegacion principal",
+      "homeLabel": "Ir al inicio de SatScale"
+    },
+    "hero": {
+      "eyebrow": "Superresolucion satelital orientada a operaciones",
+      "title": "Escala imagen satelital sin romper el contexto geoespacial",
+      "subtitle": "SatScale mejora escenas de baja y media resolucion para revision tecnica, comparacion visual y flujos GIS donde conservar estructura, detalle y consistencia importa.",
+      "primaryCta": "Solicitar evaluacion",
+      "secondaryCta": "Ver resultados",
+      "stats": [
+        "Entradas GeoTIFF, PNG y JPEG",
+        "Comparativas 4x y 8x para validacion",
+        "Revision privada con escenas de tu equipo"
+      ],
+      "visualLabel": "Vista previa estilizada de una cuadrilla satelital"
+    },
+    "how": {
+      "sectionTitle": "Como funciona",
+      "intro": "Un flujo corto para validar el modelo con escenas reales antes de integrarlo a una operacion mas amplia.",
+      "steps": [
+        {
+          "number": "Paso 01",
+          "icon": "Input",
+          "title": "Carga la escena",
+          "description": "Trabaja con imagenes satelitales de baja o media resolucion en formatos comunes del equipo."
+        },
+        {
+          "number": "Paso 02",
+          "icon": "Model",
+          "title": "Procesamiento orientado a detalle",
+          "description": "El modelo reconstruye informacion visual con foco en bordes, patrones de uso del suelo y coherencia entre regiones."
+        },
+        {
+          "number": "Paso 03",
+          "icon": "Output",
+          "title": "Compara y decide",
+          "description": "Recibes una salida lista para revision, visualizacion o pruebas dentro de tu pipeline GIS."
+        }
+      ]
+    },
+    "demo": {
+      "sectionTitle": "Resultados de referencia",
+      "intro": "Cada comparativa muestra una lectura antes y despues para evaluar nitidez, continuidad visual y utilidad operativa.",
+      "beforeLabel": "Antes",
+      "afterLabel": "Despues",
+      "beforePlaceholder": "Escena base",
+      "afterPlaceholder": "Salida mejorada",
+      "pairs": [
+        {
+          "caption": "Zona urbana | lectura de calles y bloques",
+          "scale": "4x"
+        },
+        {
+          "caption": "Cobertura forestal | continuidad de masas verdes",
+          "scale": "4x"
+        },
+        {
+          "caption": "Costa y litoral | contraste entre agua y borde",
+          "scale": "8x"
+        },
+        {
+          "caption": "Zona agricola | patrones y parcelacion",
+          "scale": "8x"
+        }
+      ]
+    },
+    "trust": {
+      "sectionTitle": "Pensado para una evaluacion seria",
+      "intro": "La landing ya no vende solo una promesa visual. Explica como validar el producto con un equipo geoespacial real y que esperar del proceso.",
+      "items": [
+        {
+          "title": "Validacion con tus propias escenas",
+          "description": "La conversacion parte de imagery real de tu operacion para revisar calidad, limites y casos donde el modelo agrega valor."
+        },
+        {
+          "title": "Entregables listos para GIS",
+          "description": "El objetivo no es una demo bonita sino una salida que puedas revisar dentro de flujos tecnicos y comparativas de analisis."
+        },
+        {
+          "title": "Proceso privado y acotado",
+          "description": "La primera evaluacion se plantea como un piloto corto, con contexto de uso claro y sin pedir una integracion completa desde el dia uno."
+        }
+      ],
+      "note": "Si necesitas una prueba comercial mas fuerte, el siguiente paso natural es reemplazar los placeholders por casos reales, metricas y testimonios."
+    },
+    "contact": {
+      "sectionTitle": "Solicitar evaluacion",
+      "description": "Cuéntanos que tipo de imagery manejas, que nivel de detalle necesitas y como encaja SatScale en tu operacion.",
+      "emailLabel": "Correo electronico",
+      "nameLabel": "Nombre",
+      "orgLabel": "Organizacion",
+      "messageLabel": "Que quieres validar",
+      "emailPlaceholder": "equipo@organizacion.com",
+      "namePlaceholder": "Nombre y apellido",
+      "orgPlaceholder": "Nombre de la organizacion",
+      "messagePlaceholder": "Ejemplo: escenas urbanas 4x, compatibilidad con nuestro flujo GIS y tiempos de evaluacion.",
+      "submit": "Enviar solicitud",
+      "helperEndpoint": "El formulario enviara tu solicitud sin salir del sitio.",
+      "helperFallback": "No hay endpoint configurado todavia. Al enviar abriremos tu cliente de correo con la informacion prellenada.",
+      "privacyNote": "Incluye solo la informacion necesaria para coordinar una evaluacion tecnica inicial.",
+      "success": "Solicitud enviada. Revisaremos la informacion y volveremos contigo.",
+      "error": "No pudimos enviar el formulario. Intenta de nuevo o escribe a contact@satscale.ai.",
+      "fallbackNotice": "Abriremos tu cliente de correo para completar el envio.",
+      "submitBusy": "Enviando..."
+    }
+  },
+  "en": {
+    "seo": {
+      "title": "SatScale | Satellite super-resolution for geospatial teams",
+      "description": "Enhance satellite imagery with a workflow built for geospatial analysis, private evaluation, and GIS-ready deliverables."
+    },
+    "nav": {
+      "howItWorks": "How it works",
+      "demo": "Results",
+      "trust": "Evaluation",
+      "contact": "Contact",
+      "language": "Language",
+      "skipToContent": "Skip to content",
+      "openMenu": "Open menu",
+      "closeMenu": "Close menu",
+      "primaryNavLabel": "Primary navigation",
+      "homeLabel": "Go to SatScale home"
+    },
+    "hero": {
+      "eyebrow": "Satellite super-resolution for operational workflows",
+      "title": "Upscale satellite imagery without losing geospatial context",
+      "subtitle": "SatScale improves low and medium resolution scenes for technical review, visual comparison, and GIS workflows where structure, detail, and consistency matter.",
+      "primaryCta": "Request evaluation",
+      "secondaryCta": "See results",
+      "stats": [
+        "GeoTIFF, PNG, and JPEG inputs",
+        "4x and 8x comparisons for validation",
+        "Private review using your team's scenes"
+      ],
+      "visualLabel": "Stylized preview of a satellite grid"
+    },
+    "how": {
+      "sectionTitle": "How it works",
+      "intro": "A short workflow to validate the model on real scenes before moving into a broader operational rollout.",
+      "steps": [
+        {
+          "number": "Step 01",
+          "icon": "Input",
+          "title": "Upload the scene",
+          "description": "Work with low or medium resolution satellite imagery in the formats your team already uses."
+        },
+        {
+          "number": "Step 02",
+          "icon": "Model",
+          "title": "Detail-oriented processing",
+          "description": "The model reconstructs visual information with attention to edges, land-use patterns, and coherence across regions."
+        },
+        {
+          "number": "Step 03",
+          "icon": "Output",
+          "title": "Compare and decide",
+          "description": "You receive an output ready for review, visualization, or testing inside your GIS pipeline."
+        }
+      ]
+    },
+    "demo": {
+      "sectionTitle": "Reference outputs",
+      "intro": "Each comparison is framed to evaluate sharpness, visual continuity, and operational usefulness in a quick before and after view.",
+      "beforeLabel": "Before",
+      "afterLabel": "After",
+      "beforePlaceholder": "Base scene",
+      "afterPlaceholder": "Enhanced output",
+      "pairs": [
+        {
+          "caption": "Urban area | reading streets and blocks",
+          "scale": "4x"
+        },
+        {
+          "caption": "Forest coverage | continuity of green masses",
+          "scale": "4x"
+        },
+        {
+          "caption": "Coastline | separation between water and edge",
+          "scale": "8x"
+        },
+        {
+          "caption": "Agricultural zone | field patterns and parcels",
+          "scale": "8x"
+        }
+      ]
+    },
+    "trust": {
+      "sectionTitle": "Built for a serious evaluation",
+      "intro": "The page now explains how to validate the product with a real geospatial team instead of selling only a visual promise.",
+      "items": [
+        {
+          "title": "Validation on your own scenes",
+          "description": "The conversation starts from imagery from your operation so quality, limits, and fit can be reviewed in context."
+        },
+        {
+          "title": "Outputs ready for GIS review",
+          "description": "The goal is not a pretty demo but an output you can inspect inside technical workflows and side-by-side analysis."
+        },
+        {
+          "title": "Private and scoped first step",
+          "description": "The initial evaluation is framed as a short pilot with a clear use case instead of asking for a full integration on day one."
+        }
+      ],
+      "note": "If you need a stronger commercial proof layer, the next step is replacing placeholders with real cases, metrics, and testimonials."
+    },
+    "contact": {
+      "sectionTitle": "Request evaluation",
+      "description": "Tell us what imagery you work with, what level of detail you need, and how SatScale would fit into your operation.",
+      "emailLabel": "Email",
+      "nameLabel": "Name",
+      "orgLabel": "Organization",
+      "messageLabel": "What you want to validate",
+      "emailPlaceholder": "team@organization.com",
+      "namePlaceholder": "Full name",
+      "orgPlaceholder": "Organization name",
+      "messagePlaceholder": "Example: urban scenes at 4x, compatibility with our GIS workflow, and evaluation timeline.",
+      "submit": "Send request",
+      "helperEndpoint": "The form will send your request without leaving the site.",
+      "helperFallback": "No endpoint is configured yet. On submit we will open your email client with the details prefilled.",
+      "privacyNote": "Share only the information needed to coordinate an initial technical evaluation.",
+      "success": "Request sent. We will review the details and follow up.",
+      "error": "We could not send the form. Please try again or write to contact@satscale.ai.",
+      "fallbackNotice": "We will open your email client so you can complete the request.",
+      "submitBusy": "Sending..."
+    }
+  }
+}

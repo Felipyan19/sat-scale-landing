@@ -1,0 +1,67 @@
+---
+export interface Props {
+  title: string;
+  description: string;
+  lang?: string;
+  path?: string;
+  alternateLinks?: { lang: string; path: string }[];
+  structuredData?: object | object[];
+  skipLinkLabel?: string;
+}
+const {
+  title,
+  description,
+  lang = 'es',
+  path = '/',
+  alternateLinks = [],
+  structuredData,
+  skipLinkLabel = 'Skip to content'
+} = Astro.props;
+const canonical = new URL(path, Astro.site ?? 'https://satscale.ai').toString();
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={description} />
+    <meta name="robots" content="index,follow,max-image-preview:large" />
+    <meta name="theme-color" content="#14091f" />
+    <link rel="canonical" href={canonical} />
+    {alternateLinks.map((link) => (
+      <link
+        rel="alternate"
+        hreflang={link.lang}
+        href={new URL(link.path, Astro.site ?? 'https://satscale.ai').toString()}
+      />
+    ))}
+    <link rel="alternate" hreflang="x-default" href={new URL('/', Astro.site ?? 'https://satscale.ai').toString()} />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="SatScale" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:locale" content={lang === 'en' ? 'en_US' : 'es_ES'} />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <title>{title}</title>
+    {structuredData && (
+      <script type="application/ld+json" is:inline set:html={JSON.stringify(structuredData)} />
+    )}
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">{skipLinkLabel}</a>
+    <slot />
+  </body>
+</html>
+
+<style is:global lang="scss">
+  @use '../styles/general.scss';
+  @use '../styles/navbar.scss';
+  @use '../styles/main.scss';
+</style>

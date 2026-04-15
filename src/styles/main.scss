@@ -1,0 +1,491 @@
+@use './constants.scss' as *;
+
+main {
+  width: min(1180px, calc(100% - 2rem));
+  margin: 0 auto;
+  padding-bottom: 5rem;
+}
+
+.section-copy {
+  max-width: 44rem;
+  margin-bottom: 2.5rem;
+}
+
+.section-kicker {
+  margin-bottom: 0.8rem;
+  color: $accent-secondary;
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+}
+
+.section-title {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 800;
+  line-height: 0.98;
+  letter-spacing: -0.04em;
+}
+
+.section-intro {
+  margin-top: 1rem;
+  color: $text-secondary;
+  font-size: 1.08rem;
+  line-height: 1.7;
+}
+
+.hero-section,
+.how-section,
+.demo-section,
+.trust-section,
+.contact-section {
+  padding: 4.5rem 0;
+}
+
+.hero-section {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(20rem, 0.95fr);
+  gap: 2rem;
+  align-items: center;
+  min-height: calc(100vh - 6rem);
+}
+
+.hero-text {
+  max-width: 42rem;
+}
+
+.hero-eyebrow {
+  margin-bottom: 1rem;
+  color: $accent-secondary;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.hero-text h1 {
+  font-size: clamp(2.8rem, 8vw, 5.3rem);
+  line-height: 0.92;
+  letter-spacing: -0.05em;
+}
+
+.hero-subtitle {
+  max-width: 39rem;
+  margin-top: 1.4rem;
+  color: $text-secondary;
+  font-size: 1.15rem;
+  line-height: 1.75;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+  margin-top: 2rem;
+}
+
+.hero-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 3.25rem;
+  padding: 0.8rem 1.35rem;
+  border-radius: 999px;
+  border: 1px solid $border-strong;
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 700;
+  transition:
+    transform $transition,
+    border-color $transition,
+    background $transition;
+
+  &:hover {
+    transform: translateY(-1px);
+  }
+}
+
+.hero-cta-primary {
+  background: linear-gradient(135deg, $accent-primary 0%, $accent-strong 100%);
+  border-color: transparent;
+  color: #25150d;
+}
+
+.hero-cta-secondary {
+  background: rgba(255, 255, 255, 0.03);
+  color: $text-primary;
+}
+
+.hero-stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.85rem;
+  list-style: none;
+  margin-top: 2rem;
+}
+
+.hero-stats li {
+  padding: 1rem 1rem 1.1rem;
+  border: 1px solid $border-soft;
+  border-radius: $roundness-l;
+  background: rgba(255, 255, 255, 0.03);
+  color: $text-secondary;
+  font-size: 0.92rem;
+  line-height: 1.5;
+  box-shadow: $shadow-soft;
+}
+
+.hero-visual {
+  display: flex;
+  justify-content: center;
+}
+
+.hero-image-placeholder {
+  display: grid;
+  place-items: center;
+  gap: 1rem;
+  width: min(100%, 34rem);
+  aspect-ratio: 1 / 1;
+  padding: 2rem;
+  border: 1px solid $border-strong;
+  border-radius: $roundness-xl;
+  background:
+    radial-gradient(circle at top left, rgba(124, 231, 211, 0.16), transparent 36%),
+    linear-gradient(145deg, rgba(46, 30, 61, 0.95) 0%, rgba(21, 13, 30, 0.96) 100%);
+  box-shadow: $shadow-strong;
+
+  svg {
+    width: min(100%, 17rem);
+    height: auto;
+  }
+
+  span {
+    color: $text-muted;
+    font-size: 0.9rem;
+    text-align: center;
+  }
+}
+
+.steps-container,
+.trust-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.1rem;
+}
+
+.step-card,
+.trust-card {
+  padding: 1.5rem;
+  border: 1px solid $border-soft;
+  border-radius: $roundness-l;
+  background: $surface-card;
+  box-shadow: $shadow-soft;
+}
+
+.step-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 4.2rem;
+  min-height: 4.2rem;
+  margin-bottom: 1.3rem;
+  padding: 0.6rem 1rem;
+  border-radius: 999px;
+  background: rgba(124, 231, 211, 0.1);
+  color: $accent-secondary;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.step-number {
+  display: block;
+  margin-bottom: 0.9rem;
+  color: $text-muted;
+  font-size: 0.74rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+}
+
+.step-card h3,
+.trust-card h3 {
+  font-size: 1.3rem;
+  line-height: 1.1;
+}
+
+.step-card p,
+.trust-card p,
+.trust-note,
+.contact-helper,
+.contact-privacy,
+.contact-status {
+  color: $text-secondary;
+  font-size: 0.98rem;
+  line-height: 1.7;
+}
+
+.step-arrow {
+  display: none;
+}
+
+.demo-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.15rem;
+}
+
+.demo-pair {
+  overflow: hidden;
+  border: 1px solid $border-soft;
+  border-radius: $roundness-l;
+  background: $surface-panel;
+  box-shadow: $shadow-soft;
+  opacity: 0;
+  transform: translateY(14px);
+  transition:
+    opacity 420ms ease,
+    transform 420ms ease;
+
+  &.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.demo-pair-images {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.demo-img-wrap {
+  display: flex;
+  flex-direction: column;
+}
+
+.demo-label {
+  padding: 0.9rem 1rem 0.5rem;
+  color: $text-muted;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.demo-img-placeholder {
+  display: grid;
+  place-items: center;
+  min-height: 13rem;
+  padding: 1rem;
+  color: $text-primary;
+  font-size: 1.4rem;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  text-align: center;
+
+  &.before {
+    background:
+      linear-gradient(180deg, rgba(255, 255, 255, 0.04), transparent),
+      linear-gradient(135deg, rgba(79, 56, 109, 0.92) 0%, rgba(34, 23, 49, 0.94) 100%);
+  }
+
+  &.after {
+    background:
+      radial-gradient(circle at top left, rgba(255, 209, 102, 0.18), transparent 44%),
+      linear-gradient(135deg, rgba(124, 231, 211, 0.28) 0%, rgba(40, 69, 80, 0.9) 100%);
+    color: #fef8ee;
+  }
+}
+
+.demo-caption {
+  padding: 1rem 1rem 1.2rem;
+  border-top: 1px solid $border-soft;
+  color: $text-secondary;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.trust-note {
+  max-width: 50rem;
+  margin-top: 1.5rem;
+}
+
+.contact-form-wrapper {
+  max-width: 52rem;
+  padding: 1.5rem;
+  border: 1px solid $border-strong;
+  border-radius: $roundness-xl;
+  background: rgba(21, 14, 31, 0.92);
+  box-shadow: $shadow-strong;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.contact-helper {
+  margin-bottom: 1.25rem;
+  color: $text-muted;
+}
+
+.fields-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.text-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+
+  span {
+    color: $text-primary;
+    font-size: 0.92rem;
+    font-weight: 700;
+  }
+
+  input,
+  textarea {
+    width: 100%;
+    min-height: 3.3rem;
+    padding: 0.95rem 1rem;
+    border: 1px solid $border-soft;
+    border-radius: $roundness-m;
+    background: rgba(255, 255, 255, 0.03);
+    color: $text-primary;
+    transition:
+      border-color $transition,
+      background $transition,
+      box-shadow $transition;
+
+    &::placeholder {
+      color: $text-muted;
+    }
+
+    &:focus-visible {
+      border-color: $accent-secondary;
+      box-shadow: 0 0 0 4px rgba(124, 231, 211, 0.12);
+      background: rgba(255, 255, 255, 0.05);
+    }
+  }
+
+  textarea {
+    min-height: 10rem;
+    resize: vertical;
+  }
+}
+
+.text-field-full {
+  grid-column: 1 / -1;
+}
+
+.contact-honeypot {
+  position: absolute;
+  left: -9999px;
+}
+
+.contact-actions {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.contact-submit {
+  min-width: 12rem;
+  min-height: 3.35rem;
+  padding: 0.8rem 1.35rem;
+  border: none;
+  border-radius: 999px;
+  background: linear-gradient(135deg, $accent-primary 0%, $accent-strong 100%);
+  color: #23140d;
+  font-size: 0.98rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition:
+    transform $transition,
+    opacity $transition;
+
+  &:hover {
+    transform: translateY(-1px);
+  }
+
+  &:disabled {
+    cursor: wait;
+    opacity: 0.72;
+  }
+}
+
+.contact-privacy {
+  max-width: 28rem;
+}
+
+.contact-status {
+  min-height: 1.7rem;
+
+  &[data-state='success'] {
+    color: $accent-secondary;
+  }
+
+  &[data-state='error'] {
+    color: $accent-primary;
+  }
+}
+
+@media screen and (max-width: $mobile-max-width) {
+  main {
+    width: min(100%, calc(100% - 1.25rem));
+  }
+
+  .hero-section,
+  .how-section,
+  .demo-section,
+  .trust-section,
+  .contact-section {
+    padding: 3.5rem 0;
+  }
+
+  .hero-section {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+
+  .hero-text h1 {
+    font-size: clamp(2.4rem, 14vw, 3.5rem);
+  }
+
+  .hero-subtitle,
+  .section-intro {
+    font-size: 1rem;
+  }
+
+  .hero-stats,
+  .steps-container,
+  .trust-grid,
+  .demo-grid,
+  .fields-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-image-placeholder {
+    aspect-ratio: 1.08 / 1;
+    padding: 1.5rem;
+  }
+
+  .contact-form-wrapper {
+    padding: 1.2rem;
+  }
+
+  .contact-actions {
+    flex-direction: column;
+  }
+
+  .contact-submit {
+    width: 100%;
+  }
+}

@@ -1,0 +1,1231 @@
+---
+import PageLayoutV2 from '../../layouts/PageLayoutV2.astro';
+---
+
+<PageLayoutV2>
+
+<!-- Noise overlay -->
+<div class="noise-overlay" aria-hidden="true"></div>
+
+<!-- ─── NAVBAR ─── -->
+<nav class="navbar">
+  <div class="navbar-inner">
+    <div class="navbar-brand">SAT-SCALE AI</div>
+
+    <div class="navbar-links">
+      <a class="nav-link nav-link--active" href="#">Technology</a>
+      <a class="nav-link" href="#">Showcase</a>
+      <a class="nav-link" href="#">Pricing</a>
+      <a class="nav-link" href="#">Enterprise</a>
+    </div>
+
+    <div class="navbar-actions">
+      <button class="btn-ghost">Sign In</button>
+      <button class="btn-primary-pill">Get Started</button>
+    </div>
+  </div>
+  <div class="navbar-border" aria-hidden="true"></div>
+</nav>
+
+<main>
+
+  <!-- ─── HERO ─── -->
+  <section class="hero-v2">
+    <div class="hero-bg" aria-hidden="true">
+      <img
+        src="https://lh3.googleusercontent.com/aida-public/AB6AXuByvI5xrrQQTPKRGzDrZEZ0bVBwmKeXdlvpMj0_ZDYkwS-iu88UQWEJZKTB-Imee7FNpWp9-19dM73YmP6A9hX6RnRIo-HM8a9FcRriBnUq5h8STX71BJDJ3j1UglKaXPRc-70tizbfqlI_jvbpc1y7jPLWJbmRVAfBLzrD1-snkSeNG4S5hejWCj0_qB6ZzJH2xMHmk8cqnHyZ2wX0pfCXD051xzEtTlMKKy8Ge6-C1Ma_x9XNoG1H3I44L8vOsJjO8Le_DvkFpmA"
+        alt="Aerial satellite view of a coastal city at night"
+      />
+      <div class="hero-overlay" aria-hidden="true"></div>
+    </div>
+
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-eyebrow">
+          <span class="eyebrow-line" aria-hidden="true"></span>
+          <span class="eyebrow-text">Neural Super-Resolution Engine</span>
+        </div>
+
+        <h1 class="hero-title">
+          Orbital <br /><span class="text-cyan">Intelligence,</span> <br />Upscaled
+        </h1>
+
+        <p class="hero-subtitle">
+          Transform low-resolution satellite feeds into high-fidelity actionable intelligence
+          using our proprietary Neural-Optical upscaling engine. Precision synthesized for
+          the next era of global monitoring.
+        </p>
+
+        <div class="hero-btns">
+          <button class="btn-cyan-lg">Start Synthesis</button>
+          <button class="btn-outline-lg">View Laboratory</button>
+        </div>
+      </div>
+
+      <div class="hero-coords" aria-hidden="true">
+        <p><span class="coord-key">COORD_X</span> 34.0522° N</p>
+        <p><span class="coord-key">COORD_Y</span> 118.2437° W</p>
+        <p><span class="coord-key">ALTITUDE</span> 400.0 KM</p>
+        <p><span class="coord-key">INSTRUMENT</span> SATSCALE-V3</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── TECHNOLOGY ─── -->
+  <section class="tech-section">
+    <div class="container">
+      <div class="tech-grid">
+
+        <div class="tech-copy">
+          <div>
+            <h2 class="section-title">The Science of <br />Optical Restoration</h2>
+            <p class="section-body">
+              SatScale leverages sub-pixel convolutional neural networks to reconstruct missing
+              structural details from raw satellite data, surpassing the diffraction limit of
+              physical optics.
+            </p>
+          </div>
+
+          <div class="tech-features">
+            <div class="tech-feature">
+              <span class="material-symbols-outlined icon-cyan">auto_awesome</span>
+              <h4>Sub-Pixel Synthesis</h4>
+              <p>Reconstructing textural density where sensors only captured noise.</p>
+            </div>
+            <div class="tech-feature">
+              <span class="material-symbols-outlined icon-cyan">blur_off</span>
+              <h4>De-Hazing Engine</h4>
+              <p>Intelligent removal of cloud artifacts and spectral scattering.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="tech-images">
+          <div class="tech-glow" aria-hidden="true"></div>
+          <div class="tech-img-grid">
+            <div class="tech-img-card">
+              <img
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCr1WjyWES-qsyozk5fStfGoXlxJPGlnIdaYN4GgtQyFK44qF0mTb4A9_36uwj2CW-COPbFoscT9KiB6ifUflg7o1w0zHYlRD_999-nwvTfKYtUebruY-hayzFPmiIoACT6K72FeLCktHmVOOc2UV5g2OeCXiw2Cd3XQFkEwOxhHdcPJP9WEsFo1CtJBIjsgxKH_LvWBuOmc5U26YltNSQzGBxnW1O_-mUnm7EhFquPsCIKRcb2ltyBonOEtxmTCagRWmI1lP3UKbc"
+                alt="Neural network processing visualization"
+              />
+            </div>
+            <div class="tech-img-card tech-img-card--offset">
+              <img
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBGuCetbHe7q7055fmC2P46fEFtqbWg0KSKbm9NLw0gD2foxyhN6GQDiygqrvZVwZFWDd8gDj2LKMoi0qRRJj9LvJ_KRaQDVvFtQN8966mArU2ZQbpdfYP4lI4E8XNoD7Zb840AAXYTKiBM0sk3Yuzl21aE2Yjw_4yEVUB5kglrrPbhOF9YpezlDzZo_hrzOwkCpT75qi-GrONOhwqcDsdyYJwWfYzfQjhLPrLBkFJyGCVtoabcC1rBm1--lAC_P7wmDqedDXIJcYo"
+                alt="Abstract data flow visualization"
+              />
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── COMPARISON ─── -->
+  <section class="comparison-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">The Precision Benchmarks</h2>
+        <p class="section-body">
+          Compare raw 30cm/pixel imagery against SatScale Zenith 5cm/pixel synthesized enhancement.
+        </p>
+      </div>
+
+      <div class="comparison-widget" id="comparison-widget">
+        <!-- High-res (background) -->
+        <div class="comparison-layer comparison-layer--back">
+          <img
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCXrwDz5Xu2-etNIpebLrLfGeLfkVwP3Eby_ADNzlqjSKWBNIERzzXkxka0Q89myfqqjQOU4wX8_WaUbPBPmSt466mL8X7-OHb4gxA5xiVN9FvqbcrxlYrMCilQy7TuqAi_IwEEK3aZV6RedYRj8MTmUaLOxp7f1gf9KK0YoEMvNWgCfG3viw6Dz1rE09wZtgdM_Stq9bJEq9WOUrzvX7-1f3SdUUx7WgeL43HbXooxu6q01USqKrrp3w_kyYyBygQ9hdk9ayMPo3Q"
+            alt="High resolution harbor satellite image"
+          />
+          <div class="comparison-badge comparison-badge--right">Synthetic (5cm/px)</div>
+        </div>
+
+        <!-- Low-res (clipped overlay) -->
+        <div class="comparison-layer comparison-layer--front" id="comparison-front">
+          <img
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBjKZDpypUq6dI_33QD2w2b43FsTBG0sHCOwZLUWx-1laXGE62ifhI0iULywCxir_0ci0e6ljgAJPxqc2Y3_3zswg0eAbRVG3TG-sXnJP926oazYp29fLMj9Ruv6h3yvDEO42Sin0iEXZ-6H4E9LL8A-5OS3XRWcHFmvjT9jJ-Zb2_wiSpJDgzNCOCSLtWyumftcHGpmwTE-oa-CuFeA5pgnYKAN_n_J2iqAiDMs-MRepo8CFn-Am_oWFkcLCYKmlsqPheGbf0F1K4"
+            alt="Low resolution harbor satellite image"
+          />
+          <div class="comparison-badge comparison-badge--left">Raw Data (30cm/px)</div>
+        </div>
+
+        <!-- Slider handle -->
+        <div class="slider-handle" id="slider-handle" aria-hidden="true">
+          <div class="slider-arrows">
+            <span class="material-symbols-outlined">chevron_left</span>
+            <span class="material-symbols-outlined">chevron_right</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── BENTO GRID (Strategic Verticals) ─── -->
+  <section class="bento-section">
+    <div class="container">
+      <div class="bento-header">
+        <h2 class="bento-title">Strategic<br />Verticals</h2>
+        <p class="bento-desc">
+          Precision instruments for sovereign intelligence and global monitoring.
+        </p>
+      </div>
+
+      <div class="bento-grid">
+
+        <!-- Card 1 – Urban Planning (wide) -->
+        <div class="bento-card bento-card--wide">
+          <img
+            class="bento-bg"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDKj508O4VlxhIPRHNXbQzobwNSnQhrELQCihR8dXblYyJISvGYpGZVZE4QLT6r2I8X4MBa2TZbEdiEjY5ie7IqkrYZGDhEm-DzMt9tNwMdrcvC5n9hnPNoAxTQPT0z-GgO8mVo9nGj3MTcA4kbjE_dERViIpYYu8bvIo_Wb2ifHxzPCwlfTbJKw-_cmhAJ8Ee6CYaMzYDZWf0GHKFo4qYpjq9yaR2nd8tU8JXyAtQpXmn3Y7MPA0ucnRTaAzoRuLI5z0sYC-xyP8c"
+            alt="Aerial view of urban highway interchange"
+          />
+          <div class="bento-copy">
+            <span class="bento-kicker">Civic Resilience</span>
+            <h3 class="bento-card-title">Urban Planning</h3>
+            <p class="bento-card-body">
+              Monitor infrastructure wear and optimize structural traffic flow with
+              centimeter-perfect synthetic street maps.
+            </p>
+          </div>
+          <div class="bento-footer">
+            <span class="material-symbols-outlined bento-icon">location_city</span>
+            <button class="bento-cta">
+              Protocol 01 <span class="material-symbols-outlined">arrow_forward</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Card 2 – Agri-Tech (narrow) -->
+        <div class="bento-card bento-card--narrow">
+          <img
+            class="bento-bg"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuButo2SODZ2ILBrsAcJUxgcwTaftJOefyVa0RC8fyenfFIgOyXON5G_Wdbp-VibrzZJc6tDypVoEaQBKZeAAR1mB1dk7hLMx-AXtqdQs3uMD5oEQSFwrtaBCSeKrhUxXULj8zzRMEDm1OOPDotAcF1ZJ7RxYBrvhQOJT5GXI-vhVbAI2NtHoJjCso1UsEeZ2uAN2xe4Rfid0DKeXL9-6PsED6v1aCtHBtMizFCVdVfTDHpmaWxKYzvjYtpBcC2cX767rYobK2eIgn0"
+            alt="Aerial view of green agricultural fields"
+          />
+          <div class="bento-copy">
+            <span class="bento-kicker">Resource Ops</span>
+            <h3 class="bento-card-title">Agri-Tech</h3>
+            <p class="bento-card-body">
+              Early detection of crop nitrogen variations before they are visible.
+            </p>
+          </div>
+          <span class="material-symbols-outlined bento-icon">potted_plant</span>
+        </div>
+
+        <!-- Card 3 – Ecosystem (medium-narrow) -->
+        <div class="bento-card bento-card--med">
+          <img
+            class="bento-bg"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBro4C0mBGkbZ_n7BbxG62bFUfitBm1U5Pv12EDrKyk41Vddzjc3bJOTJKtz8t4RAWIOdiQm41KCgBlINZ-2kpoPPv0g1PFg96S049xfwXRhnYOuBBwpbUAUDWqv5S9Mgntg8oeFt0a4IaFkahCYmPdtcb121RXd_WvoVoFHmqgeWbwrqi7fGmtEhG-NE5ju5fbdlZDrxfRCNJFbsNvta0H8Yb-y7tGD8WAMd7N5E33gCPywB0YfBy9wTaJaYI6LRgUSnQ45FEY1Bo"
+            alt="Melting glacier aerial view"
+          />
+          <div class="bento-copy">
+            <span class="bento-kicker">Environmental Audit</span>
+            <h3 class="bento-card-title">Ecosystem</h3>
+            <p class="bento-card-body">
+              Glacial retreat tracking with hyper-temporal comparison.
+            </p>
+          </div>
+          <span class="material-symbols-outlined bento-icon">eco</span>
+        </div>
+
+        <!-- Card 4 – Supply Systems (medium-wide) -->
+        <div class="bento-card bento-card--med-wide">
+          <img
+            class="bento-bg"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDdmx84SGauVAKoEP-_iUWnQ8bUkNZnoANsM5QBNlvlqLzhvTstiFz9qjVQriLm7kyhpC5g9hFsZNhwxx453ohvvypJPNaqasEQsW65D0SSXvBiQT1VJAlyrLogw4ZzcYOgomC85CAMeNyB_0RdxRWOK_39_E5HttgX8vdNHpGWHqcB8M5DKZmCrEmFQ21t6XYKX-ycw9otEJT6DyuF6wPDtfrYJnpVw8n4FvtXBzivY5DJ-X7LXASHuSQwaRWCVCfZT52Abq9W8CU"
+            alt="Global world map with data points"
+          />
+          <div class="bento-copy">
+            <span class="bento-kicker">Logistics Intelligence</span>
+            <h3 class="bento-card-title">Supply Systems</h3>
+            <p class="bento-card-body">
+              Global vessel tracking and yard monitoring at 10-minute intervals for trade intelligence.
+            </p>
+          </div>
+          <span class="material-symbols-outlined bento-icon">package_2</span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── PRICING ─── -->
+  <section class="pricing-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Resolution Tiers</h2>
+        <p class="section-body">Scalable intelligence protocols for global deployment.</p>
+      </div>
+
+      <div class="pricing-grid">
+
+        <!-- Standard -->
+        <div class="pricing-card">
+          <div class="pricing-tier">Standard Protocol</div>
+          <div class="pricing-price">$499<span class="pricing-period">/mo</span></div>
+          <ul class="pricing-features">
+            <li class="pricing-feature pricing-feature--on">
+              <span class="feature-dot"></span> 10km² Area Per Month
+            </li>
+            <li class="pricing-feature pricing-feature--on">
+              <span class="feature-dot"></span> 10cm Synthetic Upscaling
+            </li>
+            <li class="pricing-feature pricing-feature--off">Custom API Integration</li>
+            <li class="pricing-feature pricing-feature--off">24/7 Priority Support</li>
+          </ul>
+          <button class="btn-tier-outline">Select Tier</button>
+        </div>
+
+        <!-- Advanced (featured) -->
+        <div class="pricing-card pricing-card--featured">
+          <div class="pricing-badge">Recommended</div>
+          <div class="pricing-tier pricing-tier--featured">Advanced Protocol</div>
+          <div class="pricing-price">$1,299<span class="pricing-period">/mo</span></div>
+          <ul class="pricing-features">
+            <li class="pricing-feature pricing-feature--on">
+              <span class="feature-dot"></span> 50km² Area Per Month
+            </li>
+            <li class="pricing-feature pricing-feature--on">
+              <span class="feature-dot"></span> 5cm Synthetic Upscaling
+            </li>
+            <li class="pricing-feature pricing-feature--on">
+              <span class="feature-dot"></span> Standard API Access
+            </li>
+            <li class="pricing-feature pricing-feature--off">Dedicated GPU Cluster</li>
+          </ul>
+          <button class="btn-tier-cyan">Initiate Now</button>
+        </div>
+
+        <!-- Sovereign -->
+        <div class="pricing-card">
+          <div class="pricing-tier">Sovereign Protocol</div>
+          <div class="pricing-price pricing-price--custom">Custom</div>
+          <ul class="pricing-features">
+            <li class="pricing-feature pricing-feature--on">
+              <span class="feature-dot"></span> Unlimited Coverage
+            </li>
+            <li class="pricing-feature pricing-feature--on">
+              <span class="feature-dot"></span> Hyper-Resolution Engine
+            </li>
+            <li class="pricing-feature pricing-feature--on">
+              <span class="feature-dot"></span> On-Premise Deployment
+            </li>
+            <li class="pricing-feature pricing-feature--on">
+              <span class="feature-dot"></span> 24/7 Dedicated Support
+            </li>
+          </ul>
+          <button class="btn-tier-outline">Contact Ops</button>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── CTA ─── -->
+  <section class="cta-section">
+    <div class="cta-glow" aria-hidden="true"></div>
+    <div class="container">
+      <div class="cta-inner">
+        <h2 class="cta-title">Ready to see <br /><span class="text-cyan">clearly?</span></h2>
+        <p class="cta-body">
+          Join the vanguard of intelligence agencies and environmental groups utilizing
+          the SatScale Zenith engine.
+        </p>
+        <button class="btn-cyan-xl">Request Access Demo</button>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ─── FOOTER ─── -->
+<footer class="footer-v2">
+  <div class="footer-inner">
+    <div class="footer-brand">SAT-SCALE</div>
+    <div class="footer-links">
+      <a href="#">Privacy Protocol</a>
+      <a href="#">Terms of Deployment</a>
+      <a href="#">System Status</a>
+      <a href="#">Contact Ops</a>
+    </div>
+    <div class="footer-copy">© 2024 SAT-SCALE AI. DATA PRECISION GUARANTEED.</div>
+  </div>
+</footer>
+
+</PageLayoutV2>
+
+<style is:global>
+  /* ── Reset & base ── */
+  *, *::before, *::after { box-sizing: border-box; }
+
+  .dark body {
+    margin: 0;
+    padding: 0;
+    background-color: #070d1f;
+    color: #f8fafc;
+    font-family: 'Manrope', sans-serif;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  img { max-width: 100%; display: block; }
+  h1, h2, h3, h4, button, a { font-family: 'Space Grotesk', sans-serif; }
+  h1, h2, h3, h4, p, ul { margin: 0; }
+  ul { padding: 0; list-style: none; }
+  a { color: inherit; text-decoration: none; }
+  button { cursor: pointer; border: none; background: none; font: inherit; }
+
+  /* ── Noise overlay ── */
+  .noise-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    opacity: 0.04;
+  }
+
+  /* ── Container ── */
+  .container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 3rem;
+    position: relative;
+  }
+
+  /* ── Typography helpers ── */
+  .text-cyan { color: #22d3ee; }
+  .section-title {
+    font-size: clamp(2.5rem, 5vw, 3.75rem);
+    font-weight: 700;
+    letter-spacing: -0.04em;
+    line-height: 1.05;
+    color: #f8fafc;
+  }
+  .section-body {
+    color: #94a3b8;
+    font-size: 1.1rem;
+    font-weight: 300;
+    line-height: 1.7;
+    font-family: 'Manrope', sans-serif;
+  }
+  .section-header {
+    text-align: center;
+    margin-bottom: 5rem;
+    max-width: 48rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .section-header .section-title { margin-bottom: 1.25rem; }
+
+  /* ── Material Symbols ── */
+  .material-symbols-outlined {
+    font-family: 'Material Symbols Outlined', sans-serif;
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    display: inline-block;
+    line-height: 1;
+    vertical-align: middle;
+  }
+
+  /* ════════════════════════════
+     NAVBAR
+  ════════════════════════════ */
+  .navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 50;
+    background: rgba(12, 19, 36, 0.6);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+  }
+  .navbar-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.25rem 3rem;
+  }
+  .navbar-brand {
+    font-size: 1.15rem;
+    font-weight: 700;
+    letter-spacing: -0.04em;
+    color: #f8fafc;
+    font-family: 'Space Grotesk', sans-serif;
+    flex-shrink: 0;
+  }
+  .navbar-links {
+    display: flex;
+    gap: 2.5rem;
+    align-items: center;
+  }
+  .nav-link {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #94a3b8;
+    transition: color 300ms ease, filter 300ms ease;
+  }
+  .nav-link:hover {
+    color: #a5f3fc;
+    filter: drop-shadow(0 0 5px rgba(34,211,238,0.4));
+  }
+  .nav-link--active {
+    color: #22d3ee;
+    filter: drop-shadow(0 0 8px rgba(34,211,238,0.6));
+  }
+  .navbar-actions {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+  .btn-ghost {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #94a3b8;
+    transition: color 200ms;
+  }
+  .btn-ghost:hover { color: #f8fafc; }
+  .btn-primary-pill {
+    background: linear-gradient(135deg, #22d3ee 0%, #0891b2 100%);
+    color: #003642;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 0.75rem 2rem;
+    border-radius: 9999px;
+    box-shadow: 0 4px 20px rgba(34,211,238,0.2);
+    transition: filter 200ms, transform 100ms;
+  }
+  .btn-primary-pill:hover { filter: brightness(1.1); }
+  .btn-primary-pill:active { transform: scale(0.96); }
+  .navbar-border {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(34,211,238,0.1), transparent);
+  }
+
+  /* ════════════════════════════
+     HERO
+  ════════════════════════════ */
+  .hero-v2 {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+  .hero-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.4;
+    mix-blend-mode: lighten;
+  }
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(7,13,31,0.4), rgba(7,13,31,0.9) 70%, #070d1f);
+  }
+  .hero-v2 .container { z-index: 10; padding-top: 6rem; }
+  .hero-content { max-width: 52rem; }
+  .hero-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+  .eyebrow-line {
+    display: block;
+    width: 3rem;
+    height: 1px;
+    background: #22d3ee;
+    flex-shrink: 0;
+  }
+  .eyebrow-text {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: #22d3ee;
+  }
+  .hero-title {
+    font-size: clamp(4rem, 10vw, 7.5rem);
+    font-weight: 700;
+    letter-spacing: -0.05em;
+    line-height: 0.85;
+    color: #f8fafc;
+    margin-bottom: 3rem;
+  }
+  .hero-subtitle {
+    color: #94a3b8;
+    font-size: 1.15rem;
+    font-weight: 300;
+    line-height: 1.7;
+    max-width: 36rem;
+    font-family: 'Manrope', sans-serif;
+    margin-bottom: 3rem;
+  }
+  .hero-btns {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+  }
+  .btn-cyan-lg {
+    background: #22d3ee;
+    color: #003642;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    font-size: 0.8rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 1.25rem 3rem;
+    border-radius: 9999px;
+    box-shadow: 0 20px 60px rgba(34,211,238,0.4);
+    transition: filter 200ms, transform 100ms;
+  }
+  .btn-cyan-lg:hover { filter: brightness(1.1); }
+  .btn-cyan-lg:active { transform: scale(0.97); }
+  .btn-outline-lg {
+    border: 1px solid #334155;
+    color: #f8fafc;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    font-size: 0.8rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 1.25rem 3rem;
+    border-radius: 9999px;
+    background: rgba(255,255,255,0.04);
+    backdrop-filter: blur(8px);
+    transition: background 200ms;
+  }
+  .btn-outline-lg:hover { background: rgba(255,255,255,0.08); }
+  .hero-coords {
+    position: absolute;
+    bottom: 5rem;
+    right: 3rem;
+    text-align: right;
+  }
+  .hero-coords p {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.62rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: #475569;
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.75rem;
+  }
+  .coord-key { color: #1e293b; }
+
+  /* ════════════════════════════
+     TECHNOLOGY
+  ════════════════════════════ */
+  .tech-section {
+    padding: 10rem 0;
+    background: #070d1f;
+  }
+  .tech-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: center;
+  }
+  .tech-copy { display: flex; flex-direction: column; gap: 3rem; }
+  .tech-copy .section-title { margin-bottom: 2rem; }
+  .tech-features {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+  .tech-feature { display: flex; flex-direction: column; gap: 1rem; }
+  .icon-cyan {
+    color: #22d3ee;
+    font-size: 1.75rem;
+  }
+  .tech-feature h4 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    color: #f8fafc;
+  }
+  .tech-feature p {
+    font-size: 0.88rem;
+    color: #94a3b8;
+    line-height: 1.6;
+    font-family: 'Manrope', sans-serif;
+  }
+  .tech-images { position: relative; }
+  .tech-glow {
+    position: absolute;
+    inset: -2.5rem;
+    background: rgba(34,211,238,0.1);
+    border-radius: 9999px;
+    filter: blur(120px);
+    opacity: 0.2;
+    pointer-events: none;
+  }
+  .tech-img-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    position: relative;
+    z-index: 1;
+  }
+  .tech-img-card {
+    background: #0c1324;
+    padding: 0.25rem;
+    border-radius: 1rem;
+    height: 25rem;
+    overflow: hidden;
+    border: 1px solid #1e293b;
+    box-shadow: 0 25px 60px rgba(0,0,0,0.5);
+  }
+  .tech-img-card--offset { margin-top: 4rem; }
+  .tech-img-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 0.75rem;
+    opacity: 0.6;
+    filter: grayscale(1);
+    transition: filter 700ms ease, opacity 700ms ease;
+  }
+  .tech-img-card:hover img {
+    filter: grayscale(0);
+    opacity: 1;
+  }
+
+  /* ════════════════════════════
+     COMPARISON
+  ════════════════════════════ */
+  .comparison-section {
+    padding: 10rem 0;
+    background: #0c1324;
+  }
+  .comparison-widget {
+    position: relative;
+    width: 100%;
+    height: 700px;
+    border-radius: 1rem;
+    overflow: hidden;
+    border: 1px solid #334155;
+    box-shadow: 0 40px 100px rgba(0,0,0,0.5);
+    cursor: ew-resize;
+    user-select: none;
+  }
+  .comparison-layer {
+    position: absolute;
+    inset: 0;
+  }
+  .comparison-layer img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .comparison-layer--front {
+    width: 50%;
+    overflow: hidden;
+    border-right: 1px solid rgba(34,211,238,0.4);
+  }
+  .comparison-layer--front img {
+    filter: grayscale(0.3);
+  }
+  .comparison-badge {
+    position: absolute;
+    top: 2.5rem;
+    background: rgba(7,13,31,0.4);
+    backdrop-filter: blur(8px);
+    padding: 0.5rem 1.5rem;
+    border-radius: 9999px;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+  }
+  .comparison-badge--right {
+    right: 2.5rem;
+    color: #22d3ee;
+    border: 1px solid rgba(34,211,238,0.3);
+  }
+  .comparison-badge--left {
+    left: 2.5rem;
+    color: #94a3b8;
+    border: 1px solid rgba(255,255,255,0.1);
+  }
+  .slider-handle {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1px;
+    height: 100%;
+    background: rgba(34,211,238,0.5);
+    box-shadow: 0 0 15px rgba(34,211,238,0.3);
+    pointer-events: none;
+  }
+  .slider-arrows {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: 50%;
+    background: #070d1f;
+    border: 1px solid rgba(34,211,238,0.4);
+    backdrop-filter: blur(8px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+  }
+  .slider-arrows .material-symbols-outlined {
+    font-size: 1rem;
+    color: #22d3ee;
+  }
+
+  /* ════════════════════════════
+     BENTO GRID
+  ════════════════════════════ */
+  .bento-section {
+    padding: 10rem 0;
+    background: #070d1f;
+  }
+  .bento-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 6rem;
+    gap: 2rem;
+  }
+  .bento-title {
+    font-size: clamp(3rem, 6vw, 5rem);
+    font-weight: 700;
+    letter-spacing: -0.05em;
+    line-height: 0.9;
+    color: #f8fafc;
+  }
+  .bento-desc {
+    max-width: 18rem;
+    font-family: 'Manrope', sans-serif;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: #94a3b8;
+    font-weight: 300;
+    line-height: 1.6;
+    border-left: 1px solid #1e293b;
+    padding-left: 2rem;
+  }
+  .bento-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 1.5rem;
+  }
+  .bento-card {
+    position: relative;
+    background: rgba(15,23,42,0.6);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid rgba(51,65,85,0.5);
+    border-radius: 1.5rem;
+    padding: 3rem;
+    height: 500px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .bento-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at top right, rgba(34,211,238,0.08), transparent 70%);
+    pointer-events: none;
+  }
+  .bento-card--wide     { grid-column: span 8; }
+  .bento-card--narrow   { grid-column: span 4; }
+  .bento-card--med      { grid-column: span 5; }
+  .bento-card--med-wide { grid-column: span 7; }
+  .bento-bg {
+    position: absolute !important;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.1;
+    transition: transform 1s ease;
+    pointer-events: none;
+  }
+  .bento-card:hover .bento-bg { transform: scale(1.05); }
+  .bento-copy {
+    position: relative;
+    z-index: 1;
+  }
+  .bento-kicker {
+    display: block;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: #22d3ee;
+    margin-bottom: 1rem;
+  }
+  .bento-card-title {
+    font-size: 2.25rem;
+    font-weight: 700;
+    letter-spacing: -0.04em;
+    color: #f8fafc;
+    margin-bottom: 1.5rem;
+  }
+  .bento-card-body {
+    color: #94a3b8;
+    font-size: 1.05rem;
+    font-weight: 300;
+    line-height: 1.6;
+    font-family: 'Manrope', sans-serif;
+    max-width: 28rem;
+  }
+  .bento-icon {
+    position: relative;
+    z-index: 1;
+    font-size: 3rem;
+    color: rgba(34,211,238,0.5);
+  }
+  .bento-footer {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .bento-cta {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.62rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: #94a3b8;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: color 200ms;
+  }
+  .bento-card:hover .bento-cta { color: #22d3ee; }
+  .bento-cta .material-symbols-outlined { font-size: 0.85rem; }
+
+  /* ════════════════════════════
+     PRICING
+  ════════════════════════════ */
+  .pricing-section {
+    padding: 10rem 0;
+    background: #0c1324;
+  }
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .pricing-card {
+    border: 1px solid rgba(51,65,85,0.3);
+    padding: 3rem;
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    transition: border-color 300ms;
+  }
+  .pricing-card:hover { border-color: rgba(34,211,238,0.2); }
+  .pricing-card--featured {
+    border-color: rgba(34,211,238,0.4);
+    background: rgba(7,13,31,0.3);
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 20px 60px -15px rgba(34,211,238,0.15);
+  }
+  .pricing-badge {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0.5rem 1.5rem;
+    background: #22d3ee;
+    color: #003642;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+  .pricing-tier {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: #94a3b8;
+    margin-bottom: 2.5rem;
+  }
+  .pricing-tier--featured { color: #22d3ee; }
+  .pricing-price {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #f8fafc;
+    margin-bottom: 2.5rem;
+  }
+  .pricing-price--custom { font-size: 3rem; }
+  .pricing-period {
+    font-size: 0.85rem;
+    font-weight: 400;
+    color: #94a3b8;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-left: 0.5rem;
+  }
+  .pricing-features {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 4rem;
+    flex-grow: 1;
+  }
+  .pricing-feature {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-family: 'Manrope', sans-serif;
+    font-size: 0.88rem;
+    font-weight: 300;
+    color: #94a3b8;
+  }
+  .pricing-feature--off {
+    text-decoration: line-through;
+    color: #334155;
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+  }
+  .feature-dot {
+    width: 0.25rem;
+    height: 0.25rem;
+    background: #22d3ee;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .btn-tier-outline {
+    width: 100%;
+    border: 1px solid #334155;
+    color: #f8fafc;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 1rem;
+    border-radius: 9999px;
+    background: transparent;
+    transition: background 200ms;
+  }
+  .btn-tier-outline:hover { background: rgba(255,255,255,0.05); }
+  .btn-tier-cyan {
+    width: 100%;
+    background: #22d3ee;
+    color: #003642;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 1rem;
+    border-radius: 9999px;
+    box-shadow: 0 10px 30px rgba(34,211,238,0.2);
+    transition: filter 200ms;
+  }
+  .btn-tier-cyan:hover { filter: brightness(1.1); }
+
+  /* ════════════════════════════
+     CTA
+  ════════════════════════════ */
+  .cta-section {
+    padding: 10rem 0;
+    background: #070d1f;
+    overflow: hidden;
+    position: relative;
+  }
+  .cta-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 800px;
+    height: 800px;
+    background: rgba(34,211,238,0.05);
+    border-radius: 50%;
+    filter: blur(160px);
+    pointer-events: none;
+  }
+  .cta-inner {
+    text-align: center;
+    max-width: 52rem;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+  .cta-title {
+    font-size: clamp(4rem, 8vw, 6rem);
+    font-weight: 700;
+    letter-spacing: -0.05em;
+    line-height: 0.9;
+    color: #f8fafc;
+    margin-bottom: 3rem;
+  }
+  .cta-body {
+    color: #94a3b8;
+    font-size: 1.2rem;
+    font-weight: 300;
+    max-width: 40rem;
+    margin: 0 auto 4rem;
+    line-height: 1.7;
+    font-family: 'Manrope', sans-serif;
+  }
+  .btn-cyan-xl {
+    background: #22d3ee;
+    color: #003642;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    font-size: 0.8rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    padding: 1.5rem 4rem;
+    border-radius: 9999px;
+    box-shadow: 0 20px 60px rgba(34,211,238,0.4);
+    transition: transform 200ms, filter 200ms;
+  }
+  .btn-cyan-xl:hover { transform: scale(1.04); filter: brightness(1.06); }
+
+  /* ════════════════════════════
+     FOOTER
+  ════════════════════════════ */
+  .footer-v2 {
+    background: #070d1f;
+    border-top: 1px solid rgba(30,41,59,0.5);
+    padding: 4rem 0;
+  }
+  .footer-inner {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 3rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+  .footer-brand {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #64748b;
+  }
+  .footer-links {
+    display: flex;
+    gap: 2.5rem;
+    flex-wrap: wrap;
+  }
+  .footer-links a {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.62rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #475569;
+    transition: color 200ms;
+  }
+  .footer-links a:hover { color: #e2e8f0; }
+  .footer-copy {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.62rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #475569;
+  }
+
+  /* ════════════════════════════
+     RESPONSIVE
+  ════════════════════════════ */
+  @media (max-width: 1024px) {
+    .tech-grid { grid-template-columns: 1fr; gap: 4rem; }
+    .tech-images { display: none; }
+    .bento-card--wide, .bento-card--narrow,
+    .bento-card--med, .bento-card--med-wide { grid-column: span 12; }
+    .pricing-grid { grid-template-columns: 1fr; max-width: 480px; }
+    .hero-coords { display: none; }
+  }
+
+  @media (max-width: 768px) {
+    .container { padding: 0 1.5rem; }
+    .navbar-inner { padding: 1rem 1.5rem; }
+    .navbar-links { display: none; }
+    .footer-inner { flex-direction: column; align-items: center; text-align: center; }
+    .footer-links { justify-content: center; }
+    .bento-header { flex-direction: column; align-items: flex-start; }
+    .bento-desc { border-left: none; padding-left: 0; border-top: 1px solid #1e293b; padding-top: 1.5rem; }
+  }
+</style>
+
+<script>
+  // Comparison slider interaction
+  if (typeof window !== 'undefined') {
+    window.addEventListener('DOMContentLoaded', () => {
+      const widget = document.getElementById('comparison-widget');
+      const front = document.getElementById('comparison-front') as HTMLElement | null;
+      const handle = document.getElementById('slider-handle') as HTMLElement | null;
+      if (!widget || !front || !handle) return;
+
+      let dragging = false;
+
+      const setPosition = (x: number) => {
+        const rect = widget.getBoundingClientRect();
+        let pct = ((x - rect.left) / rect.width) * 100;
+        pct = Math.max(5, Math.min(95, pct));
+        front.style.width = pct + '%';
+        handle.style.left = pct + '%';
+      };
+
+      widget.addEventListener('mousedown', (e) => { dragging = true; setPosition(e.clientX); });
+      window.addEventListener('mouseup', () => { dragging = false; });
+      window.addEventListener('mousemove', (e) => { if (dragging) setPosition(e.clientX); });
+
+      widget.addEventListener('touchstart', (e) => { dragging = true; setPosition(e.touches[0].clientX); }, { passive: true });
+      window.addEventListener('touchend', () => { dragging = false; });
+      window.addEventListener('touchmove', (e) => { if (dragging) setPosition(e.touches[0].clientX); }, { passive: true });
+    });
+  }
+</script>

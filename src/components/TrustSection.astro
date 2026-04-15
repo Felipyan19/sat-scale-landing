@@ -1,0 +1,30 @@
+---
+import type { Lang } from '../utils/i18n';
+import { getContent } from '../utils/i18n';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = getContent(lang).trust;
+---
+
+<section class="trust-section" id="trust" data-section="trust">
+  <div class="section-copy">
+    <p class="section-kicker">SatScale</p>
+    <h2 class="section-title">{t.sectionTitle}</h2>
+    <p class="section-intro">{t.intro}</p>
+  </div>
+
+  <div class="trust-grid">
+    {t.items.map((item) => (
+      <article class="trust-card">
+        <h3>{item.title}</h3>
+        <p>{item.description}</p>
+      </article>
+    ))}
+  </div>
+
+  <p class="trust-note">{t.note}</p>
+</section>

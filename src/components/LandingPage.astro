@@ -1,0 +1,72 @@
+---
+import Navbar from './Navbar.astro';
+import Hero from './Hero.astro';
+import HowItWorks from './HowItWorks.astro';
+import DemoGallery from './DemoGallery.astro';
+import TrustSection from './TrustSection.astro';
+import ContactSection from './ContactSection.astro';
+import PageLayout from '../layouts/PageLayout.astro';
+import type { Lang } from '../utils/i18n';
+import { getContent, getLocalizedPath } from '../utils/i18n';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = getContent(lang);
+const path = getLocalizedPath(lang);
+const alternateLinks = [
+  { lang: 'es', path: getLocalizedPath('es') },
+  { lang: 'en', path: getLocalizedPath('en') }
+];
+
+const structuredData = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: 'SatScale',
+    url: new URL(path, Astro.site ?? 'https://satscale.ai').toString(),
+    inLanguage: lang
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: 'SatScale',
+    url: Astro.site?.toString() ?? 'https://satscale.ai',
+    email: 'contact@satscale.ai'
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'SoftwareApplication',
+    name: 'SatScale',
+    applicationCategory: 'BusinessApplication',
+    operatingSystem: 'Web',
+    description: t.seo.description,
+    inLanguage: lang,
+    offers: {
+      '@type': 'Offer',
+      availability: 'https://schema.org/PreOrder'
+    }
+  }
+];
+---
+
+<PageLayout
+  title={t.seo.title}
+  description={t.seo.description}
+  lang={lang}
+  path={path}
+  alternateLinks={alternateLinks}
+  structuredData={structuredData}
+  skipLinkLabel={t.nav.skipToContent}
+>
+  <Navbar lang={lang} />
+  <main id="main-content">
+    <Hero lang={lang} />
+    <HowItWorks lang={lang} />
+    <DemoGallery lang={lang} />
+    <TrustSection lang={lang} />
+    <ContactSection lang={lang} />
+  </main>
+</PageLayout>

@@ -1,0 +1,121 @@
+@use './constants.scss' as *;
+
+:root {
+  color-scheme: dark;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  font-family: $font-family-content;
+  line-height: 1.5;
+  font-weight: 400;
+  color: $text-primary;
+  background:
+    radial-gradient(circle at top left, rgba(124, 231, 211, 0.15), transparent 34%),
+    radial-gradient(circle at top right, rgba(255, 155, 106, 0.16), transparent 28%),
+    linear-gradient(140deg, #120916 0%, #1a1024 46%, #09050f 100%);
+  background-attachment: fixed;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin: 0;
+  padding: 0;
+  min-width: 320px;
+}
+
+body.menu-open {
+  overflow: hidden;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+h1,
+h2,
+h3,
+h4,
+button,
+label,
+a {
+  font-family: $font-family-title;
+}
+
+h1,
+h2,
+h3,
+h4,
+p,
+ul {
+  margin: 0;
+}
+
+ul {
+  padding: 0;
+}
+
+a {
+  color: inherit;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+main section {
+  scroll-margin-top: 7rem;
+}
+
+.skip-link {
+  position: absolute;
+  top: 0.75rem;
+  left: 1rem;
+  z-index: 30;
+  transform: translateY(-180%);
+  padding: 0.8rem 1rem;
+  border-radius: $roundness-s;
+  background: $accent-secondary;
+  color: #0c1216;
+  text-decoration: none;
+  font-weight: 700;
+  transition: transform $transition;
+}
+
+.skip-link:focus-visible {
+  transform: translateY(0);
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+:focus {
+  outline: none;
+}
+
+:focus-visible {
+  outline: 3px solid $accent-secondary;
+  outline-offset: 3px;
+}

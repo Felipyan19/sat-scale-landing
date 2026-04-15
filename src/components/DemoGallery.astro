@@ -1,0 +1,61 @@
+---
+import type { Lang } from '../utils/i18n';
+import { getContent } from '../utils/i18n';
+
+interface Props { lang: Lang; }
+const { lang } = Astro.props;
+const t = getContent(lang).demo;
+---
+
+<section class="demo-section" id="demo" data-section="demo">
+  <div class="section-copy">
+    <p class="section-kicker">Comparison</p>
+    <h2 class="section-title">{t.sectionTitle}</h2>
+    <p class="section-intro">{t.intro}</p>
+  </div>
+
+  <div class="demo-grid">
+    {t.pairs.map((pair) => (
+      <div class="demo-pair" data-demo-pair>
+        <div class="demo-pair-images">
+          <div class="demo-img-wrap">
+            <span class="demo-label">{t.beforeLabel}</span>
+            <div class="demo-img-placeholder before">{t.beforePlaceholder}</div>
+          </div>
+          <div class="demo-img-wrap">
+            <span class="demo-label">{t.afterLabel}</span>
+            <div class="demo-img-placeholder after">{pair.scale}</div>
+          </div>
+        </div>
+        <p class="demo-caption">{pair.caption}</p>
+      </div>
+    ))}
+  </div>
+</section>
+
+<script>
+  if (typeof window !== 'undefined') {
+    window.addEventListener('DOMContentLoaded', () => {
+      const pairs = document.querySelectorAll<HTMLElement>('[data-demo-pair]');
+
+      if (!('IntersectionObserver' in window)) {
+        pairs.forEach((el) => el.classList.add('visible'));
+        return;
+      }
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.15 }
+      );
+
+      pairs.forEach((el) => observer.observe(el));
+    });
+  }
+</script>
