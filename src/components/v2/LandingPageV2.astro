@@ -19,60 +19,60 @@ const alternateLinks = [
 const copy = lang === 'en'
   ? {
       nav: {
-        technology: 'Technology',
-        showcase: 'Showcase',
-        pricing: 'Pricing',
-        enterprise: 'Enterprise',
+        technology: 'Workflow',
+        showcase: 'Results',
+        pricing: 'Packages',
+        enterprise: 'Contact',
         getStarted: 'Get Started'
       },
       language: 'Language',
       tech: {
-        title: 'The Science of <br />Optical Restoration',
+        title: 'Send the imagery. <br />Receive the re-scaled package.',
         body:
-          'SatScale leverages sub-pixel convolutional neural networks to reconstruct missing structural details from raw satellite data, surpassing the diffraction limit of physical optics.',
+          'The service is simple: you send the scenes, we process them with the model, and we return a clearer image package ready for review.',
         features: [
           {
             icon: 'auto_awesome',
-            title: 'Sub-Pixel Synthesis',
-            body: 'Reconstructing textural density where sensors only captured noise.'
+            title: 'You send the batch',
+            body: 'Work with GeoTIFF, PNG, or JPEG scenes and share only the imagery you want us to upscale.'
           },
           {
             icon: 'blur_off',
-            title: 'De-Hazing Engine',
-            body: 'Intelligent removal of cloud artifacts and spectral scattering.'
+            title: 'We process and return it',
+            body: 'We run the imagery through the model and return the re-scaled package with before-and-after comparisons.'
           }
         ]
       },
       comparison: {
-        title: 'The Precision Benchmarks',
+        title: 'Real before-and-after results',
         body:
-          'Compare raw 30cm/pixel imagery against SatScale Zenith 5cm/pixel synthesized enhancement.',
-        synthetic: 'Synthetic (5cm/px)',
-        raw: 'Raw Data (30cm/px)'
+          'Compare the original input against the re-scaled output so your team can judge how much visual detail is gained.',
+        synthetic: 'Re-scaled output',
+        raw: 'Original input'
       },
       footer: {
-        privacy: 'Privacy Protocol',
-        terms: 'Terms of Deployment',
-        status: 'System Status',
-        contact: 'Contact Ops',
-        copy: '© 2026 SAT-SCALE AI. DATA PRECISION GUARANTEED.'
+        privacy: 'Workflow',
+        terms: 'Packages',
+        status: 'Results',
+        contact: 'Contact',
+        copy: '© 2026 SAT-SCALE AI. SATELLITE IMAGE UPSCALING.'
       },
       form: {
         kicker: 'Demo Request',
-        title: 'Get in touch',
+        title: 'Tell us about your imagery batch',
         intro: '',
         requestLabel: 'What do you need?',
         requestOptions: [
           ['demo', 'Book a demo'],
-          ['info', 'More product information'],
-          ['scheduling', 'Schedule a meeting'],
-          ['pricing', 'Discuss pricing'],
-          ['enterprise', 'Enterprise evaluation']
+          ['info', 'More information'],
+          ['scheduling', 'Book a call'],
+          ['pricing', 'Request pricing'],
+          ['enterprise', 'High-volume evaluation']
         ],
         teamLabel: 'Team or organization',
         teamPlaceholder: 'Company, agency, or lab name',
-        useCaseLabel: 'What do you want to review?',
-        useCasePlaceholder: 'Example: urban imagery, private evaluation, technical questions, procurement scope, or integration needs.',
+        useCaseLabel: 'What do you want to process?',
+        useCasePlaceholder: 'Example: 60 urban images, 4x upscale, before-and-after comparison, and expected turnaround.',
         submit: 'Send request',
         fallbackNotice: t.contact.fallbackNotice,
         success: t.contact.success,
@@ -95,60 +95,60 @@ const copy = lang === 'en'
     }
   : {
       nav: {
-        technology: 'Tecnologia',
+        technology: 'Proceso',
         showcase: 'Resultados',
-        pricing: 'Planes',
-        enterprise: 'Empresas',
+        pricing: 'Paquetes',
+        enterprise: 'Contacto',
         getStarted: 'Comenzar'
       },
       language: 'Idioma',
       tech: {
-        title: 'La ciencia de la <br />restauracion optica',
+        title: 'Envia las imagenes. <br />Recibe el paquete reescalado.',
         body:
-          'SatScale utiliza redes neuronales de sub-pixel para reconstruir detalle estructural a partir de datos satelitales crudos y mejorar la lectura operativa de cada escena.',
+          'El servicio es simple: nos envias las escenas, las procesamos con el modelo y te devolvemos un paquete de imagenes mas claras listo para revision.',
         features: [
           {
             icon: 'auto_awesome',
-            title: 'Sintesis sub-pixel',
-            body: 'Reconstruye densidad textural donde los sensores solo capturaron ruido.'
+            title: 'Tu compartes el lote',
+            body: 'Trabaja con escenas en GeoTIFF, PNG o JPEG y envia solo las imagenes que quieres reescalar.'
           },
           {
             icon: 'blur_off',
-            title: 'Motor de desneblinado',
-            body: 'Reduce nubosidad, haze y dispersion espectral para una lectura mas limpia.'
+            title: 'Nosotros lo procesamos',
+            body: 'Pasamos las escenas por el modelo y devolvemos el paquete reescalado con comparativas antes y despues.'
           }
         ]
       },
       comparison: {
-        title: 'Benchmarks de precision',
+        title: 'Antes y despues reales',
         body:
-          'Compara imagery base de 30 cm/pixel con la salida sintetica equivalente a 5 cm/pixel del motor SatScale Zenith.',
-        synthetic: 'Sintetica (5cm/px)',
-        raw: 'Dato crudo (30cm/px)'
+          'Compara la imagen original contra la salida reescalada para evaluar cuanto detalle visual adicional aporta el modelo.',
+        synthetic: 'Salida reescalada',
+        raw: 'Imagen original'
       },
       footer: {
-        privacy: 'Protocolo de privacidad',
-        terms: 'Condiciones de despliegue',
-        status: 'Estado del sistema',
-        contact: 'Contactar operaciones',
-        copy: '© 2026 SAT-SCALE AI. PRECISION DE DATOS GARANTIZADA.'
+        privacy: 'Proceso',
+        terms: 'Paquetes',
+        status: 'Resultados',
+        contact: 'Contacto',
+        copy: '© 2026 SAT-SCALE AI. REESCALADO DE IMAGEN SATELITAL.'
       },
       form: {
         kicker: 'Solicitud de demo',
-        title: 'Hablemos',
+        title: 'Cuentanos sobre tu lote de imagenes',
         intro: '',
         requestLabel: 'Que necesitas',
         requestOptions: [
           ['demo', 'Agendar una demo'],
-          ['info', 'Mas informacion del producto'],
-          ['scheduling', 'Agendar una reunion'],
-          ['pricing', 'Hablar de precios'],
-          ['enterprise', 'Evaluacion enterprise']
+          ['info', 'Mas informacion'],
+          ['scheduling', 'Agendar llamada'],
+          ['pricing', 'Pedir cotizacion'],
+          ['enterprise', 'Evaluacion de alto volumen']
         ],
         teamLabel: 'Equipo u organizacion',
         teamPlaceholder: 'Nombre de empresa, agencia o laboratorio',
-        useCaseLabel: 'Que quieres revisar',
-        useCasePlaceholder: 'Ejemplo: imagery urbana, evaluacion privada, dudas tecnicas, alcance comercial o integracion.',
+        useCaseLabel: 'Que quieres procesar',
+        useCasePlaceholder: 'Ejemplo: 60 imagenes urbanas, factor 4x, comparativa antes y despues y tiempo estimado de entrega.',
         submit: 'Enviar solicitud',
         fallbackNotice: t.contact.fallbackNotice,
         success: t.contact.success,

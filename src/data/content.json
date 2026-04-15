@@ -1,8 +1,8 @@
 {
   "es": {
     "seo": {
-      "title": "SatScale | Superresolucion satelital para equipos geoespaciales",
-      "description": "Mejora la resolucion de imagenes satelitales con un flujo pensado para analisis geoespacial, validacion privada y entregables listos para GIS."
+      "title": "SatScale | Reescala imagenes satelitales con IA",
+      "description": "Envianos tus imagenes satelitales y recibe un paquete reescalado con mas detalle, comparativas antes y despues y entregables listos para revision."
     },
     "nav": {
       "howItWorks": "Como funciona",
@@ -17,54 +17,54 @@
       "homeLabel": "Ir al inicio de SatScale"
     },
     "hero": {
-      "eyebrow": "Superresolucion satelital orientada a operaciones",
-      "title": "Escala imagen satelital sin romper el contexto geoespacial",
-      "subtitle": "SatScale mejora escenas de baja y media resolucion para revision tecnica, comparacion visual y flujos GIS donde conservar estructura, detalle y consistencia importa.",
-      "primaryCta": "Solicitar evaluacion",
+      "eyebrow": "IA para reescalar imagen satelital",
+      "title": "Reescala tus imagenes satelitales con mas detalle util",
+      "subtitle": "Nos compartes escenas de baja o media resolucion, las procesamos con nuestro modelo y te devolvemos un paquete de imagenes reescaladas listo para revision tecnica y comparacion visual.",
+      "primaryCta": "Pedir demo",
       "secondaryCta": "Ver resultados",
       "stats": [
         "Entradas GeoTIFF, PNG y JPEG",
-        "Comparativas 4x y 8x para validacion",
-        "Revision privada con escenas de tu equipo"
+        "Procesamiento por lote sobre tus escenas",
+        "Paquete final con comparativa antes y despues"
       ],
       "visualLabel": "Vista previa estilizada de una cuadrilla satelital"
     },
     "hero_v2": {
-      "eyebrow": "Superresolucion satelital para equipos geoespaciales",
-      "titleLine1": "Imagenes satelitales,",
-      "titleAccent": "reescritas.",
-      "subtitle": "Transforma escenas de baja y media resolucion en inteligencia de alta fidelidad para revision tecnica, evaluacion privada y decisiones geoespaciales con mas detalle.",
-      "primaryCta": "Solicitar evaluacion",
-      "secondaryCta": "Ver resultados",
+      "eyebrow": "IA para reescalar imagen satelital",
+      "titleLine1": "Tus imagenes satelitales,",
+      "titleAccent": "reescaladas.",
+      "subtitle": "Nos envias escenas de baja o media resolucion, las procesamos con nuestro modelo y te devolvemos un paquete reescalado con mas detalle para revision tecnica, comparacion visual y entregables.",
+      "primaryCta": "Pedir demo",
+      "secondaryCta": "Ver comparativa",
       "instrument": "SATSCALE-V3"
     },
     "how": {
       "sectionTitle": "Como funciona",
-      "intro": "Un flujo corto para validar el modelo con escenas reales antes de integrarlo a una operacion mas amplia.",
+      "intro": "El flujo es simple: nos envias las imagenes, las procesamos con el modelo y te devolvemos el paquete reescalado.",
       "steps": [
         {
           "number": "Paso 01",
           "icon": "Input",
-          "title": "Carga la escena",
-          "description": "Trabaja con imagenes satelitales de baja o media resolucion en formatos comunes del equipo."
+          "title": "Comparte tu lote",
+          "description": "Nos envias imagenes satelitales de baja o media resolucion en formatos comunes como GeoTIFF, PNG o JPEG."
         },
         {
           "number": "Paso 02",
           "icon": "Model",
-          "title": "Procesamiento orientado a detalle",
-          "description": "El modelo reconstruye informacion visual con foco en bordes, patrones de uso del suelo y coherencia entre regiones."
+          "title": "Procesamos con el modelo",
+          "description": "Aplicamos el reescalado sobre tus escenas para recuperar lectura visual, bordes y continuidad sin pedirte una integracion compleja."
         },
         {
           "number": "Paso 03",
           "icon": "Output",
-          "title": "Compara y decide",
-          "description": "Recibes una salida lista para revision, visualizacion o pruebas dentro de tu pipeline GIS."
+          "title": "Recibes el paquete final",
+          "description": "Te devolvemos las imagenes reescaladas con comparativas antes y despues para evaluacion, presentacion o revision interna."
         }
       ]
     },
     "demo": {
       "sectionTitle": "Resultados de referencia",
-      "intro": "Cada comparativa muestra una lectura antes y despues para evaluar nitidez, continuidad visual y utilidad operativa.",
+      "intro": "Cada comparativa ayuda a revisar cuanto detalle adicional aporta el reescalado y como cambia la lectura visual de la escena.",
       "beforeLabel": "Antes",
       "afterLabel": "Despues",
       "beforePlaceholder": "Escena base",
@@ -89,33 +89,33 @@
       ]
     },
     "verticals_v2": {
-      "sectionTitle": "Verticales",
-      "sectionTitleAccent": "Estrategicos",
-      "subtitle": "Instrumentos de precision para inteligencia soberana y monitoreo global.",
+      "sectionTitle": "Casos de",
+      "sectionTitleAccent": "uso",
+      "subtitle": "Equipos que necesitan reescalar imagenes satelitales para mejorar lectura visual, revision tecnica y presentacion de resultados.",
       "items": [
         {
-          "kicker": "Resiliencia Civica",
-          "title": "Planificacion Urbana",
-          "body": "Aclara calles, bloques y trazas para revisar expansion urbana, desgaste de infraestructura y lectura operacional de cambios en superficie.",
+          "kicker": "Analisis urbano",
+          "title": "Lectura de calles y bloques",
+          "body": "Reescala escenas urbanas para mejorar la lectura de vias, bloques y patrones de ocupacion en comparativas antes y despues.",
           "icon": "location_city",
           "cta": "Protocolo 01"
         },
         {
-          "kicker": "Operaciones Agro",
-          "title": "Agro-Tech",
-          "body": "Mejora patrones de parcelacion y continuidad visual para monitoreo de cultivos, estimacion de cobertura y validacion rapida por lote.",
+          "kicker": "Territorio y campo",
+          "title": "Parcelas y cobertura",
+          "body": "Aporta mas claridad sobre limites, patrones agricolas y continuidad visual cuando necesitas revisar lotes o cobertura por imagen.",
           "icon": "potted_plant"
         },
         {
-          "kicker": "Auditoria Ambiental",
-          "title": "Ecosistemas",
-          "body": "Eleva la lectura de bordes costeros, masas forestales y zonas sensibles para seguimiento temporal y evaluacion territorial.",
+          "kicker": "Costa y ambiente",
+          "title": "Bordes y contraste",
+          "body": "Mejora la separacion entre agua, costa, masas verdes y zonas sensibles para comparativas mas claras en reportes y evaluaciones.",
           "icon": "eco"
         },
         {
-          "kicker": "Inteligencia Logistica",
-          "title": "Sistemas de Suministro",
-          "body": "Aporta mas claridad sobre puertos, patios y nodos de intercambio para monitoreo de cadenas de suministro con contexto espacial.",
+          "kicker": "Infraestructura",
+          "title": "Puertos y nodos",
+          "body": "Reescala imagery de puertos, patios y nodos logisticos para una lectura visual mas util en seguimiento, presentacion o evaluacion tecnica.",
           "icon": "package_2"
         }
       ]
@@ -200,41 +200,41 @@
       "ctaSovereign": "Hablar con ventas"
     },
     "cta_v2": {
-      "title": "Listo para ver",
-      "titleAccent": "con claridad?",
-      "body": "Unete a los equipos de analisis geoespacial que utilizan el motor SatScale Zenith para validar escenas complejas con mas fidelidad.",
-      "cta": "Solicitar demo de acceso"
+      "title": "Listo para probarlo",
+      "titleAccent": "con tus imagenes?",
+      "body": "Envianos un lote de escenas satelitales y te devolvemos un paquete reescalado para que evalúes la mejora visual con tus propios datos.",
+      "cta": "Solicitar demo"
     },
     "trust": {
-      "sectionTitle": "Pensado para una evaluacion seria",
-      "intro": "La landing ya no vende solo una promesa visual. Explica como validar el producto con un equipo geoespacial real y que esperar del proceso.",
+      "sectionTitle": "Hecho para una prueba clara",
+      "intro": "La propuesta es directa: nos envias tus imagenes, procesamos el lote y te devolvemos un paquete reescalado para que evalúes si mejora la lectura que necesitas.",
       "items": [
         {
-          "title": "Validacion con tus propias escenas",
-          "description": "La conversacion parte de imagery real de tu operacion para revisar calidad, limites y casos donde el modelo agrega valor."
+          "title": "Trabajamos sobre tus propias imagenes",
+          "description": "La evaluacion parte de escenas reales de tu equipo para revisar calidad, limites y el valor del reescalado en tu contexto."
         },
         {
-          "title": "Entregables listos para GIS",
-          "description": "El objetivo no es una demo bonita sino una salida que puedas revisar dentro de flujos tecnicos y comparativas de analisis."
+          "title": "Entrega en paquete reescalado",
+          "description": "No vendemos una interfaz vacia: entregamos un paquete de imagenes reescaladas y comparativas listas para revisar."
         },
         {
-          "title": "Proceso privado y acotado",
-          "description": "La primera evaluacion se plantea como un piloto corto, con contexto de uso claro y sin pedir una integracion completa desde el dia uno."
+          "title": "Proceso privado y simple",
+          "description": "El primer paso no requiere integracion. Solo compartes el lote, procesamos y devolvemos el resultado para que lo valides."
         }
       ],
-      "note": "Si necesitas una prueba comercial mas fuerte, el siguiente paso natural es reemplazar los placeholders por casos reales, metricas y testimonios."
+      "note": "Para reforzar la prueba comercial, el siguiente paso es mostrar casos reales con muestras propias, volumen procesado y resultados comparativos."
     },
     "contact": {
-      "sectionTitle": "Solicitar evaluacion",
-      "description": "Cuéntanos que tipo de imagery manejas, que nivel de detalle necesitas y como encaja SatScale en tu operacion.",
+      "sectionTitle": "Pedir demo o evaluacion",
+      "description": "Cuentanos que tipo de imagenes satelitales manejas, cuantas quieres procesar y que nivel de mejora visual esperas obtener.",
       "emailLabel": "Correo electronico",
       "nameLabel": "Nombre",
       "orgLabel": "Organizacion",
-      "messageLabel": "Que quieres validar",
+      "messageLabel": "Que quieres procesar o validar",
       "emailPlaceholder": "equipo@organizacion.com",
       "namePlaceholder": "Nombre y apellido",
       "orgPlaceholder": "Nombre de la organizacion",
-      "messagePlaceholder": "Ejemplo: escenas urbanas 4x, compatibilidad con nuestro flujo GIS y tiempos de evaluacion.",
+      "messagePlaceholder": "Ejemplo: 60 imagenes urbanas, factor 4x, comparativa antes y despues y tiempo estimado de entrega.",
       "submit": "Enviar solicitud",
       "privacyNote": "Incluye solo la informacion necesaria para coordinar una evaluacion tecnica inicial.",
       "success": "Solicitud enviada. Revisaremos la informacion y volveremos contigo.",
@@ -245,8 +245,8 @@
   },
   "en": {
     "seo": {
-      "title": "SatScale | Satellite super-resolution for geospatial teams",
-      "description": "Enhance satellite imagery with a workflow built for geospatial analysis, private evaluation, and GIS-ready deliverables."
+      "title": "SatScale | Upscale satellite imagery with AI",
+      "description": "Send us your satellite imagery and receive a re-scaled package with more visual detail, before-and-after comparisons, and outputs ready for review."
     },
     "nav": {
       "howItWorks": "How it works",
@@ -261,48 +261,48 @@
       "homeLabel": "Go to SatScale home"
     },
     "hero": {
-      "eyebrow": "Satellite super-resolution for operational workflows",
-      "title": "Upscale satellite imagery without losing geospatial context",
-      "subtitle": "SatScale improves low and medium resolution scenes for technical review, visual comparison, and GIS workflows where structure, detail, and consistency matter.",
-      "primaryCta": "Request evaluation",
+      "eyebrow": "AI for satellite image upscaling",
+      "title": "Upscale your satellite imagery with more useful detail",
+      "subtitle": "You send low or medium resolution scenes, we process them with our model, and we return a re-scaled image package ready for technical review and visual comparison.",
+      "primaryCta": "Request demo",
       "secondaryCta": "See results",
       "stats": [
         "GeoTIFF, PNG, and JPEG inputs",
-        "4x and 8x comparisons for validation",
-        "Private review using your team's scenes"
+        "Batch processing on your own scenes",
+        "Final package with before and after comparisons"
       ],
       "visualLabel": "Stylized preview of a satellite grid"
     },
     "hero_v2": {
-      "eyebrow": "Satellite super-resolution for geospatial teams",
-      "titleLine1": "Satellite imagery,",
-      "titleAccent": "rewritten.",
-      "subtitle": "Turn low and medium resolution scenes into high-fidelity intelligence for technical review, private evaluation, and downstream GIS decisions.",
-      "primaryCta": "Request evaluation",
-      "secondaryCta": "See results",
+      "eyebrow": "AI for satellite image upscaling",
+      "titleLine1": "Your satellite imagery,",
+      "titleAccent": "upscaled.",
+      "subtitle": "You send low or medium resolution scenes, we process them with our model, and we return a re-scaled package with more detail for technical review, visual comparison, and deliverables.",
+      "primaryCta": "Request demo",
+      "secondaryCta": "See comparison",
       "instrument": "SATSCALE-V3"
     },
     "how": {
       "sectionTitle": "How it works",
-      "intro": "A short workflow to validate the model on real scenes before moving into a broader operational rollout.",
+      "intro": "The workflow is simple: you send the imagery, we process it with the model, and we return the re-scaled package.",
       "steps": [
         {
           "number": "Step 01",
           "icon": "Input",
-          "title": "Upload the scene",
-          "description": "Work with low or medium resolution satellite imagery in the formats your team already uses."
+          "title": "Share your batch",
+          "description": "Send low or medium resolution satellite imagery in the formats your team already uses, such as GeoTIFF, PNG, or JPEG."
         },
         {
           "number": "Step 02",
           "icon": "Model",
-          "title": "Detail-oriented processing",
-          "description": "The model reconstructs visual information with attention to edges, land-use patterns, and coherence across regions."
+          "title": "We process with the model",
+          "description": "We apply the upscaling workflow to recover more readable detail, edges, and continuity without asking you for a complex integration."
         },
         {
           "number": "Step 03",
           "icon": "Output",
-          "title": "Compare and decide",
-          "description": "You receive an output ready for review, visualization, or testing inside your GIS pipeline."
+          "title": "Receive the final package",
+          "description": "You get the re-scaled imagery back with before-and-after comparisons so your team can review, present, or validate the result."
         }
       ]
     },
@@ -333,33 +333,33 @@
       ]
     },
     "verticals_v2": {
-      "sectionTitle": "Strategic",
-      "sectionTitleAccent": "Verticals",
-      "subtitle": "Precision instruments for sovereign intelligence and global monitoring.",
+      "sectionTitle": "Use",
+      "sectionTitleAccent": "cases",
+      "subtitle": "Teams that need to upscale satellite imagery to improve visual reading, technical review, and presentation quality.",
       "items": [
         {
-          "kicker": "Civic Resilience",
-          "title": "Urban Planning",
-          "body": "Clarify streets, blocks, and urban traces for expansion review, infrastructure monitoring, and higher-confidence surface interpretation.",
+          "kicker": "Urban analysis",
+          "title": "Streets and blocks",
+          "body": "Upscale urban scenes to improve the reading of roads, blocks, and occupation patterns in side-by-side comparisons.",
           "icon": "location_city",
           "cta": "Protocol 01"
         },
         {
-          "kicker": "Agri Operations",
-          "title": "Agri-Tech",
-          "body": "Improve field patterns and parcel continuity for crop monitoring, coverage estimation, and rapid lot-level validation.",
+          "kicker": "Territory and fields",
+          "title": "Parcels and coverage",
+          "body": "Add clarity to field patterns, parcel edges, and coverage when you need to review agricultural or territorial imagery.",
           "icon": "potted_plant"
         },
         {
-          "kicker": "Environmental Audit",
-          "title": "Ecosystems",
-          "body": "Increase clarity around coastlines, forest masses, and sensitive terrain for temporal monitoring and territorial assessment.",
+          "kicker": "Coast and environment",
+          "title": "Edges and contrast",
+          "body": "Improve separation between water, coastline, vegetation, and sensitive terrain for clearer comparative review.",
           "icon": "eco"
         },
         {
-          "kicker": "Logistics Intelligence",
-          "title": "Supply Systems",
-          "body": "Add visibility over ports, yards, and transfer nodes for supply-chain monitoring with stronger spatial context.",
+          "kicker": "Infrastructure",
+          "title": "Ports and nodes",
+          "body": "Upscale imagery of ports, yards, and logistics nodes for more useful visual reading in review, reporting, or technical evaluation.",
           "icon": "package_2"
         }
       ]
@@ -444,41 +444,41 @@
       "ctaSovereign": "Talk to sales"
     },
     "cta_v2": {
-      "title": "Ready to see",
-      "titleAccent": "clearly?",
-      "body": "Join the geospatial analysis teams using the SatScale Zenith engine to evaluate complex scenes with more fidelity.",
-      "cta": "Request access demo"
+      "title": "Ready to try it",
+      "titleAccent": "on your imagery?",
+      "body": "Send us a batch of satellite scenes and we will return a re-scaled package so you can evaluate the visual improvement on your own data.",
+      "cta": "Request demo"
     },
     "trust": {
-      "sectionTitle": "Built for a serious evaluation",
-      "intro": "The page now explains how to validate the product with a real geospatial team instead of selling only a visual promise.",
+      "sectionTitle": "Built for a clear evaluation",
+      "intro": "The proposal is simple: you send your imagery, we process the batch, and we return a re-scaled package so you can judge whether the visual improvement is useful for your workflow.",
       "items": [
         {
-          "title": "Validation on your own scenes",
-          "description": "The conversation starts from imagery from your operation so quality, limits, and fit can be reviewed in context."
+          "title": "We work on your own imagery",
+          "description": "The evaluation starts from scenes from your team so quality, limits, and fit can be reviewed in context."
         },
         {
-          "title": "Outputs ready for GIS review",
-          "description": "The goal is not a pretty demo but an output you can inspect inside technical workflows and side-by-side analysis."
+          "title": "Delivery as a re-scaled package",
+          "description": "We do not sell an empty interface. We deliver a package of re-scaled imagery and comparisons ready to inspect."
         },
         {
-          "title": "Private and scoped first step",
-          "description": "The initial evaluation is framed as a short pilot with a clear use case instead of asking for a full integration on day one."
+          "title": "Private and simple process",
+          "description": "The first step does not require integration. You share the batch, we process it, and return the results for review."
         }
       ],
-      "note": "If you need a stronger commercial proof layer, the next step is replacing placeholders with real cases, metrics, and testimonials."
+      "note": "If you want stronger commercial proof, the next step is showing real samples, processed volume, and before-and-after outcomes from your own imagery."
     },
     "contact": {
-      "sectionTitle": "Request evaluation",
-      "description": "Tell us what imagery you work with, what level of detail you need, and how SatScale would fit into your operation.",
+      "sectionTitle": "Request demo or evaluation",
+      "description": "Tell us what kind of satellite imagery you work with, how many images you want to process, and what level of visual improvement you expect.",
       "emailLabel": "Email",
       "nameLabel": "Name",
       "orgLabel": "Organization",
-      "messageLabel": "What you want to validate",
+      "messageLabel": "What you want to process or validate",
       "emailPlaceholder": "team@organization.com",
       "namePlaceholder": "Full name",
       "orgPlaceholder": "Organization name",
-      "messagePlaceholder": "Example: urban scenes at 4x, compatibility with our GIS workflow, and evaluation timeline.",
+      "messagePlaceholder": "Example: 60 urban images, 4x upscale, before-and-after comparison, and expected turnaround.",
       "submit": "Send request",
       "privacyNote": "Share only the information needed to coordinate an initial technical evaluation.",
       "success": "Request sent. We will review the details and follow up.",
