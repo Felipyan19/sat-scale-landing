@@ -1,6 +1,6 @@
 ---
-import type { Lang } from '../utils/i18n';
-import { getContent } from '../utils/i18n';
+import type { Lang } from '../../utils/i18n';
+import { getContent } from '../../utils/i18n';
 
 interface Props { lang: Lang; }
 const { lang } = Astro.props;
@@ -17,7 +17,6 @@ const fallbackEmail = 'contact@satscale.ai';
   </div>
 
   <div class="contact-form-wrapper">
-    <p class="contact-helper">{endpoint ? t.helperEndpoint : t.helperFallback}</p>
     <form
       class="contact-form"
       id="contact-form"

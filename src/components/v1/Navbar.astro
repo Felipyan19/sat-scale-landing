@@ -1,6 +1,6 @@
 ---
-import type { Lang } from '../utils/i18n';
-import { getContent, getLocalizedPath } from '../utils/i18n';
+import type { Lang } from '../../utils/i18n';
+import { getContent, getLocalizedPath } from '../../utils/i18n';
 
 interface Props {
   lang: Lang;
@@ -56,7 +56,6 @@ const altLangHref = lang === 'en' ? getLocalizedPath('es') : getLocalizedPath('e
           <a href="#contact">{t.nav.contact}</a>
         </li>
         <li class="navbar-language-item">
-          <span>{t.nav.language}</span>
           <div class="language-switcher" aria-label={t.nav.language}>
             <a href={getLocalizedPath('es')} aria-current={lang === 'es' ? 'page' : undefined}>ES</a>
             <a href={getLocalizedPath('en')} aria-current={lang === 'en' ? 'page' : undefined}>EN</a>

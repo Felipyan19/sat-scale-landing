@@ -1,0 +1,1911 @@
+---
+import PageLayoutV2 from '../../layouts/PageLayoutV2.astro';
+import type { Lang } from '../../utils/i18n';
+import { getContent } from '../../utils/i18n';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = getContent(lang);
+const endpoint = import.meta.env.PUBLIC_CONTACT_FORM_ENDPOINT?.trim() ?? '';
+const fallbackEmail = 'contact@satscale.ai';
+const path = lang === 'en' ? '/v2/en/' : '/v2/';
+const alternateLinks = [
+  { lang: 'es', path: '/v2/' },
+  { lang: 'en', path: '/v2/en/' }
+];
+const copy = lang === 'en'
+  ? {
+      nav: {
+        technology: 'Technology',
+        showcase: 'Showcase',
+        pricing: 'Pricing',
+        enterprise: 'Enterprise',
+        getStarted: 'Get Started'
+      },
+      language: 'Language',
+      tech: {
+        title: 'The Science of <br />Optical Restoration',
+        body:
+          'SatScale leverages sub-pixel convolutional neural networks to reconstruct missing structural details from raw satellite data, surpassing the diffraction limit of physical optics.',
+        features: [
+          {
+            icon: 'auto_awesome',
+            title: 'Sub-Pixel Synthesis',
+            body: 'Reconstructing textural density where sensors only captured noise.'
+          },
+          {
+            icon: 'blur_off',
+            title: 'De-Hazing Engine',
+            body: 'Intelligent removal of cloud artifacts and spectral scattering.'
+          }
+        ]
+      },
+      comparison: {
+        title: 'The Precision Benchmarks',
+        body:
+          'Compare raw 30cm/pixel imagery against SatScale Zenith 5cm/pixel synthesized enhancement.',
+        synthetic: 'Synthetic (5cm/px)',
+        raw: 'Raw Data (30cm/px)'
+      },
+      footer: {
+        privacy: 'Privacy Protocol',
+        terms: 'Terms of Deployment',
+        status: 'System Status',
+        contact: 'Contact Ops',
+        copy: '© 2026 SAT-SCALE AI. DATA PRECISION GUARANTEED.'
+      },
+      form: {
+        kicker: 'Demo Request',
+        title: 'Get in touch',
+        intro: '',
+        requestLabel: 'What do you need?',
+        requestOptions: [
+          ['demo', 'Book a demo'],
+          ['info', 'More product information'],
+          ['scheduling', 'Schedule a meeting'],
+          ['pricing', 'Discuss pricing'],
+          ['enterprise', 'Enterprise evaluation']
+        ],
+        teamLabel: 'Team or organization',
+        teamPlaceholder: 'Company, agency, or lab name',
+        useCaseLabel: 'What do you want to review?',
+        useCasePlaceholder: 'Example: urban imagery, private evaluation, technical questions, procurement scope, or integration needs.',
+        submit: 'Send request',
+        fallbackNotice: t.contact.fallbackNotice,
+        success: t.contact.success,
+        error: t.contact.error,
+        busy: t.contact.submitBusy,
+        privacy: t.contact.privacyNote,
+        subjectPrefix: 'SatScale V2'
+      },
+      alts: {
+        hero: 'Aerial satellite view of a coastal city at night',
+        techOne: 'Neural network processing visualization',
+        techTwo: 'Abstract data flow visualization',
+        comparisonBack: 'High resolution harbor satellite image',
+        comparisonFront: 'Low resolution harbor satellite image',
+        verticalOne: 'Aerial view of urban highway interchange',
+        verticalTwo: 'Aerial view of green agricultural fields',
+        verticalThree: 'Melting glacier aerial view',
+        verticalFour: 'Global world map with data points'
+      }
+    }
+  : {
+      nav: {
+        technology: 'Tecnologia',
+        showcase: 'Resultados',
+        pricing: 'Planes',
+        enterprise: 'Empresas',
+        getStarted: 'Comenzar'
+      },
+      language: 'Idioma',
+      tech: {
+        title: 'La ciencia de la <br />restauracion optica',
+        body:
+          'SatScale utiliza redes neuronales de sub-pixel para reconstruir detalle estructural a partir de datos satelitales crudos y mejorar la lectura operativa de cada escena.',
+        features: [
+          {
+            icon: 'auto_awesome',
+            title: 'Sintesis sub-pixel',
+            body: 'Reconstruye densidad textural donde los sensores solo capturaron ruido.'
+          },
+          {
+            icon: 'blur_off',
+            title: 'Motor de desneblinado',
+            body: 'Reduce nubosidad, haze y dispersion espectral para una lectura mas limpia.'
+          }
+        ]
+      },
+      comparison: {
+        title: 'Benchmarks de precision',
+        body:
+          'Compara imagery base de 30 cm/pixel con la salida sintetica equivalente a 5 cm/pixel del motor SatScale Zenith.',
+        synthetic: 'Sintetica (5cm/px)',
+        raw: 'Dato crudo (30cm/px)'
+      },
+      footer: {
+        privacy: 'Protocolo de privacidad',
+        terms: 'Condiciones de despliegue',
+        status: 'Estado del sistema',
+        contact: 'Contactar operaciones',
+        copy: '© 2026 SAT-SCALE AI. PRECISION DE DATOS GARANTIZADA.'
+      },
+      form: {
+        kicker: 'Solicitud de demo',
+        title: 'Hablemos',
+        intro: '',
+        requestLabel: 'Que necesitas',
+        requestOptions: [
+          ['demo', 'Agendar una demo'],
+          ['info', 'Mas informacion del producto'],
+          ['scheduling', 'Agendar una reunion'],
+          ['pricing', 'Hablar de precios'],
+          ['enterprise', 'Evaluacion enterprise']
+        ],
+        teamLabel: 'Equipo u organizacion',
+        teamPlaceholder: 'Nombre de empresa, agencia o laboratorio',
+        useCaseLabel: 'Que quieres revisar',
+        useCasePlaceholder: 'Ejemplo: imagery urbana, evaluacion privada, dudas tecnicas, alcance comercial o integracion.',
+        submit: 'Enviar solicitud',
+        fallbackNotice: t.contact.fallbackNotice,
+        success: t.contact.success,
+        error: t.contact.error,
+        busy: t.contact.submitBusy,
+        privacy: t.contact.privacyNote,
+        subjectPrefix: 'SatScale V2'
+      },
+      alts: {
+        hero: 'Vista satelital aerea de una ciudad costera en la noche',
+        techOne: 'Visualizacion del procesamiento neuronal',
+        techTwo: 'Visualizacion abstracta de flujo de datos',
+        comparisonBack: 'Imagen satelital de puerto en alta resolucion',
+        comparisonFront: 'Imagen satelital de puerto en baja resolucion',
+        verticalOne: 'Vista aerea de un intercambiador urbano',
+        verticalTwo: 'Vista aerea de campos agricolas',
+        verticalThree: 'Vista aerea de un glaciar en deshielo',
+        verticalFour: 'Mapa global con nodos de datos'
+      }
+    };
+---
+
+<PageLayoutV2
+  title={t.seo.title}
+  description={t.seo.description}
+  lang={lang}
+  path={path}
+  alternateLinks={alternateLinks}
+>
+
+<!-- Noise overlay -->
+<div class="noise-overlay" aria-hidden="true"></div>
+
+<!-- ─── NAVBAR ─── -->
+<nav class="navbar" id="navbar">
+  <div class="navbar-inner">
+    <a class="navbar-brand" href={path}>SAT-SCALE AI</a>
+
+    <div class="navbar-links">
+      <a class="nav-link" href="#technology" data-nav-target="technology">{copy.nav.technology}</a>
+      <a class="nav-link" href="#showcase" data-nav-target="showcase">{copy.nav.showcase}</a>
+      <a class="nav-link" href="#pricing" data-nav-target="pricing">{copy.nav.pricing}</a>
+      <a class="nav-link" href="#contact" data-nav-target="contact">{copy.nav.enterprise}</a>
+    </div>
+
+    <div class="navbar-actions">
+      <div class="language-switcher" aria-label={copy.language}>
+        <a class="language-link" href="/v2/" aria-current={lang === 'es' ? 'page' : undefined}>ES</a>
+        <a class="language-link" href="/v2/en/" aria-current={lang === 'en' ? 'page' : undefined}>EN</a>
+      </div>
+      <a class="btn-primary-pill" href="#contact" data-contact-intent="demo">{copy.nav.getStarted}</a>
+    </div>
+
+    <!-- Mobile: solo CTA + burger -->
+    <div class="navbar-mobile-actions">
+      <a class="btn-primary-pill" href="#contact" data-contact-intent="demo">{copy.nav.getStarted}</a>
+      <button
+        class="burger-btn"
+        id="burger-btn"
+        aria-label="Abrir menu"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+      >
+        <span class="burger-bar"></span>
+        <span class="burger-bar"></span>
+        <span class="burger-bar"></span>
+      </button>
+    </div>
+  </div>
+  <div class="navbar-border" aria-hidden="true"></div>
+
+  <!-- Mobile panel -->
+  <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+    <a class="mobile-nav-link" href="#technology" data-nav-target="technology">{copy.nav.technology}</a>
+    <a class="mobile-nav-link" href="#showcase" data-nav-target="showcase">{copy.nav.showcase}</a>
+    <a class="mobile-nav-link" href="#pricing" data-nav-target="pricing">{copy.nav.pricing}</a>
+    <a class="mobile-nav-link" href="#contact" data-nav-target="contact">{copy.nav.enterprise}</a>
+    <div class="mobile-divider" aria-hidden="true"></div>
+    <div class="language-switcher" aria-label={copy.language}>
+      <a class="language-link" href="/v2/" aria-current={lang === 'es' ? 'page' : undefined}>ES</a>
+      <a class="language-link" href="/v2/en/" aria-current={lang === 'en' ? 'page' : undefined}>EN</a>
+    </div>
+  </div>
+</nav>
+
+<main id="top">
+
+  <!-- ─── HERO ─── -->
+  <section class="hero-v2">
+    <div class="hero-bg" aria-hidden="true">
+      <img
+        src="https://lh3.googleusercontent.com/aida-public/AB6AXuByvI5xrrQQTPKRGzDrZEZ0bVBwmKeXdlvpMj0_ZDYkwS-iu88UQWEJZKTB-Imee7FNpWp9-19dM73YmP6A9hX6RnRIo-HM8a9FcRriBnUq5h8STX71BJDJ3j1UglKaXPRc-70tizbfqlI_jvbpc1y7jPLWJbmRVAfBLzrD1-snkSeNG4S5hejWCj0_qB6ZzJH2xMHmk8cqnHyZ2wX0pfCXD051xzEtTlMKKy8Ge6-C1Ma_x9XNoG1H3I44L8vOsJjO8Le_DvkFpmA"
+        alt={copy.alts.hero}
+      />
+      <div class="hero-overlay" aria-hidden="true"></div>
+    </div>
+
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-eyebrow">
+          <span class="eyebrow-line" aria-hidden="true"></span>
+          <span class="eyebrow-text">{t.hero_v2.eyebrow}</span>
+        </div>
+
+        <h1 class="hero-title">
+          {t.hero_v2.titleLine1} <br /><span class="text-cyan">{t.hero_v2.titleAccent}</span>
+        </h1>
+
+        <p class="hero-subtitle">{t.hero_v2.subtitle}</p>
+
+        <div class="hero-btns">
+          <a class="btn-cyan-lg" href="#contact" data-contact-intent="demo">{t.hero_v2.primaryCta}</a>
+          <a class="btn-outline-lg" href="#showcase">{t.hero_v2.secondaryCta}</a>
+        </div>
+      </div>
+
+      <div class="hero-coords" aria-hidden="true">
+        <p><span class="coord-key">COORD_X</span> 34.0522° N</p>
+        <p><span class="coord-key">COORD_Y</span> 118.2437° W</p>
+        <p><span class="coord-key">ALTITUDE</span> 400.0 KM</p>
+        <p><span class="coord-key">INSTRUMENT</span> {t.hero_v2.instrument}</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── TECHNOLOGY ─── -->
+  <section class="tech-section" id="technology">
+    <div class="container">
+      <div class="tech-grid">
+
+        <div class="tech-copy" data-scroll-anchor>
+          <div>
+            <h2 class="section-title" set:html={copy.tech.title}></h2>
+            <p class="section-body">{copy.tech.body}</p>
+          </div>
+
+          <div class="tech-features">
+            {copy.tech.features.map((feature) => (
+              <div class="tech-feature">
+                <span class="material-symbols-outlined icon-cyan">{feature.icon}</span>
+                <h4>{feature.title}</h4>
+                <p>{feature.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div class="tech-images">
+          <div class="tech-glow" aria-hidden="true"></div>
+          <div class="tech-img-grid">
+            <div class="tech-img-card">
+              <img
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCr1WjyWES-qsyozk5fStfGoXlxJPGlnIdaYN4GgtQyFK44qF0mTb4A9_36uwj2CW-COPbFoscT9KiB6ifUflg7o1w0zHYlRD_999-nwvTfKYtUebruY-hayzFPmiIoACT6K72FeLCktHmVOOc2UV5g2OeCXiw2Cd3XQFkEwOxhHdcPJP9WEsFo1CtJBIjsgxKH_LvWBuOmc5U26YltNSQzGBxnW1O_-mUnm7EhFquPsCIKRcb2ltyBonOEtxmTCagRWmI1lP3UKbc"
+                alt={copy.alts.techOne}
+              />
+            </div>
+            <div class="tech-img-card tech-img-card--offset">
+              <img
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBGuCetbHe7q7055fmC2P46fEFtqbWg0KSKbm9NLw0gD2foxyhN6GQDiygqrvZVwZFWDd8gDj2LKMoi0qRRJj9LvJ_KRaQDVvFtQN8966mArU2ZQbpdfYP4lI4E8XNoD7Zb840AAXYTKiBM0sk3Yuzl21aE2Yjw_4yEVUB5kglrrPbhOF9YpezlDzZo_hrzOwkCpT75qi-GrONOhwqcDsdyYJwWfYzfQjhLPrLBkFJyGCVtoabcC1rBm1--lAC_P7wmDqedDXIJcYo"
+                alt={copy.alts.techTwo}
+              />
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── COMPARISON ─── -->
+  <section class="comparison-section" id="showcase">
+    <div class="container">
+      <div class="section-header" data-scroll-anchor>
+        <h2 class="section-title">{copy.comparison.title}</h2>
+        <p class="section-body">{copy.comparison.body}</p>
+      </div>
+
+      <div class="comparison-widget" id="comparison-widget">
+        <!-- High-res (background) -->
+        <div class="comparison-layer comparison-layer--back">
+          <img
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCXrwDz5Xu2-etNIpebLrLfGeLfkVwP3Eby_ADNzlqjSKWBNIERzzXkxka0Q89myfqqjQOU4wX8_WaUbPBPmSt466mL8X7-OHb4gxA5xiVN9FvqbcrxlYrMCilQy7TuqAi_IwEEK3aZV6RedYRj8MTmUaLOxp7f1gf9KK0YoEMvNWgCfG3viw6Dz1rE09wZtgdM_Stq9bJEq9WOUrzvX7-1f3SdUUx7WgeL43HbXooxu6q01USqKrrp3w_kyYyBygQ9hdk9ayMPo3Q"
+            alt={copy.alts.comparisonBack}
+          />
+          <div class="comparison-badge comparison-badge--right">{copy.comparison.synthetic}</div>
+        </div>
+
+        <!-- Low-res (clipped overlay) -->
+        <div class="comparison-layer comparison-layer--front" id="comparison-front">
+          <img
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBjKZDpypUq6dI_33QD2w2b43FsTBG0sHCOwZLUWx-1laXGE62ifhI0iULywCxir_0ci0e6ljgAJPxqc2Y3_3zswg0eAbRVG3TG-sXnJP926oazYp29fLMj9Ruv6h3yvDEO42Sin0iEXZ-6H4E9LL8A-5OS3XRWcHFmvjT9jJ-Zb2_wiSpJDgzNCOCSLtWyumftcHGpmwTE-oa-CuFeA5pgnYKAN_n_J2iqAiDMs-MRepo8CFn-Am_oWFkcLCYKmlsqPheGbf0F1K4"
+            alt={copy.alts.comparisonFront}
+          />
+          <div class="comparison-badge comparison-badge--left">{copy.comparison.raw}</div>
+        </div>
+
+        <!-- Slider handle -->
+        <div class="slider-handle" id="slider-handle" aria-hidden="true">
+          <div class="slider-arrows">
+            <span class="material-symbols-outlined">chevron_left</span>
+            <span class="material-symbols-outlined">chevron_right</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── BENTO GRID (Strategic Verticals) ─── -->
+  <section class="bento-section">
+    <div class="container">
+      <div class="bento-header">
+        <h2 class="bento-title">{t.verticals_v2.sectionTitle}<br />{t.verticals_v2.sectionTitleAccent}</h2>
+        <p class="bento-desc">{t.verticals_v2.subtitle}</p>
+      </div>
+
+      <div class="bento-grid">
+
+        <!-- Card 1 – Urban Planning (wide) -->
+        <div class="bento-card bento-card--wide">
+          <img
+            class="bento-bg"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDKj508O4VlxhIPRHNXbQzobwNSnQhrELQCihR8dXblYyJISvGYpGZVZE4QLT6r2I8X4MBa2TZbEdiEjY5ie7IqkrYZGDhEm-DzMt9tNwMdrcvC5n9hnPNoAxTQPT0z-GgO8mVo9nGj3MTcA4kbjE_dERViIpYYu8bvIo_Wb2ifHxzPCwlfTbJKw-_cmhAJ8Ee6CYaMzYDZWf0GHKFo4qYpjq9yaR2nd8tU8JXyAtQpXmn3Y7MPA0ucnRTaAzoRuLI5z0sYC-xyP8c"
+            alt={copy.alts.verticalOne}
+          />
+          <div class="bento-copy">
+            <span class="bento-kicker">{t.verticals_v2.items[0].kicker}</span>
+            <h3 class="bento-card-title">{t.verticals_v2.items[0].title}</h3>
+            <p class="bento-card-body">{t.verticals_v2.items[0].body}</p>
+          </div>
+          <div class="bento-footer">
+            <span class="material-symbols-outlined bento-icon">{t.verticals_v2.items[0].icon}</span>
+            <a class="bento-cta" href="#contact" data-contact-intent="enterprise">
+              {t.verticals_v2.items[0].cta} <span class="material-symbols-outlined">arrow_forward</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Card 2 – Agri-Tech (narrow) -->
+        <div class="bento-card bento-card--narrow">
+          <img
+            class="bento-bg"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuButo2SODZ2ILBrsAcJUxgcwTaftJOefyVa0RC8fyenfFIgOyXON5G_Wdbp-VibrzZJc6tDypVoEaQBKZeAAR1mB1dk7hLMx-AXtqdQs3uMD5oEQSFwrtaBCSeKrhUxXULj8zzRMEDm1OOPDotAcF1ZJ7RxYBrvhQOJT5GXI-vhVbAI2NtHoJjCso1UsEeZ2uAN2xe4Rfid0DKeXL9-6PsED6v1aCtHBtMizFCVdVfTDHpmaWxKYzvjYtpBcC2cX767rYobK2eIgn0"
+            alt={copy.alts.verticalTwo}
+          />
+          <div class="bento-copy">
+            <span class="bento-kicker">{t.verticals_v2.items[1].kicker}</span>
+            <h3 class="bento-card-title">{t.verticals_v2.items[1].title}</h3>
+            <p class="bento-card-body">{t.verticals_v2.items[1].body}</p>
+          </div>
+          <span class="material-symbols-outlined bento-icon">{t.verticals_v2.items[1].icon}</span>
+        </div>
+
+        <!-- Card 3 – Ecosystem (medium-narrow) -->
+        <div class="bento-card bento-card--med">
+          <img
+            class="bento-bg"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBro4C0mBGkbZ_n7BbxG62bFUfitBm1U5Pv12EDrKyk41Vddzjc3bJOTJKtz8t4RAWIOdiQm41KCgBlINZ-2kpoPPv0g1PFg96S049xfwXRhnYOuBBwpbUAUDWqv5S9Mgntg8oeFt0a4IaFkahCYmPdtcb121RXd_WvoVoFHmqgeWbwrqi7fGmtEhG-NE5ju5fbdlZDrxfRCNJFbsNvta0H8Yb-y7tGD8WAMd7N5E33gCPywB0YfBy9wTaJaYI6LRgUSnQ45FEY1Bo"
+            alt={copy.alts.verticalThree}
+          />
+          <div class="bento-copy">
+            <span class="bento-kicker">{t.verticals_v2.items[2].kicker}</span>
+            <h3 class="bento-card-title">{t.verticals_v2.items[2].title}</h3>
+            <p class="bento-card-body">{t.verticals_v2.items[2].body}</p>
+          </div>
+          <span class="material-symbols-outlined bento-icon">{t.verticals_v2.items[2].icon}</span>
+        </div>
+
+        <!-- Card 4 – Supply Systems (medium-wide) -->
+        <div class="bento-card bento-card--med-wide">
+          <img
+            class="bento-bg"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDdmx84SGauVAKoEP-_iUWnQ8bUkNZnoANsM5QBNlvlqLzhvTstiFz9qjVQriLm7kyhpC5g9hFsZNhwxx453ohvvypJPNaqasEQsW65D0SSXvBiQT1VJAlyrLogw4ZzcYOgomC85CAMeNyB_0RdxRWOK_39_E5HttgX8vdNHpGWHqcB8M5DKZmCrEmFQ21t6XYKX-ycw9otEJT6DyuF6wPDtfrYJnpVw8n4FvtXBzivY5DJ-X7LXASHuSQwaRWCVCfZT52Abq9W8CU"
+            alt={copy.alts.verticalFour}
+          />
+          <div class="bento-copy">
+            <span class="bento-kicker">{t.verticals_v2.items[3].kicker}</span>
+            <h3 class="bento-card-title">{t.verticals_v2.items[3].title}</h3>
+            <p class="bento-card-body">{t.verticals_v2.items[3].body}</p>
+          </div>
+          <span class="material-symbols-outlined bento-icon">{t.verticals_v2.items[3].icon}</span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── PRICING ─── -->
+  <section class="pricing-section" id="pricing">
+    <div class="container">
+      <div class="section-header" data-scroll-anchor>
+        <h2 class="section-title">{t.pricing_v2.sectionTitle}</h2>
+        <p class="section-body">{t.pricing_v2.subtitle}</p>
+      </div>
+
+      <div class="pricing-grid">
+
+        <!-- Standard -->
+        <div class="pricing-card">
+          <div class="pricing-tier">{t.pricing_v2.tiers[0].name}</div>
+          <div class="pricing-price">{t.pricing_v2.tiers[0].price}<span class="pricing-period">{t.pricing_v2.tiers[0].period}</span></div>
+          <ul class="pricing-features">
+            {t.pricing_v2.tiers[0].features.map((feature) => (
+              <li class:list={['pricing-feature', feature.included ? 'pricing-feature--on' : 'pricing-feature--off']}>
+                {feature.included && <span class="feature-dot"></span>} {feature.label}
+              </li>
+            ))}
+          </ul>
+          <a class="btn-tier-outline" href="#contact" data-contact-intent="pricing">{t.pricing_v2.ctaStandard}</a>
+        </div>
+
+        <!-- Advanced (featured) -->
+        <div class="pricing-card pricing-card--featured">
+          <div class="pricing-badge">{t.pricing_v2.recommended}</div>
+          <div class="pricing-tier pricing-tier--featured">{t.pricing_v2.tiers[1].name}</div>
+          <div class="pricing-price">{t.pricing_v2.tiers[1].price}<span class="pricing-period">{t.pricing_v2.tiers[1].period}</span></div>
+          <ul class="pricing-features">
+            {t.pricing_v2.tiers[1].features.map((feature) => (
+              <li class:list={['pricing-feature', feature.included ? 'pricing-feature--on' : 'pricing-feature--off']}>
+                {feature.included && <span class="feature-dot"></span>} {feature.label}
+              </li>
+            ))}
+          </ul>
+          <a class="btn-tier-cyan" href="#contact" data-contact-intent="pricing">{t.pricing_v2.ctaAdvanced}</a>
+        </div>
+
+        <!-- Sovereign -->
+        <div class="pricing-card">
+          <div class="pricing-tier">{t.pricing_v2.tiers[2].name}</div>
+          <div class="pricing-price pricing-price--custom">{t.pricing_v2.tiers[2].price}</div>
+          <ul class="pricing-features">
+            {t.pricing_v2.tiers[2].features.map((feature) => (
+              <li class:list={['pricing-feature', feature.included ? 'pricing-feature--on' : 'pricing-feature--off']}>
+                {feature.included && <span class="feature-dot"></span>} {feature.label}
+              </li>
+            ))}
+          </ul>
+          <a class="btn-tier-outline" href="#contact" data-contact-intent="enterprise">{t.pricing_v2.ctaSovereign}</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── CTA ─── -->
+  <section class="cta-section" id="contact">
+    <div class="cta-glow" aria-hidden="true"></div>
+    <div class="container">
+      <div class="cta-header" data-scroll-anchor>
+        <p class="cta-kicker">{copy.form.kicker}</p>
+        <h2 class="cta-title">{copy.form.title}</h2>
+      </div>
+
+      <div class="contact-form-card">
+        <form
+          class="contact-form-v2"
+          id="contact-form-v2"
+          method="post"
+          data-endpoint={endpoint}
+          data-fallback-email={fallbackEmail}
+          data-fallback-notice={copy.form.fallbackNotice}
+          data-success-message={copy.form.success}
+          data-error-message={copy.form.error}
+          data-busy-label={copy.form.busy}
+          data-subject-prefix={copy.form.subjectPrefix}
+        >
+          <div class="contact-grid">
+            <label class="contact-field">
+              <span>{t.contact.nameLabel}</span>
+              <input
+                name="name"
+                type="text"
+                required
+                autocomplete="name"
+                placeholder={t.contact.namePlaceholder}
+              />
+            </label>
+
+            <label class="contact-field">
+              <span>{t.contact.emailLabel}</span>
+              <input
+                name="email"
+                type="email"
+                required
+                autocomplete="email"
+                placeholder={t.contact.emailPlaceholder}
+              />
+            </label>
+
+            <label class="contact-field">
+              <span>{copy.form.teamLabel}</span>
+              <input
+                name="org"
+                type="text"
+                required
+                autocomplete="organization"
+                placeholder={copy.form.teamPlaceholder}
+              />
+            </label>
+
+            <label class="contact-field">
+              <span>{copy.form.requestLabel}</span>
+              <select name="request_type" id="contact-request-type" required>
+                {copy.form.requestOptions.map(([value, label]) => (
+                  <option value={value}>{label}</option>
+                ))}
+              </select>
+            </label>
+
+            <label class="contact-field contact-field-full">
+              <span>{copy.form.useCaseLabel}</span>
+              <textarea
+                name="message"
+                rows="4"
+                placeholder={copy.form.useCasePlaceholder}
+              ></textarea>
+            </label>
+
+            <input class="contact-honeypot" name="company_website" type="text" tabindex="-1" autocomplete="off" />
+          </div>
+
+          <div class="contact-actions-v2">
+            <button class="btn-cyan-xl contact-submit-v2" type="submit">{copy.form.submit}</button>
+            <p class="contact-privacy-v2">{copy.form.privacy}</p>
+          </div>
+
+          <p class="contact-status-v2" id="contact-status-v2" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ─── FOOTER ─── -->
+<footer class="footer-v2">
+  <div class="footer-inner">
+    <a class="footer-brand" href={path}>SAT-SCALE</a>
+    <div class="footer-copy">{copy.footer.copy}</div>
+  </div>
+</footer>
+
+</PageLayoutV2>
+
+<style is:global>
+  /* ── Reset & base ── */
+  *, *::before, *::after { box-sizing: border-box; }
+
+  .dark body {
+    margin: 0;
+    padding: 0;
+    background-color: #070d1f;
+    color: #f8fafc;
+    font-family: 'Manrope', sans-serif;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  img { max-width: 100%; display: block; }
+  h1, h2, h3, h4, button, a { font-family: 'Space Grotesk', sans-serif; }
+  h1, h2, h3, h4, p, ul { margin: 0; }
+  ul { padding: 0; list-style: none; }
+  a { color: inherit; text-decoration: none; }
+  button { cursor: pointer; border: none; background: none; font: inherit; }
+  section[id] { scroll-margin-top: 7rem; }
+
+  /* ── Noise overlay ── */
+  .noise-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    opacity: 0.025;
+  }
+
+  /* ── Container ── */
+  .container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 3rem;
+    position: relative;
+  }
+
+  /* ── Typography helpers ── */
+  .text-cyan { color: #22d3ee; }
+  .section-title {
+    font-size: clamp(2.5rem, 5vw, 3.75rem);
+    font-weight: 700;
+    letter-spacing: -0.04em;
+    line-height: 1.05;
+    color: #f8fafc;
+  }
+  .section-body {
+    color: #94a3b8;
+    font-size: 1.1rem;
+    font-weight: 300;
+    line-height: 1.7;
+    font-family: 'Manrope', sans-serif;
+  }
+  .section-header {
+    text-align: center;
+    margin-bottom: 5rem;
+    max-width: 48rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .section-header .section-title { margin-bottom: 1.25rem; }
+
+  /* ── Material Symbols ── */
+  .material-symbols-outlined {
+    font-family: 'Material Symbols Outlined', sans-serif;
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    display: inline-block;
+    line-height: 1;
+    vertical-align: middle;
+  }
+
+  /* ════════════════════════════
+     NAVBAR
+  ════════════════════════════ */
+  .navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 50;
+    background: rgba(12, 19, 36, 0.55);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.25);
+  }
+  .navbar-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.25rem 3rem;
+  }
+  .navbar-brand {
+    font-size: 1.15rem;
+    font-weight: 700;
+    letter-spacing: -0.04em;
+    color: #f8fafc;
+    font-family: 'Space Grotesk', sans-serif;
+    flex-shrink: 0;
+  }
+  .navbar-links {
+    display: flex;
+    gap: 2.5rem;
+    align-items: center;
+  }
+  .nav-link {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #94a3b8;
+    transition: color 300ms ease, filter 300ms ease;
+  }
+  .nav-link:hover {
+    color: #a5f3fc;
+    filter: drop-shadow(0 0 5px rgba(34,211,238,0.4));
+  }
+  .nav-link--active,
+  .nav-link[aria-current='location'] {
+    color: #22d3ee;
+    filter: drop-shadow(0 0 8px rgba(34,211,238,0.6));
+  }
+  .navbar-actions {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+  .language-switcher {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.35rem;
+    border: 1px solid rgba(148, 163, 184, 0.3);
+    border-radius: 9999px;
+    background: rgba(255,255,255,0.04);
+  }
+  .language-link {
+    min-width: 2.25rem;
+    padding: 0.45rem 0.7rem;
+    border-radius: 9999px;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-align: center;
+    text-transform: uppercase;
+    color: #94a3b8;
+    transition: background 200ms, color 200ms;
+  }
+  .language-link:hover {
+    color: #f8fafc;
+  }
+  .language-link[aria-current='page'] {
+    background: rgba(34,211,238,0.16);
+    color: #a5f3fc;
+  }
+  .btn-primary-pill {
+    background: linear-gradient(135deg, #22d3ee 0%, #0891b2 100%);
+    color: #003642;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 0.75rem 2rem;
+    border-radius: 9999px;
+    box-shadow: 0 4px 20px rgba(34,211,238,0.2);
+    transition: filter 200ms, transform 100ms;
+  }
+  .btn-primary-pill:hover { filter: brightness(1.1); }
+  .btn-primary-pill:active { transform: scale(0.96); }
+  .navbar-border {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(34,211,238,0.1), transparent);
+  }
+
+  /* ════════════════════════════
+     HERO
+  ════════════════════════════ */
+  .hero-v2 {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+  .hero-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.52;
+    mix-blend-mode: lighten;
+  }
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(7,13,31,0.22), rgba(7,13,31,0.78) 72%, #070d1f);
+  }
+  .hero-v2 .container { z-index: 10; padding-top: 8rem; }
+  .hero-content {
+    max-width: 44rem;
+    margin-left: 0;
+    margin-right: auto;
+  }
+  .hero-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+  .eyebrow-line {
+    display: block;
+    width: 3rem;
+    height: 1px;
+    background: #22d3ee;
+    flex-shrink: 0;
+  }
+  .eyebrow-text {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: #22d3ee;
+  }
+  .hero-title {
+    font-size: clamp(4rem, 10vw, 7.5rem);
+    font-weight: 700;
+    letter-spacing: -0.05em;
+    line-height: 0.85;
+    color: #f8fafc;
+    margin-bottom: 3rem;
+  }
+  .hero-subtitle {
+    color: #94a3b8;
+    font-size: 1.15rem;
+    font-weight: 300;
+    line-height: 1.7;
+    max-width: 36rem;
+    font-family: 'Manrope', sans-serif;
+    margin-bottom: 3rem;
+  }
+  .hero-btns {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+  }
+  .btn-cyan-lg {
+    background: #22d3ee;
+    color: #003642;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    font-size: 0.8rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 1.25rem 3rem;
+    border-radius: 9999px;
+    box-shadow: 0 20px 60px rgba(34,211,238,0.4);
+    transition: filter 200ms, transform 100ms;
+  }
+  .btn-cyan-lg:hover { filter: brightness(1.1); }
+  .btn-cyan-lg:active { transform: scale(0.97); }
+  .btn-outline-lg {
+    border: 1px solid #334155;
+    color: #f8fafc;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    font-size: 0.8rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 1.25rem 3rem;
+    border-radius: 9999px;
+    background: rgba(255,255,255,0.04);
+    backdrop-filter: blur(8px);
+    transition: background 200ms;
+  }
+  .btn-outline-lg:hover { background: rgba(255,255,255,0.08); }
+  .hero-coords {
+    position: absolute;
+    bottom: 5rem;
+    right: 3rem;
+    text-align: right;
+  }
+  .hero-coords p {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.62rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: #475569;
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.75rem;
+  }
+  .coord-key { color: #1e293b; }
+
+  /* ════════════════════════════
+     TECHNOLOGY
+  ════════════════════════════ */
+  .tech-section {
+    padding: 10rem 0;
+    background: #070d1f;
+  }
+  .tech-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: center;
+  }
+  .tech-copy { display: flex; flex-direction: column; gap: 3rem; }
+  .tech-copy .section-title { margin-bottom: 2rem; }
+  .tech-features {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+  .tech-feature { display: flex; flex-direction: column; gap: 1rem; }
+  .icon-cyan {
+    color: #22d3ee;
+    font-size: 1.75rem;
+  }
+  .tech-feature h4 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    color: #f8fafc;
+  }
+  .tech-feature p {
+    font-size: 0.88rem;
+    color: #94a3b8;
+    line-height: 1.6;
+    font-family: 'Manrope', sans-serif;
+  }
+  .tech-images { position: relative; }
+  .tech-glow {
+    position: absolute;
+    inset: -2.5rem;
+    background: rgba(34,211,238,0.1);
+    border-radius: 9999px;
+    filter: blur(120px);
+    opacity: 0.2;
+    pointer-events: none;
+  }
+  .tech-img-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    position: relative;
+    z-index: 1;
+  }
+  .tech-img-card {
+    background: #0c1324;
+    padding: 0.25rem;
+    border-radius: 1rem;
+    height: 25rem;
+    overflow: hidden;
+    border: 1px solid #1e293b;
+    box-shadow: 0 25px 60px rgba(0,0,0,0.5);
+  }
+  .tech-img-card--offset { margin-top: 4rem; }
+  .tech-img-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 0.75rem;
+    opacity: 0.6;
+    filter: grayscale(1);
+    transition: filter 700ms ease, opacity 700ms ease;
+  }
+  .tech-img-card:hover img {
+    filter: grayscale(0);
+    opacity: 1;
+  }
+
+  /* ════════════════════════════
+     COMPARISON
+  ════════════════════════════ */
+  .comparison-section {
+    padding: 10rem 0;
+    background: #0c1324;
+  }
+  .comparison-widget {
+    position: relative;
+    width: 100%;
+    height: 700px;
+    border-radius: 1rem;
+    overflow: hidden;
+    border: 1px solid #334155;
+    box-shadow: 0 40px 100px rgba(0,0,0,0.5);
+    user-select: none;
+    touch-action: pan-y;
+  }
+  .comparison-layer {
+    position: absolute;
+    inset: 0;
+  }
+  .comparison-layer img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .comparison-layer--front {
+    width: 50%;
+    overflow: hidden;
+    border-right: 1px solid rgba(34,211,238,0.4);
+  }
+  .comparison-layer--front img {
+    filter: grayscale(0.3);
+  }
+  .comparison-badge {
+    position: absolute;
+    top: 2.5rem;
+    background: rgba(7,13,31,0.4);
+    backdrop-filter: blur(8px);
+    padding: 0.5rem 1.5rem;
+    border-radius: 9999px;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+  }
+  .comparison-badge--right {
+    right: 2.5rem;
+    color: #22d3ee;
+    border: 1px solid rgba(34,211,238,0.3);
+  }
+  .comparison-badge--left {
+    left: 2.5rem;
+    color: #94a3b8;
+    border: 1px solid rgba(255,255,255,0.1);
+  }
+  .slider-handle {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 3rem;
+    height: 100%;
+    background: transparent;
+    pointer-events: auto;
+    cursor: ew-resize;
+    touch-action: none;
+  }
+  .slider-handle::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1px;
+    height: 100%;
+    background: rgba(34,211,238,0.5);
+    box-shadow: 0 0 15px rgba(34,211,238,0.3);
+  }
+  .slider-arrows {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: 50%;
+    background: #070d1f;
+    border: 1px solid rgba(34,211,238,0.4);
+    backdrop-filter: blur(8px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+  }
+  .slider-arrows .material-symbols-outlined {
+    font-size: 1rem;
+    color: #22d3ee;
+  }
+
+  /* ════════════════════════════
+     BENTO GRID
+  ════════════════════════════ */
+  .bento-section {
+    padding: 10rem 0;
+    background: #070d1f;
+  }
+  .bento-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 6rem;
+    gap: 2rem;
+  }
+  .bento-title {
+    font-size: clamp(3rem, 6vw, 5rem);
+    font-weight: 700;
+    letter-spacing: -0.05em;
+    line-height: 0.9;
+    color: #f8fafc;
+  }
+  .bento-desc {
+    max-width: 18rem;
+    font-family: 'Manrope', sans-serif;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: #94a3b8;
+    font-weight: 300;
+    line-height: 1.6;
+    border-left: 1px solid #1e293b;
+    padding-left: 2rem;
+  }
+  .bento-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 1.5rem;
+  }
+  .bento-card {
+    position: relative;
+    background: rgba(15,23,42,0.6);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(51,65,85,0.5);
+    border-radius: 1.5rem;
+    padding: 3rem;
+    height: 500px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .bento-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at top right, rgba(34,211,238,0.08), transparent 70%);
+    pointer-events: none;
+  }
+  .bento-card--wide     { grid-column: span 8; }
+  .bento-card--narrow   { grid-column: span 4; }
+  .bento-card--med      { grid-column: span 5; }
+  .bento-card--med-wide { grid-column: span 7; }
+  .bento-bg {
+    position: absolute !important;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.1;
+    transition: transform 1s ease;
+    pointer-events: none;
+  }
+  .bento-card:hover .bento-bg { transform: scale(1.05); }
+  .bento-copy {
+    position: relative;
+    z-index: 1;
+  }
+  .bento-kicker {
+    display: block;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: #22d3ee;
+    margin-bottom: 1rem;
+  }
+  .bento-card-title {
+    font-size: 2.25rem;
+    font-weight: 700;
+    letter-spacing: -0.04em;
+    color: #f8fafc;
+    margin-bottom: 1.5rem;
+  }
+  .bento-card-body {
+    color: #94a3b8;
+    font-size: 1.05rem;
+    font-weight: 300;
+    line-height: 1.6;
+    font-family: 'Manrope', sans-serif;
+    max-width: 28rem;
+  }
+  .bento-icon {
+    position: relative;
+    z-index: 1;
+    font-size: 3rem;
+    color: rgba(34,211,238,0.5);
+  }
+  .bento-footer {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .bento-cta {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.62rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: #94a3b8;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: color 200ms;
+  }
+  .bento-card:hover .bento-cta { color: #22d3ee; }
+  .bento-cta .material-symbols-outlined { font-size: 0.85rem; }
+
+  /* ════════════════════════════
+     PRICING
+  ════════════════════════════ */
+  .pricing-section {
+    padding: 10rem 0;
+    background: #0c1324;
+  }
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .pricing-card {
+    border: 1px solid rgba(51,65,85,0.3);
+    padding: 3rem;
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    transition: border-color 300ms;
+  }
+  .pricing-card:hover { border-color: rgba(34,211,238,0.2); }
+  .pricing-card--featured {
+    border-color: rgba(34,211,238,0.4);
+    background: rgba(7,13,31,0.3);
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 20px 60px -15px rgba(34,211,238,0.15);
+  }
+  .pricing-badge {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0.5rem 1.5rem;
+    background: #22d3ee;
+    color: #003642;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+  .pricing-tier {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: #94a3b8;
+    margin-bottom: 2.5rem;
+  }
+  .pricing-tier--featured { color: #22d3ee; }
+  .pricing-price {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #f8fafc;
+    margin-bottom: 2.5rem;
+  }
+  .pricing-price--custom { font-size: 3rem; }
+  .pricing-period {
+    font-size: 0.85rem;
+    font-weight: 400;
+    color: #94a3b8;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-left: 0.5rem;
+  }
+  .pricing-features {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 4rem;
+    flex-grow: 1;
+  }
+  .pricing-feature {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-family: 'Manrope', sans-serif;
+    font-size: 0.88rem;
+    font-weight: 300;
+    color: #94a3b8;
+  }
+  .pricing-feature--off {
+    text-decoration: line-through;
+    color: #334155;
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+  }
+  .feature-dot {
+    width: 0.25rem;
+    height: 0.25rem;
+    background: #22d3ee;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .btn-tier-outline {
+    width: 100%;
+    border: 1px solid #334155;
+    color: #f8fafc;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 1rem;
+    border-radius: 9999px;
+    background: transparent;
+    transition: background 200ms;
+  }
+  .btn-tier-outline:hover { background: rgba(255,255,255,0.05); }
+  .btn-tier-cyan {
+    width: 100%;
+    background: #22d3ee;
+    color: #003642;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 1rem;
+    border-radius: 9999px;
+    box-shadow: 0 10px 30px rgba(34,211,238,0.2);
+    transition: filter 200ms;
+  }
+  .btn-tier-cyan:hover { filter: brightness(1.1); }
+
+  /* ════════════════════════════
+     CTA
+  ════════════════════════════ */
+  .cta-section {
+    padding: 8rem 0;
+    background: #070d1f;
+    overflow: hidden;
+    position: relative;
+  }
+  .cta-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 800px;
+    height: 800px;
+    background: rgba(34,211,238,0.04);
+    border-radius: 50%;
+    filter: blur(160px);
+    pointer-events: none;
+  }
+  .cta-header {
+    max-width: 42rem;
+    margin: 0 auto 3rem;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+  .cta-kicker {
+    margin-bottom: 0.75rem;
+    color: #67e8f9;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+  }
+  .cta-title {
+    font-size: clamp(1.9rem, 4vw, 2.8rem);
+    font-weight: 700;
+    letter-spacing: -0.04em;
+    line-height: 1.1;
+    color: #f8fafc;
+    margin: 0;
+  }
+  .contact-form-card {
+    position: relative;
+    z-index: 1;
+    max-width: 44rem;
+    margin: 0 auto;
+    padding: 2.5rem;
+    border-radius: 1.5rem;
+    background: rgba(7,13,31,0.84);
+    border: 1px solid rgba(148,163,184,0.14);
+    box-shadow: 0 28px 70px rgba(0,0,0,0.32);
+  }
+  .contact-form-v2 {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+  .contact-grid {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+  }
+  .contact-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+  }
+  .contact-field span {
+    color: #dbeafe;
+    font-size: 0.76rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+  .contact-field input,
+  .contact-field select,
+  .contact-field textarea {
+    width: 100%;
+    border: 1px solid rgba(148,163,184,0.2);
+    border-radius: 1rem;
+    background: rgba(15,23,42,0.72);
+    color: #f8fafc;
+    padding: 0.95rem 1rem;
+    font: inherit;
+    line-height: 1.5;
+    transition: border-color 180ms ease, box-shadow 180ms ease, background 180ms ease;
+  }
+  .contact-field input::placeholder,
+  .contact-field textarea::placeholder {
+    color: #64748b;
+  }
+  .contact-field input:focus,
+  .contact-field select:focus,
+  .contact-field textarea:focus {
+    outline: none;
+    border-color: rgba(34,211,238,0.8);
+    box-shadow: 0 0 0 4px rgba(34,211,238,0.12);
+    background: rgba(15,23,42,0.9);
+  }
+  .contact-field textarea {
+    min-height: 10rem;
+    resize: vertical;
+  }
+  .contact-field-full {
+    grid-column: 1 / -1;
+  }
+  .contact-honeypot {
+    position: absolute;
+    left: -9999px;
+    opacity: 0;
+    pointer-events: none;
+  }
+  .contact-actions-v2 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+  .btn-cyan-xl {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #22d3ee;
+    color: #003642;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    font-size: 0.8rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    padding: 1.5rem 4rem;
+    border-radius: 9999px;
+    box-shadow: 0 20px 60px rgba(34,211,238,0.4);
+    transition: transform 200ms, filter 200ms;
+  }
+  .btn-cyan-xl:hover { transform: scale(1.04); filter: brightness(1.06); }
+  .contact-submit-v2[disabled] {
+    opacity: 0.7;
+    cursor: wait;
+  }
+  .contact-privacy-v2 {
+    max-width: 21rem;
+    color: #94a3b8;
+    font-size: 0.86rem;
+    line-height: 1.6;
+  }
+  .contact-status-v2 {
+    min-height: 1.4rem;
+    color: #cbd5e1;
+    font-size: 0.92rem;
+    line-height: 1.6;
+  }
+  .contact-status-v2[data-state='success'] { color: #67e8f9; }
+  .contact-status-v2[data-state='error'] { color: #fca5a5; }
+
+  /* ════════════════════════════
+     FOOTER
+  ════════════════════════════ */
+  .footer-v2 {
+    background: #070d1f;
+    border-top: 1px solid rgba(30,41,59,0.4);
+    padding: 2.5rem 0;
+  }
+  .footer-inner {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+  }
+  .footer-brand {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #334155;
+    transition: color 200ms;
+  }
+  .footer-brand:hover { color: #64748b; }
+  .footer-copy {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.62rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #334155;
+  }
+
+  /* ════════════════════════════
+     RESPONSIVE
+  ════════════════════════════ */
+  @media (max-width: 1024px) {
+    .tech-grid { grid-template-columns: 1fr; gap: 4rem; }
+    .tech-images { display: none; }
+    .bento-card--wide, .bento-card--narrow,
+    .bento-card--med, .bento-card--med-wide { grid-column: span 12; }
+    .pricing-grid { grid-template-columns: 1fr; max-width: 480px; }
+    .hero-coords { display: none; }
+    .contact-shell { grid-template-columns: 1fr; }
+    .cta-inner,
+    .contact-form-card { padding: 1.5rem; }
+  }
+
+  /* ── Mobile navbar elements (hidden on desktop) ── */
+  .navbar-mobile-actions { display: none; }
+  .mobile-menu {
+    display: none;
+    flex-direction: column;
+    gap: 0.25rem;
+    padding: 1rem 1.5rem 1.5rem;
+    border-top: 1px solid rgba(34,211,238,0.08);
+    background: rgba(12, 19, 36, 0.98);
+  }
+  .mobile-menu[aria-hidden='false'] { display: flex; }
+  .mobile-nav-link {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #94a3b8;
+    padding: 0.9rem 0.5rem;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+    transition: color 200ms;
+  }
+  .mobile-nav-link:last-of-type { border-bottom: none; }
+  .mobile-nav-link:hover { color: #a5f3fc; }
+  .mobile-nav-link[aria-current='location'] { color: #22d3ee; }
+  .mobile-divider {
+    height: 1px;
+    background: rgba(255,255,255,0.06);
+    margin: 0.75rem 0;
+  }
+  .burger-btn {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 2.4rem;
+    height: 2.4rem;
+    padding: 0.5rem;
+    border: 1px solid rgba(148,163,184,0.25);
+    border-radius: 0.5rem;
+    background: rgba(255,255,255,0.04);
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: border-color 200ms;
+  }
+  .burger-btn:hover { border-color: rgba(34,211,238,0.4); }
+  .burger-bar {
+    display: block;
+    width: 100%;
+    height: 1.5px;
+    background: #94a3b8;
+    border-radius: 9999px;
+    transition: transform 250ms ease, opacity 250ms ease;
+    transform-origin: center;
+  }
+  .burger-btn[aria-expanded='true'] .burger-bar:nth-child(1) {
+    transform: translateY(6.5px) rotate(45deg);
+  }
+  .burger-btn[aria-expanded='true'] .burger-bar:nth-child(2) {
+    opacity: 0;
+  }
+  .burger-btn[aria-expanded='true'] .burger-bar:nth-child(3) {
+    transform: translateY(-6.5px) rotate(-45deg);
+  }
+
+  @media (max-width: 768px) {
+    .container { padding: 0 1.5rem; }
+    .navbar-inner { padding: 1rem 1.5rem; }
+    .navbar-links { display: none; }
+    .navbar-actions { display: none; }
+    .navbar-mobile-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .footer-inner { flex-direction: column; align-items: center; text-align: center; }
+    .bento-header { flex-direction: column; align-items: flex-start; }
+    .bento-desc { border-left: none; padding-left: 0; border-top: 1px solid #1e293b; padding-top: 1.5rem; }
+    .contact-grid { grid-template-columns: 1fr; }
+    .contact-actions-v2 { flex-direction: column; align-items: stretch; }
+    .contact-privacy-v2 { max-width: none; }
+    .btn-cyan-xl {
+      display: block;
+      width: 100%;
+      padding: 1.1rem 1.5rem;
+      font-size: 0.72rem;
+      letter-spacing: 0.15em;
+      text-align: center;
+    }
+  }
+</style>
+
+<script>
+  if (typeof window !== 'undefined') {
+    window.addEventListener('DOMContentLoaded', () => {
+      const navbar = document.getElementById('navbar');
+      const navLinks = Array.from(document.querySelectorAll<HTMLAnchorElement>('[data-nav-target]'));
+      const sections = Array.from(document.querySelectorAll<HTMLElement>('section[id]'));
+      if (!navLinks.length || !sections.length) return;
+
+      const setActive = (id: string) => {
+        navLinks.forEach((link) => {
+          if (link.dataset.navTarget === id) {
+            link.setAttribute('aria-current', 'location');
+          } else {
+            link.removeAttribute('aria-current');
+          }
+        });
+      };
+
+      const getSectionFromHash = () => {
+        const hash = window.location.hash.replace('#', '');
+        return sections.some((section) => section.id === hash) ? hash : '';
+      };
+
+      const scrollToSectionAnchor = (id: string, behavior: ScrollBehavior) => {
+        const section = sections.find((item) => item.id === id);
+        if (!section) return;
+        const anchor = section.querySelector<HTMLElement>('[data-scroll-anchor]') ?? section;
+        const navbarHeight = navbar?.offsetHeight ?? 0;
+        const top = anchor.getBoundingClientRect().top + window.scrollY - navbarHeight - 24;
+        window.scrollTo({ top: Math.max(0, top), behavior });
+      };
+
+      const syncFromViewport = () => {
+        const fromHash = getSectionFromHash();
+        if (fromHash) {
+          setActive(fromHash);
+          return;
+        }
+
+        const offset = 160;
+        let current = sections[0]?.id ?? '';
+        sections.forEach((section) => {
+          if (section.offsetTop - offset <= window.scrollY) {
+            current = section.id;
+          }
+        });
+        if (current) setActive(current);
+      };
+
+      navLinks.forEach((link) => {
+        link.addEventListener('click', (event) => {
+          const id = link.dataset.navTarget;
+          if (!id) return;
+          event.preventDefault();
+          history.pushState(null, '', `#${id}`);
+          setActive(id);
+          scrollToSectionAnchor(id, 'smooth');
+        });
+      });
+
+      window.addEventListener('hashchange', () => {
+        const id = getSectionFromHash();
+        if (id) {
+          setActive(id);
+          scrollToSectionAnchor(id, 'auto');
+        } else {
+          syncFromViewport();
+        }
+      });
+      window.addEventListener('scroll', syncFromViewport, { passive: true });
+
+      const initialHash = getSectionFromHash();
+      if (initialHash) {
+        setActive(initialHash);
+        window.requestAnimationFrame(() => scrollToSectionAnchor(initialHash, 'auto'));
+      } else {
+        syncFromViewport();
+      }
+    });
+  }
+</script>
+
+<script>
+  if (typeof window !== 'undefined') {
+    window.addEventListener('DOMContentLoaded', () => {
+      const form = document.querySelector<HTMLFormElement>('#contact-form-v2');
+      const status = document.querySelector<HTMLElement>('#contact-status-v2');
+      const submit = form?.querySelector<HTMLButtonElement>('button[type="submit"]');
+      const requestType = document.getElementById('contact-request-type') as HTMLSelectElement | null;
+      const sourceField = document.getElementById('contact-source-cta') as HTMLInputElement | null;
+      const triggers = document.querySelectorAll<HTMLElement>('[data-contact-intent]');
+      if (!form || !requestType || !sourceField) return;
+
+      const endpoint = form.dataset.endpoint ?? '';
+      const fallbackEmail = form.dataset.fallbackEmail ?? 'contact@satscale.ai';
+      const fallbackNotice = form.dataset.fallbackNotice ?? '';
+      const successMessage = form.dataset.successMessage ?? '';
+      const errorMessage = form.dataset.errorMessage ?? '';
+      const busyLabel = form.dataset.busyLabel ?? submit?.textContent ?? '';
+      const subjectPrefix = form.dataset.subjectPrefix ?? 'SatScale';
+      const originalSubmit = submit?.textContent ?? '';
+
+      const setStatus = (message: string, state: 'idle' | 'success' | 'error') => {
+        if (!status) return;
+        status.textContent = message;
+        status.dataset.state = state;
+      };
+
+      const applyIntent = (intent: string, source: string) => {
+        requestType.value = intent;
+        sourceField.value = source;
+      };
+
+      applyIntent('demo', sourceField.value);
+
+      triggers.forEach((trigger) => {
+        trigger.addEventListener('click', () => {
+          const intent = trigger.dataset.contactIntent ?? 'info';
+          const source = trigger.textContent?.trim() || sourceField.value;
+          applyIntent(intent, source);
+        });
+      });
+
+      form.addEventListener('submit', (event) => {
+        event.preventDefault();
+        setStatus('', 'idle');
+
+        if (!form.reportValidity()) return;
+
+        const data = new FormData(form);
+        if ((data.get('company_website') ?? '').toString().trim()) return;
+
+        const fallbackToMail = () => {
+          const fields = [
+            ['Name', (data.get('name') ?? '').toString()],
+            ['Email', (data.get('email') ?? '').toString()],
+            ['Organization', (data.get('org') ?? '').toString()],
+            ['Request', (data.get('request_type') ?? '').toString()],
+            ['Preferred date', (data.get('preferred_date') ?? '').toString()],
+            ['Preferred time window', (data.get('schedule_window') ?? '').toString()],
+            ['Source', (data.get('source_cta') ?? '').toString()],
+            ['Message', (data.get('message') ?? '').toString()]
+          ];
+          const request = (data.get('request_type') ?? '').toString() || 'contact';
+          const subject = encodeURIComponent(`${subjectPrefix} - ${request}`);
+          const body = encodeURIComponent(fields.map(([label, value]) => `${label}: ${value}`).join('\n'));
+          setStatus(fallbackNotice, 'idle');
+          window.location.href = `mailto:${fallbackEmail}?subject=${subject}&body=${body}`;
+        };
+
+        const submitRequest = async () => {
+          submit?.setAttribute('disabled', 'true');
+          if (submit) submit.textContent = busyLabel;
+
+          try {
+            if (!endpoint) {
+              fallbackToMail();
+              return;
+            }
+
+            const response = await fetch(endpoint, {
+              method: 'POST',
+              body: data,
+              headers: {
+                Accept: 'application/json'
+              }
+            });
+
+            if (!response.ok) throw new Error(`Request failed with ${response.status}`);
+
+            form.reset();
+            applyIntent('demo', 'Conversion');
+            setStatus(successMessage, 'success');
+          } catch (error) {
+            console.error(error);
+            setStatus(errorMessage, 'error');
+          } finally {
+            submit?.removeAttribute('disabled');
+            if (submit) submit.textContent = originalSubmit;
+          }
+        };
+
+        submitRequest();
+      });
+    });
+  }
+</script>
+
+<script>
+  if (typeof window !== 'undefined') {
+    window.addEventListener('DOMContentLoaded', () => {
+      const burger = document.getElementById('burger-btn') as HTMLButtonElement | null;
+      const menu   = document.getElementById('mobile-menu') as HTMLElement | null;
+      if (!burger || !menu) return;
+
+      const close = () => {
+        burger.setAttribute('aria-expanded', 'false');
+        menu.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+      };
+
+      burger.addEventListener('click', () => {
+        const open = burger.getAttribute('aria-expanded') === 'true';
+        if (open) {
+          close();
+        } else {
+          burger.setAttribute('aria-expanded', 'true');
+          menu.setAttribute('aria-hidden', 'false');
+          document.body.style.overflow = 'hidden';
+        }
+      });
+
+      // Cerrar al hacer click en un link del menú
+      menu.querySelectorAll('a').forEach((link) => {
+        link.addEventListener('click', close);
+      });
+
+      // Cerrar si se expande la pantalla
+      window.matchMedia('(min-width: 769px)').addEventListener('change', (e) => {
+        if (e.matches) close();
+      });
+    });
+  }
+</script>
+
+<script>
+  // Comparison slider interaction
+  if (typeof window !== 'undefined') {
+    window.addEventListener('DOMContentLoaded', () => {
+      const widget = document.getElementById('comparison-widget') as HTMLElement | null;
+      const front = document.getElementById('comparison-front') as HTMLElement | null;
+      const handle = document.getElementById('slider-handle') as HTMLElement | null;
+      if (!widget || !front || !handle) return;
+
+      let dragging = false;
+      let pointerId: number | null = null;
+
+      const setPosition = (x: number) => {
+        const rect = widget.getBoundingClientRect();
+        let pct = ((x - rect.left) / rect.width) * 100;
+        pct = Math.max(5, Math.min(95, pct));
+        front.style.width = pct + '%';
+        handle.style.left = pct + '%';
+      };
+
+      const stopDragging = () => {
+        dragging = false;
+        pointerId = null;
+        widget.classList.remove('is-dragging');
+      };
+
+      handle.addEventListener('pointerdown', (event) => {
+        dragging = true;
+        pointerId = event.pointerId;
+        widget.classList.add('is-dragging');
+        handle.setPointerCapture(event.pointerId);
+        setPosition(event.clientX);
+      });
+
+      handle.addEventListener('pointermove', (event) => {
+        if (!dragging || pointerId !== event.pointerId) return;
+        setPosition(event.clientX);
+      });
+
+      handle.addEventListener('pointerup', stopDragging);
+      handle.addEventListener('pointercancel', stopDragging);
+      window.addEventListener('pointerup', stopDragging);
+    });
+  }
+</script>

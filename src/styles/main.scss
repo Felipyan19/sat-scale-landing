@@ -108,7 +108,7 @@ main {
 .hero-cta-primary {
   background: linear-gradient(135deg, $accent-primary 0%, $accent-strong 100%);
   border-color: transparent;
-  color: #25150d;
+  color: #071828;
 }
 
 .hero-cta-secondary {
@@ -218,7 +218,6 @@ main {
 .step-card p,
 .trust-card p,
 .trust-note,
-.contact-helper,
 .contact-privacy,
 .contact-status {
   color: $text-secondary;
@@ -292,8 +291,8 @@ main {
 
   &.after {
     background:
-      radial-gradient(circle at top left, rgba(255, 209, 102, 0.18), transparent 44%),
-      linear-gradient(135deg, rgba(124, 231, 211, 0.28) 0%, rgba(40, 69, 80, 0.9) 100%);
+      radial-gradient(circle at top left, rgba(74, 158, 255, 0.2), transparent 44%),
+      linear-gradient(135deg, rgba(124, 231, 211, 0.22) 0%, rgba(30, 52, 80, 0.9) 100%);
     color: #fef8ee;
   }
 }
@@ -324,11 +323,6 @@ main {
   display: flex;
   flex-direction: column;
   gap: 1.25rem;
-}
-
-.contact-helper {
-  margin-bottom: 1.25rem;
-  color: $text-muted;
 }
 
 .fields-grid {
@@ -403,7 +397,7 @@ main {
   border: none;
   border-radius: 999px;
   background: linear-gradient(135deg, $accent-primary 0%, $accent-strong 100%);
-  color: #23140d;
+  color: #071828;
   font-size: 0.98rem;
   font-weight: 800;
   cursor: pointer;
@@ -433,7 +427,7 @@ main {
   }
 
   &[data-state='error'] {
-    color: $accent-primary;
+    color: #ff7070;
   }
 }
 

@@ -29,6 +29,15 @@
       ],
       "visualLabel": "Vista previa estilizada de una cuadrilla satelital"
     },
+    "hero_v2": {
+      "eyebrow": "Superresolucion satelital para equipos geoespaciales",
+      "titleLine1": "Imagenes satelitales,",
+      "titleAccent": "reescritas.",
+      "subtitle": "Transforma escenas de baja y media resolucion en inteligencia de alta fidelidad para revision tecnica, evaluacion privada y decisiones geoespaciales con mas detalle.",
+      "primaryCta": "Solicitar evaluacion",
+      "secondaryCta": "Ver resultados",
+      "instrument": "SATSCALE-V3"
+    },
     "how": {
       "sectionTitle": "Como funciona",
       "intro": "Un flujo corto para validar el modelo con escenas reales antes de integrarlo a una operacion mas amplia.",
@@ -79,6 +88,123 @@
         }
       ]
     },
+    "verticals_v2": {
+      "sectionTitle": "Verticales",
+      "sectionTitleAccent": "Estrategicos",
+      "subtitle": "Instrumentos de precision para inteligencia soberana y monitoreo global.",
+      "items": [
+        {
+          "kicker": "Resiliencia Civica",
+          "title": "Planificacion Urbana",
+          "body": "Aclara calles, bloques y trazas para revisar expansion urbana, desgaste de infraestructura y lectura operacional de cambios en superficie.",
+          "icon": "location_city",
+          "cta": "Protocolo 01"
+        },
+        {
+          "kicker": "Operaciones Agro",
+          "title": "Agro-Tech",
+          "body": "Mejora patrones de parcelacion y continuidad visual para monitoreo de cultivos, estimacion de cobertura y validacion rapida por lote.",
+          "icon": "potted_plant"
+        },
+        {
+          "kicker": "Auditoria Ambiental",
+          "title": "Ecosistemas",
+          "body": "Eleva la lectura de bordes costeros, masas forestales y zonas sensibles para seguimiento temporal y evaluacion territorial.",
+          "icon": "eco"
+        },
+        {
+          "kicker": "Inteligencia Logistica",
+          "title": "Sistemas de Suministro",
+          "body": "Aporta mas claridad sobre puertos, patios y nodos de intercambio para monitoreo de cadenas de suministro con contexto espacial.",
+          "icon": "package_2"
+        }
+      ]
+    },
+    "pricing_v2": {
+      "sectionTitle": "Paquetes por imagen procesada",
+      "subtitle": "Compra lotes de imagenes procesadas segun el volumen real de tu equipo, sin obligarte a una suscripcion mensual.",
+      "recommended": "Mas elegido",
+      "tiers": [
+        {
+          "name": "Starter Pack",
+          "price": "$290",
+          "period": "/paquete",
+          "features": [
+            {
+              "label": "25 imagenes procesadas",
+              "included": true
+            },
+            {
+              "label": "Comparativa antes y despues",
+              "included": true
+            },
+            {
+              "label": "Entrega lista para revision",
+              "included": true
+            },
+            {
+              "label": "Alineacion tecnica inicial",
+              "included": false
+            }
+          ]
+        },
+        {
+          "name": "Scale Pack",
+          "price": "$790",
+          "period": "/paquete",
+          "featured": true,
+          "features": [
+            {
+              "label": "100 imagenes procesadas",
+              "included": true
+            },
+            {
+              "label": "Prioridad operativa en cola",
+              "included": true
+            },
+            {
+              "label": "Validacion privada con escenas propias",
+              "included": true
+            },
+            {
+              "label": "Exportes por lote",
+              "included": true
+            }
+          ]
+        },
+        {
+          "name": "Enterprise Volume",
+          "price": "A medida",
+          "features": [
+            {
+              "label": "500+ imagenes por lote",
+              "included": true
+            },
+            {
+              "label": "SLA y prioridad dedicada",
+              "included": true
+            },
+            {
+              "label": "Integracion o flujo a medida",
+              "included": true
+            },
+            {
+              "label": "Soporte 24/7",
+              "included": true
+            }
+          ]
+        }
+      ],
+      "ctaStandard": "Pedir paquete",
+      "ctaAdvanced": "Solicitar paquete",
+      "ctaSovereign": "Hablar con ventas"
+    },
+    "cta_v2": {
+      "title": "Listo para ver",
+      "titleAccent": "con claridad?",
+      "body": "Unete a los equipos de analisis geoespacial que utilizan el motor SatScale Zenith para validar escenas complejas con mas fidelidad.",
+      "cta": "Solicitar demo de acceso"
+    },
     "trust": {
       "sectionTitle": "Pensado para una evaluacion seria",
       "intro": "La landing ya no vende solo una promesa visual. Explica como validar el producto con un equipo geoespacial real y que esperar del proceso.",
@@ -110,8 +236,6 @@
       "orgPlaceholder": "Nombre de la organizacion",
       "messagePlaceholder": "Ejemplo: escenas urbanas 4x, compatibilidad con nuestro flujo GIS y tiempos de evaluacion.",
       "submit": "Enviar solicitud",
-      "helperEndpoint": "El formulario enviara tu solicitud sin salir del sitio.",
-      "helperFallback": "No hay endpoint configurado todavia. Al enviar abriremos tu cliente de correo con la informacion prellenada.",
       "privacyNote": "Incluye solo la informacion necesaria para coordinar una evaluacion tecnica inicial.",
       "success": "Solicitud enviada. Revisaremos la informacion y volveremos contigo.",
       "error": "No pudimos enviar el formulario. Intenta de nuevo o escribe a contact@satscale.ai.",
@@ -148,6 +272,15 @@
         "Private review using your team's scenes"
       ],
       "visualLabel": "Stylized preview of a satellite grid"
+    },
+    "hero_v2": {
+      "eyebrow": "Satellite super-resolution for geospatial teams",
+      "titleLine1": "Satellite imagery,",
+      "titleAccent": "rewritten.",
+      "subtitle": "Turn low and medium resolution scenes into high-fidelity intelligence for technical review, private evaluation, and downstream GIS decisions.",
+      "primaryCta": "Request evaluation",
+      "secondaryCta": "See results",
+      "instrument": "SATSCALE-V3"
     },
     "how": {
       "sectionTitle": "How it works",
@@ -199,6 +332,123 @@
         }
       ]
     },
+    "verticals_v2": {
+      "sectionTitle": "Strategic",
+      "sectionTitleAccent": "Verticals",
+      "subtitle": "Precision instruments for sovereign intelligence and global monitoring.",
+      "items": [
+        {
+          "kicker": "Civic Resilience",
+          "title": "Urban Planning",
+          "body": "Clarify streets, blocks, and urban traces for expansion review, infrastructure monitoring, and higher-confidence surface interpretation.",
+          "icon": "location_city",
+          "cta": "Protocol 01"
+        },
+        {
+          "kicker": "Agri Operations",
+          "title": "Agri-Tech",
+          "body": "Improve field patterns and parcel continuity for crop monitoring, coverage estimation, and rapid lot-level validation.",
+          "icon": "potted_plant"
+        },
+        {
+          "kicker": "Environmental Audit",
+          "title": "Ecosystems",
+          "body": "Increase clarity around coastlines, forest masses, and sensitive terrain for temporal monitoring and territorial assessment.",
+          "icon": "eco"
+        },
+        {
+          "kicker": "Logistics Intelligence",
+          "title": "Supply Systems",
+          "body": "Add visibility over ports, yards, and transfer nodes for supply-chain monitoring with stronger spatial context.",
+          "icon": "package_2"
+        }
+      ]
+    },
+    "pricing_v2": {
+      "sectionTitle": "Packages by processed image",
+      "subtitle": "Buy processing capacity in image bundles based on your actual volume, without forcing a monthly subscription.",
+      "recommended": "Recommended",
+      "tiers": [
+        {
+          "name": "Starter Pack",
+          "price": "$290",
+          "period": "/pack",
+          "features": [
+            {
+              "label": "25 processed images",
+              "included": true
+            },
+            {
+              "label": "Before and after comparison",
+              "included": true
+            },
+            {
+              "label": "Delivery ready for review",
+              "included": true
+            },
+            {
+              "label": "Initial technical alignment",
+              "included": false
+            }
+          ]
+        },
+        {
+          "name": "Scale Pack",
+          "price": "$790",
+          "period": "/pack",
+          "featured": true,
+          "features": [
+            {
+              "label": "100 processed images",
+              "included": true
+            },
+            {
+              "label": "Priority queue handling",
+              "included": true
+            },
+            {
+              "label": "Private validation on your own scenes",
+              "included": true
+            },
+            {
+              "label": "Batch exports",
+              "included": true
+            }
+          ]
+        },
+        {
+          "name": "Enterprise Volume",
+          "price": "Custom",
+          "features": [
+            {
+              "label": "500+ images per batch",
+              "included": true
+            },
+            {
+              "label": "Dedicated SLA and priority",
+              "included": true
+            },
+            {
+              "label": "Custom workflow or integration",
+              "included": true
+            },
+            {
+              "label": "24/7 support",
+              "included": true
+            }
+          ]
+        }
+      ],
+      "ctaStandard": "Request pack",
+      "ctaAdvanced": "Request package",
+      "ctaSovereign": "Talk to sales"
+    },
+    "cta_v2": {
+      "title": "Ready to see",
+      "titleAccent": "clearly?",
+      "body": "Join the geospatial analysis teams using the SatScale Zenith engine to evaluate complex scenes with more fidelity.",
+      "cta": "Request access demo"
+    },
     "trust": {
       "sectionTitle": "Built for a serious evaluation",
       "intro": "The page now explains how to validate the product with a real geospatial team instead of selling only a visual promise.",
@@ -230,8 +480,6 @@
       "orgPlaceholder": "Organization name",
       "messagePlaceholder": "Example: urban scenes at 4x, compatibility with our GIS workflow, and evaluation timeline.",
       "submit": "Send request",
-      "helperEndpoint": "The form will send your request without leaving the site.",
-      "helperFallback": "No endpoint is configured yet. On submit we will open your email client with the details prefilled.",
       "privacyNote": "Share only the information needed to coordinate an initial technical evaluation.",
       "success": "Request sent. We will review the details and follow up.",
       "error": "We could not send the form. Please try again or write to contact@satscale.ai.",

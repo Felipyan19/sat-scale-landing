@@ -1,21 +1,52 @@
 ---
 export interface Props {
-  title?: string;
-  description?: string;
+  title: string;
+  description: string;
+  lang: string;
+  path?: string;
+  alternateLinks?: { lang: string; path: string }[];
 }
 
 const {
-  title = 'SatScale | Neural Super-Resolution Engine',
-  description = 'Transform low-resolution satellite feeds into high-fidelity actionable intelligence using our proprietary Neural-Optical upscaling engine.'
+  title,
+  description,
+  lang,
+  path = '/v2/',
+  alternateLinks = []
 } = Astro.props;
+
+const canonical = new URL(path, Astro.site ?? 'https://satscale.ai').toString();
 ---
 
 <!doctype html>
-<html class="dark" lang="en">
+<html class="dark" lang={lang}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="generator" content={Astro.generator} />
     <meta name="description" content={description} />
+    <meta name="robots" content="index,follow,max-image-preview:large" />
+    <meta name="theme-color" content="#070d1f" />
+    <link rel="canonical" href={canonical} />
+    {alternateLinks.map((link) => (
+      <link
+        rel="alternate"
+        hreflang={link.lang}
+        href={new URL(link.path, Astro.site ?? 'https://satscale.ai').toString()}
+      />
+    ))}
+    <link rel="alternate" hreflang="x-default" href={new URL('/v2/', Astro.site ?? 'https://satscale.ai').toString()} />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="SatScale" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:locale" content={lang === 'en' ? 'en_US' : 'es_ES'} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
     <title>{title}</title>
     <link
       href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Manrope:wght@300;400;500;600;700&display=swap"
