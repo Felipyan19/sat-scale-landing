@@ -31,9 +31,9 @@
     },
     "hero_v2": {
       "eyebrow": "IA para reescalar imagen satelital",
-      "titleLine1": "Tus imagenes satelitales,",
+      "titleLine1": "Imagenes satelitales,",
       "titleAccent": "reescaladas.",
-      "subtitle": "Nos envias escenas de baja o media resolucion, las procesamos con nuestro modelo y te devolvemos un paquete reescalado con mas detalle para revision tecnica, comparacion visual y entregables.",
+      "subtitle": "El acceso a imagenes satelitales se caracteriza por altos costos para escalas inferiores a 10 metros por pixel o por alternativas gratuitas de baja resolucion.",
       "primaryCta": "Pedir demo",
       "secondaryCta": "Ver comparativa",
       "instrument": "SATSCALE-V3"
@@ -275,9 +275,9 @@
     },
     "hero_v2": {
       "eyebrow": "AI for satellite image upscaling",
-      "titleLine1": "Your satellite imagery,",
+      "titleLine1": "Satellite imagery,",
       "titleAccent": "upscaled.",
-      "subtitle": "You send low or medium resolution scenes, we process them with our model, and we return a re-scaled package with more detail for technical review, visual comparison, and deliverables.",
+      "subtitle": "Access to satellite imagery is characterized by high costs for resolutions below 10 meters per pixel, or free alternatives with low resolution.",
       "primaryCta": "Request demo",
       "secondaryCta": "See comparison",
       "instrument": "SATSCALE-V3"

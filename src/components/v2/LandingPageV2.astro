@@ -27,19 +27,19 @@ const copy = lang === 'en'
       },
       language: 'Language',
       tech: {
-        title: 'Send the imagery. <br />Receive the re-scaled package.',
+        title: 'Affordable solutions for <br />super-resolution satellite imagery.',
         body:
-          'The service is simple: you send the scenes, we process them with the model, and we return a clearer image package ready for review.',
+          'We offer two service modalities for accessing satellite imagery at super-resolution — 4 meters per pixel.',
         features: [
           {
             icon: 'auto_awesome',
-            title: 'You send the batch',
-            body: 'Work with GeoTIFF, PNG, or JPEG scenes and share only the imagery you want us to upscale.'
+            title: 'Process your Sentinel-2 imagery',
+            body: 'Send us your Sentinel-2 images and we upscale them to a resolution of 4 meters per pixel.'
           },
           {
             icon: 'blur_off',
-            title: 'We process and return it',
-            body: 'We run the imagery through the model and return the re-scaled package with before-and-after comparisons.'
+            title: 'Delivery by coordinates',
+            body: 'Provide the centroids of 1280 m × 1280 m square polygons and we deliver them at high resolution (4 meters per pixel).'
           }
         ]
       },
@@ -103,19 +103,19 @@ const copy = lang === 'en'
       },
       language: 'Idioma',
       tech: {
-        title: 'Envia las imagenes. <br />Recibe el paquete reescalado.',
+        title: 'Soluciones economicas para <br />imagenes satelitales en superresolucion.',
         body:
-          'El servicio es simple: nos envias las escenas, las procesamos con el modelo y te devolvemos un paquete de imagenes mas claras listo para revision.',
+          'Ofrecemos dos modalidades de acceso a imagenes satelitales en superresolucion a 4 metros por pixel.',
         features: [
           {
             icon: 'auto_awesome',
-            title: 'Tu compartes el lote',
-            body: 'Trabaja con escenas en GeoTIFF, PNG o JPEG y envia solo las imagenes que quieres reescalar.'
+            title: 'Procesa tus imagenes Sentinel-2',
+            body: 'Nos envias tus imagenes Sentinel-2 y las llevamos a una resolucion de 4 metros por pixel.'
           },
           {
             icon: 'blur_off',
-            title: 'Nosotros lo procesamos',
-            body: 'Pasamos las escenas por el modelo y devolvemos el paquete reescalado con comparativas antes y despues.'
+            title: 'Entrega por coordenadas',
+            body: 'Nos indicas las coordenadas de los centroides de poligonos cuadrados de 1280 m × 1280 m y te los entregamos en alta resolucion (4 metros por pixel).'
           }
         ]
       },
@@ -330,7 +330,7 @@ const copy = lang === 'en'
         <!-- High-res (background) -->
         <div class="comparison-layer comparison-layer--back">
           <img
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCXrwDz5Xu2-etNIpebLrLfGeLfkVwP3Eby_ADNzlqjSKWBNIERzzXkxka0Q89myfqqjQOU4wX8_WaUbPBPmSt466mL8X7-OHb4gxA5xiVN9FvqbcrxlYrMCilQy7TuqAi_IwEEK3aZV6RedYRj8MTmUaLOxp7f1gf9KK0YoEMvNWgCfG3viw6Dz1rE09wZtgdM_Stq9bJEq9WOUrzvX7-1f3SdUUx7WgeL43HbXooxu6q01USqKrrp3w_kyYyBygQ9hdk9ayMPo3Q"
+            src="/381_escl.png"
             alt={copy.alts.comparisonBack}
           />
           <div class="comparison-badge comparison-badge--right">{copy.comparison.synthetic}</div>
@@ -339,7 +339,7 @@ const copy = lang === 'en'
         <!-- Low-res (clipped overlay) -->
         <div class="comparison-layer comparison-layer--front" id="comparison-front">
           <img
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBjKZDpypUq6dI_33QD2w2b43FsTBG0sHCOwZLUWx-1laXGE62ifhI0iULywCxir_0ci0e6ljgAJPxqc2Y3_3zswg0eAbRVG3TG-sXnJP926oazYp29fLMj9Ruv6h3yvDEO42Sin0iEXZ-6H4E9LL8A-5OS3XRWcHFmvjT9jJ-Zb2_wiSpJDgzNCOCSLtWyumftcHGpmwTE-oa-CuFeA5pgnYKAN_n_J2iqAiDMs-MRepo8CFn-Am_oWFkcLCYKmlsqPheGbf0F1K4"
+            src="/381_low.png"
             alt={copy.alts.comparisonFront}
           />
           <div class="comparison-badge comparison-badge--left">{copy.comparison.raw}</div>
