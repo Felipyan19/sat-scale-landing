@@ -3,7 +3,7 @@ import PageLayoutV2 from '../../layouts/PageLayoutV2.astro';
 import type { Lang } from '../../utils/i18n';
 import { getContent } from '../../utils/i18n';
 import { buildLandingStructuredData, serializeJsonLd } from '../../utils/seo';
-import { CONTACT_EMAIL, DEFAULT_OG_IMAGE_ALT, DEFAULT_OG_IMAGE_PATH } from '../../utils/site';
+import { CONTACT_EMAIL, DEFAULT_OG_IMAGE_ALT, DEFAULT_OG_IMAGE_PATH, DEFAULT_WHATSAPP_MESSAGE_EN, DEFAULT_WHATSAPP_MESSAGE_ES } from '../../utils/site';
 
 interface Props {
   lang: Lang;
@@ -16,9 +16,7 @@ const whatsappUrl = import.meta.env.PUBLIC_WHATSAPP_URL?.trim() ?? '';
 const whatsappNumber = (import.meta.env.PUBLIC_WHATSAPP_NUMBER?.trim() ?? '').replace(/\D/g, '');
 const whatsappMessage = encodeURIComponent(
   import.meta.env.PUBLIC_WHATSAPP_MESSAGE?.trim() ??
-    (lang === 'en'
-      ? 'Hi, I want more information about SatScale.'
-      : 'Hola, quiero mas informacion sobre SatScale.')
+    (lang === 'en' ? DEFAULT_WHATSAPP_MESSAGE_EN : DEFAULT_WHATSAPP_MESSAGE_ES)
 );
 const whatsappHref = whatsappUrl || (whatsappNumber ? `https://wa.me/${whatsappNumber}?text=${whatsappMessage}` : '');
 const fallbackEmail = CONTACT_EMAIL;

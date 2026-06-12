@@ -7,7 +7,7 @@ services:
         PUBLIC_CONTACT_EMAIL: ${PUBLIC_CONTACT_EMAIL:-ignite.apps.co@gmail.com}
         PUBLIC_WHATSAPP_URL: ${PUBLIC_WHATSAPP_URL:-}
         PUBLIC_WHATSAPP_NUMBER: ${PUBLIC_WHATSAPP_NUMBER:-573107798107}
-        PUBLIC_WHATSAPP_MESSAGE: ${PUBLIC_WHATSAPP_MESSAGE:-Hola, vi la página web y estoy interesado en los servicios de Sat Scale.}
+        PUBLIC_WHATSAPP_MESSAGE: "${PUBLIC_WHATSAPP_MESSAGE:-Hola!, ví la página web y estoy interesado en los servicios de Sat Scale.}"
     ports:
       - "5050:80"
     restart: unless-stopped
