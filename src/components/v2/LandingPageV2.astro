@@ -101,7 +101,13 @@ const copy = lang === 'en'
         error: t.contact.error,
         busy: t.contact.submitBusy,
         privacy: t.contact.privacyNote,
-        subjectPrefix: 'SatScale V2'
+        mailtoSubject: 'New contact from Ignite Apps',
+        mailtoFields: [
+          ['Email', 'email'],
+          ['Name', 'name'],
+          ['Company', 'org'],
+          ['Requirement', 'message']
+        ]
       },
       alts: {
         hero: 'Aerial satellite view of a coastal city at night',
@@ -182,7 +188,13 @@ const copy = lang === 'en'
         error: t.contact.error,
         busy: t.contact.submitBusy,
         privacy: t.contact.privacyNote,
-        subjectPrefix: 'SatScale V2'
+        mailtoSubject: 'Nuevo contacto desde Ignite Apps',
+        mailtoFields: [
+          ['Correo electrónico', 'email'],
+          ['Nombres', 'name'],
+          ['Compañía', 'org'],
+          ['Requerimiento', 'message']
+        ]
       },
       alts: {
         hero: 'Vista satelital aerea de una ciudad costera en la noche',
@@ -552,7 +564,8 @@ const copy = lang === 'en'
           data-success-message={copy.form.success}
           data-error-message={copy.form.error}
           data-busy-label={copy.form.busy}
-          data-subject-prefix={copy.form.subjectPrefix}
+          data-mailto-subject={copy.form.mailtoSubject}
+          data-mailto-fields={JSON.stringify(copy.form.mailtoFields)}
         >
           <div class="contact-grid">
             <label class="contact-field">
@@ -1932,12 +1945,24 @@ const copy = lang === 'en'
       if (!form || !requestType || !sourceField) return;
 
       const endpoint = form.dataset.endpoint ?? '';
-      const fallbackEmail = form.dataset.fallbackEmail ?? 'contact@satscale.ai';
+      const fallbackEmail = form.dataset.fallbackEmail ?? 'ignite.apps.co@gmail.com';
       const fallbackNotice = form.dataset.fallbackNotice ?? '';
       const successMessage = form.dataset.successMessage ?? '';
       const errorMessage = form.dataset.errorMessage ?? '';
       const busyLabel = form.dataset.busyLabel ?? submit?.textContent ?? '';
-      const subjectPrefix = form.dataset.subjectPrefix ?? 'SatScale';
+      const mailtoSubject = form.dataset.mailtoSubject ?? 'Nuevo contacto desde Ignite Apps';
+      const mailtoFields = (() => {
+        try {
+          return JSON.parse(form.dataset.mailtoFields ?? '[]') as Array<[string, string]>;
+        } catch {
+          return [
+            ['Correo electrónico', 'email'],
+            ['Nombres', 'name'],
+            ['Compañía', 'org'],
+            ['Requerimiento', 'message']
+          ] as Array<[string, string]>;
+        }
+      })();
       const originalSubmit = submit?.textContent ?? '';
 
       const setStatus = (message: string, state: 'idle' | 'success' | 'error') => {
@@ -1971,23 +1996,17 @@ const copy = lang === 'en'
         if ((data.get('company_website') ?? '').toString().trim()) return;
 
         const fallbackToMail = () => {
-          const fields = [
-            ['Name', (data.get('name') ?? '').toString()],
-            ['Email', (data.get('email') ?? '').toString()],
-            ['Organization', (data.get('org') ?? '').toString()],
-            ['Request', (data.get('request_type') ?? '').toString()],
-            ['Preferred date', (data.get('preferred_date') ?? '').toString()],
-            ['Preferred time window', (data.get('schedule_window') ?? '').toString()],
-            ['Source', (data.get('source_cta') ?? '').toString()],
-            ['Message', (data.get('message') ?? '').toString()]
-          ];
-        const request = (data.get('request_type') ?? '').toString() || 'contact';
-        const subject = encodeURIComponent(`${subjectPrefix} - ${request}`);
-        const body = encodeURIComponent(fields.map(([label, value]) => `${label}: ${value}`).join('\n'));
-        setStatus(fallbackNotice, 'idle');
-        emitAnalyticsEvent('lead_fallback_mailto', { requestType: request });
-        window.location.href = `mailto:${fallbackEmail}?subject=${subject}&body=${body}`;
-      };
+          const request = (data.get('request_type') ?? '').toString() || 'contact';
+          const subject = encodeURIComponent(mailtoSubject);
+          const body = encodeURIComponent(
+            mailtoFields
+              .map(([label, key]) => `${label}: ${(data.get(key) ?? '').toString()}`)
+              .join('\n')
+          );
+          setStatus(fallbackNotice, 'idle');
+          emitAnalyticsEvent('lead_fallback_mailto', { requestType: request });
+          window.location.href = `mailto:${fallbackEmail}?subject=${subject}&body=${body}`;
+        };
 
         const submitRequest = async () => {
           submit?.setAttribute('disabled', 'true');

@@ -238,7 +238,7 @@
       "submit": "Enviar solicitud",
       "privacyNote": "Incluye solo la informacion necesaria para coordinar una evaluacion tecnica inicial.",
       "success": "Solicitud enviada. Revisaremos la informacion y volveremos contigo.",
-      "error": "No pudimos enviar el formulario. Intenta de nuevo o escribe a contact@satscale.ai.",
+      "error": "No pudimos enviar el formulario. Intenta de nuevo o escribe a ignite.apps.co@gmail.com.",
       "fallbackNotice": "Abriremos tu cliente de correo para completar el envio.",
       "submitBusy": "Enviando..."
     }
@@ -482,7 +482,7 @@
       "submit": "Send request",
       "privacyNote": "Share only the information needed to coordinate an initial technical evaluation.",
       "success": "Request sent. We will review the details and follow up.",
-      "error": "We could not send the form. Please try again or write to contact@satscale.ai.",
+      "error": "We could not send the form. Please try again or write to ignite.apps.co@gmail.com.",
       "fallbackNotice": "We will open your email client so you can complete the request.",
       "submitBusy": "Sending..."
     }
