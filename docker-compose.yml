@@ -1,0 +1,9 @@
+services:
+  web:
+    build:
+      context: .
+      args:
+        PUBLIC_CONTACT_FORM_ENDPOINT: ${PUBLIC_CONTACT_FORM_ENDPOINT:-}
+    ports:
+      - "5050:80"
+    restart: unless-stopped

@@ -1,0 +1,23 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:www.krumzi.com)",
+      "WebFetch(domain:ogpreview.app)",
+      "WebFetch(domain:www.everywheremarketer.com)",
+      "WebFetch(domain:www.brandbird.app)",
+      "WebFetch(domain:www.linkgraph.com)",
+      "WebFetch(domain:www.buildwithmatija.com)",
+      "WebFetch(domain:gracker.ai)",
+      "WebFetch(domain:ewm.swiss)",
+      "WebFetch(domain:seo-assassin.com)",
+      "WebFetch(domain:serpnetic.com)",
+      "WebFetch(domain:viserx.com)",
+      "WebFetch(domain:www.prem.agency)",
+      "WebFetch(domain:web.dev)",
+      "WebFetch(domain:www.debugbear.com)",
+      "WebFetch(domain:nightwatch.io)",
+      "WebFetch(domain:microformats.org)",
+      "WebFetch(domain:www.npmjs.com)"
+    ]
+  }
+}
