@@ -12,12 +12,12 @@ Landing bilingue en Astro para presentar SatScale y captar solicitudes de evalua
 ## Contacto
 
 El formulario usa `PUBLIC_CONTACT_FORM_ENDPOINT` si existe. Si no esta configurado, hace fallback a `mailto:contact@satscale.ai`.
-El boton flotante de WhatsApp solo aparece si defines `PUBLIC_WHATSAPP_NUMBER`. Puedes personalizar el texto inicial con `PUBLIC_WHATSAPP_MESSAGE`.
+El boton flotante de WhatsApp usa `PUBLIC_WHATSAPP_NUMBER` y `PUBLIC_WHATSAPP_MESSAGE`. Si no los cambias, el sitio usa el numero `573107798107` y el mensaje por defecto para Sat Scale.
 
 1. Copia `.env.example` a `.env`
 2. Define `PUBLIC_CONTACT_FORM_ENDPOINT` con tu endpoint de formulario
-3. Define `PUBLIC_WHATSAPP_NUMBER` en formato internacional, solo con codigo de pais y numero
-4. Opcional: define `PUBLIC_WHATSAPP_MESSAGE` para precargar el mensaje inicial
+3. Opcional: ajusta `PUBLIC_WHATSAPP_NUMBER` si quieres otro numero
+4. Opcional: ajusta `PUBLIC_WHATSAPP_MESSAGE` si quieres otro texto inicial
 
 ## Docker
 
