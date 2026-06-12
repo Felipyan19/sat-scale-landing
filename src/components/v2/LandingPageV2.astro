@@ -10,6 +10,14 @@ interface Props {
 const { lang } = Astro.props;
 const t = getContent(lang);
 const endpoint = import.meta.env.PUBLIC_CONTACT_FORM_ENDPOINT?.trim() ?? '';
+const whatsappNumber = (import.meta.env.PUBLIC_WHATSAPP_NUMBER?.trim() ?? '').replace(/\D/g, '');
+const whatsappMessage = encodeURIComponent(
+  import.meta.env.PUBLIC_WHATSAPP_MESSAGE?.trim() ??
+    (lang === 'en'
+      ? 'Hi, I want more information about SatScale.'
+      : 'Hola, quiero mas informacion sobre SatScale.')
+);
+const whatsappHref = whatsappNumber ? `https://wa.me/${whatsappNumber}?text=${whatsappMessage}` : '';
 const fallbackEmail = 'contact@satscale.ai';
 const path = lang === 'en' ? '/v2/en/' : '/v2/';
 const alternateLinks = [
@@ -56,6 +64,11 @@ const copy = lang === 'en'
         status: 'Results',
         contact: 'Contact',
         copy: '© 2026 SAT-SCALE AI. SATELLITE IMAGE UPSCALING.'
+      },
+      whatsapp: {
+        label: 'WhatsApp',
+        helper: 'Chat with us',
+        ariaLabel: 'Open WhatsApp chat with SatScale'
       },
       form: {
         kicker: 'Demo Request',
@@ -132,6 +145,11 @@ const copy = lang === 'en'
         status: 'Resultados',
         contact: 'Contacto',
         copy: '© 2026 SAT-SCALE AI. REESCALADO DE IMAGEN SATELITAL.'
+      },
+      whatsapp: {
+        label: 'WhatsApp',
+        helper: 'Escribenos',
+        ariaLabel: 'Abrir chat de WhatsApp con SatScale'
       },
       form: {
         kicker: 'Solicitud de demo',
@@ -581,6 +599,32 @@ const copy = lang === 'en'
   </section>
 
 </main>
+
+{whatsappHref && (
+  <a
+    class="whatsapp-float"
+    href={whatsappHref}
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label={copy.whatsapp.ariaLabel}
+  >
+    <span class="whatsapp-float__badge">{copy.whatsapp.helper}</span>
+    <span class="whatsapp-float__button">
+      <span class="whatsapp-float__pulse" aria-hidden="true"></span>
+      <svg class="whatsapp-float__icon" viewBox="0 0 32 32" aria-hidden="true">
+        <path
+          fill="currentColor"
+          d="M19.11 17.34c-.29-.15-1.73-.85-2-.95-.27-.1-.46-.15-.66.15-.19.29-.76.95-.93 1.15-.17.2-.34.22-.63.08-.29-.15-1.22-.45-2.32-1.44-.86-.77-1.44-1.72-1.61-2.02-.17-.29-.02-.45.13-.59.13-.13.29-.34.44-.51.15-.17.19-.29.29-.49.1-.2.05-.37-.02-.51-.07-.15-.66-1.59-.9-2.18-.24-.57-.49-.49-.66-.5h-.56c-.2 0-.51.07-.78.37-.27.29-1.03 1-1.03 2.44s1.05 2.83 1.2 3.03c.15.2 2.06 3.14 4.99 4.4.7.3 1.25.48 1.68.61.71.22 1.35.19 1.86.12.57-.09 1.73-.71 1.98-1.39.24-.68.24-1.27.17-1.39-.07-.12-.27-.2-.56-.34Z"
+        />
+        <path
+          fill="currentColor"
+          d="M16.01 3.2c-7.08 0-12.82 5.7-12.82 12.73 0 2.24.59 4.43 1.72 6.35L3.1 28.8l6.7-1.75a12.86 12.86 0 0 0 6.2 1.58h.01c7.07 0 12.8-5.7 12.8-12.73 0-3.4-1.34-6.6-3.78-9-2.42-2.4-5.65-3.7-9.02-3.7Zm0 23.27h-.01a10.7 10.7 0 0 1-5.46-1.5l-.39-.23-3.97 1.03 1.06-3.87-.25-.4a10.57 10.57 0 0 1-1.64-5.57c0-5.9 4.84-10.69 10.79-10.69 2.87 0 5.56 1.11 7.59 3.13a10.57 10.57 0 0 1 3.2 7.56c0 5.9-4.84 10.69-10.92 10.69Z"
+        />
+      </svg>
+      <span class="whatsapp-float__label">{copy.whatsapp.label}</span>
+    </span>
+  </a>
+)}
 
 <!-- ─── FOOTER ─── -->
 <footer class="footer-v2">
@@ -1538,6 +1582,100 @@ const copy = lang === 'en'
   /* ════════════════════════════
      RESPONSIVE
   ════════════════════════════ */
+  .whatsapp-float {
+    position: fixed;
+    right: 1.5rem;
+    bottom: 1.5rem;
+    z-index: 70;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  .whatsapp-float__badge {
+    padding: 0.7rem 1rem;
+    border: 1px solid rgba(74, 222, 128, 0.24);
+    border-radius: 9999px;
+    background: rgba(7, 13, 31, 0.88);
+    box-shadow: 0 18px 36px rgba(0, 0, 0, 0.22);
+    color: #dcfce7;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    opacity: 0.92;
+    transition: transform 200ms ease, opacity 200ms ease;
+  }
+  .whatsapp-float__button {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.7rem;
+    min-height: 4rem;
+    padding: 0.8rem 1.15rem;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 9999px;
+    background: linear-gradient(135deg, #25d366 0%, #128c4a 100%);
+    box-shadow: 0 24px 60px rgba(18, 140, 74, 0.28);
+    color: #f8fff8;
+    transition: transform 200ms ease, box-shadow 200ms ease, filter 200ms ease;
+  }
+  .whatsapp-float__pulse {
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.42);
+    animation: whatsapp-pulse 2.8s ease-out infinite;
+  }
+  .whatsapp-float__icon {
+    position: relative;
+    z-index: 1;
+    width: 1.6rem;
+    height: 1.6rem;
+    flex-shrink: 0;
+  }
+  .whatsapp-float__label {
+    position: relative;
+    z-index: 1;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.76rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+  .whatsapp-float:hover .whatsapp-float__button,
+  .whatsapp-float:focus-visible .whatsapp-float__button {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 28px 70px rgba(18, 140, 74, 0.38);
+    filter: brightness(1.04);
+  }
+  .whatsapp-float:hover .whatsapp-float__badge,
+  .whatsapp-float:focus-visible .whatsapp-float__badge {
+    transform: translateY(-2px);
+    opacity: 1;
+  }
+  .whatsapp-float:focus-visible {
+    outline: none;
+  }
+  .whatsapp-float:focus-visible .whatsapp-float__button {
+    box-shadow:
+      0 0 0 4px rgba(37, 211, 102, 0.2),
+      0 28px 70px rgba(18, 140, 74, 0.38);
+  }
+
+  @keyframes whatsapp-pulse {
+    0% {
+      box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.36);
+    }
+    70% {
+      box-shadow: 0 0 0 20px rgba(37, 211, 102, 0);
+    }
+    100% {
+      box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+    }
+  }
+
   @media (max-width: 1024px) {
     .tech-grid { grid-template-columns: 1fr; gap: 4rem; }
     .tech-images { display: none; }
@@ -1638,6 +1776,20 @@ const copy = lang === 'en'
       font-size: 0.72rem;
       letter-spacing: 0.15em;
       text-align: center;
+    }
+    .whatsapp-float {
+      right: 1rem;
+      bottom: 1rem;
+    }
+    .whatsapp-float__badge {
+      display: none;
+    }
+    .whatsapp-float__button {
+      min-height: 3.75rem;
+      padding: 0.8rem 1rem;
+    }
+    .whatsapp-float__label {
+      display: none;
     }
   }
 </style>
