@@ -4,7 +4,13 @@ FROM node:22-alpine AS builder
 WORKDIR /app
 
 COPY package*.json ./
-RUN npm ci
+RUN npm install --include=optional \
+  && arch="$(apk --print-arch)" \
+  && case "$arch" in \
+    x86_64) npm install --no-save @rollup/rollup-linux-x64-musl ;; \
+    aarch64) npm install --no-save @rollup/rollup-linux-arm64-musl ;; \
+    *) echo "Unsupported Alpine arch for Rollup native binary: $arch" && exit 1 ;; \
+  esac
 
 COPY . .
 
