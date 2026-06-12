@@ -2,6 +2,8 @@
 import PageLayoutV2 from '../../layouts/PageLayoutV2.astro';
 import type { Lang } from '../../utils/i18n';
 import { getContent } from '../../utils/i18n';
+import { buildLandingStructuredData, serializeJsonLd } from '../../utils/seo';
+import { CONTACT_EMAIL, DEFAULT_OG_IMAGE_ALT, DEFAULT_OG_IMAGE_PATH } from '../../utils/site';
 
 interface Props {
   lang: Lang;
@@ -18,12 +20,18 @@ const whatsappMessage = encodeURIComponent(
       : 'Hola, quiero mas informacion sobre SatScale.')
 );
 const whatsappHref = whatsappNumber ? `https://wa.me/${whatsappNumber}?text=${whatsappMessage}` : '';
-const fallbackEmail = 'contact@satscale.ai';
-const path = lang === 'en' ? '/v2/en/' : '/v2/';
+const fallbackEmail = CONTACT_EMAIL;
+const path = lang === 'en' ? '/en/' : '/';
 const alternateLinks = [
-  { lang: 'es', path: '/v2/' },
-  { lang: 'en', path: '/v2/en/' }
+  { lang: 'es', path: '/' },
+  { lang: 'en', path: '/en/' }
 ];
+const structuredData = buildLandingStructuredData({
+  title: t.seo.title,
+  description: t.seo.description,
+  lang,
+  path
+}).map(serializeJsonLd);
 const copy = lang === 'en'
   ? {
       nav: {
@@ -195,15 +203,18 @@ const copy = lang === 'en'
   lang={lang}
   path={path}
   alternateLinks={alternateLinks}
+  ogImagePath={DEFAULT_OG_IMAGE_PATH}
+  ogImageAlt={DEFAULT_OG_IMAGE_ALT}
+  structuredData={structuredData}
 >
 
 <!-- Noise overlay -->
 <div class="noise-overlay" aria-hidden="true"></div>
 
 <!-- ─── NAVBAR ─── -->
-<nav class="navbar" id="navbar">
+<nav class="navbar" id="navbar" aria-label={t.nav.primaryNavLabel}>
   <div class="navbar-inner">
-    <a class="navbar-brand" href={path}>SAT-SCALE AI</a>
+    <a class="navbar-brand" href={path} aria-label={t.nav.homeLabel}>SAT-SCALE AI</a>
 
     <div class="navbar-links">
       <a class="nav-link" href="#technology" data-nav-target="technology">{copy.nav.technology}</a>
@@ -214,8 +225,8 @@ const copy = lang === 'en'
 
     <div class="navbar-actions">
       <div class="language-switcher" aria-label={copy.language}>
-        <a class="language-link" href="/v2/" aria-current={lang === 'es' ? 'page' : undefined}>ES</a>
-        <a class="language-link" href="/v2/en/" aria-current={lang === 'en' ? 'page' : undefined}>EN</a>
+        <a class="language-link" href="/" aria-current={lang === 'es' ? 'page' : undefined}>ES</a>
+        <a class="language-link" href="/en/" aria-current={lang === 'en' ? 'page' : undefined}>EN</a>
       </div>
       <a class="btn-primary-pill" href="#contact" data-contact-intent="demo">{copy.nav.getStarted}</a>
     </div>
@@ -226,33 +237,34 @@ const copy = lang === 'en'
       <button
         class="burger-btn"
         id="burger-btn"
-        aria-label="Abrir menu"
+        aria-label={t.nav.openMenu}
+        data-close-label={t.nav.closeMenu}
         aria-expanded="false"
         aria-controls="mobile-menu"
       >
-        <span class="burger-bar"></span>
-        <span class="burger-bar"></span>
-        <span class="burger-bar"></span>
+        <span class="burger-bar" aria-hidden="true"></span>
+        <span class="burger-bar" aria-hidden="true"></span>
+        <span class="burger-bar" aria-hidden="true"></span>
       </button>
     </div>
   </div>
   <div class="navbar-border" aria-hidden="true"></div>
 
   <!-- Mobile panel -->
-  <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+  <div class="mobile-menu" id="mobile-menu" aria-hidden="true" aria-label={t.nav.primaryNavLabel}>
     <a class="mobile-nav-link" href="#technology" data-nav-target="technology">{copy.nav.technology}</a>
     <a class="mobile-nav-link" href="#showcase" data-nav-target="showcase">{copy.nav.showcase}</a>
     <a class="mobile-nav-link" href="#pricing" data-nav-target="pricing">{copy.nav.pricing}</a>
     <a class="mobile-nav-link" href="#contact" data-nav-target="contact">{copy.nav.enterprise}</a>
     <div class="mobile-divider" aria-hidden="true"></div>
     <div class="language-switcher" aria-label={copy.language}>
-      <a class="language-link" href="/v2/" aria-current={lang === 'es' ? 'page' : undefined}>ES</a>
-      <a class="language-link" href="/v2/en/" aria-current={lang === 'en' ? 'page' : undefined}>EN</a>
+      <a class="language-link" href="/" aria-current={lang === 'es' ? 'page' : undefined}>ES</a>
+      <a class="language-link" href="/en/" aria-current={lang === 'en' ? 'page' : undefined}>EN</a>
     </div>
   </div>
 </nav>
 
-<main id="top">
+<main id="top" tabindex="-1">
 
   <!-- ─── HERO ─── -->
   <section class="hero-v2">
@@ -306,7 +318,7 @@ const copy = lang === 'en'
           <div class="tech-features">
             {copy.tech.features.map((feature) => (
               <div class="tech-feature">
-                <span class="material-symbols-outlined icon-cyan">{feature.icon}</span>
+                <span class="material-symbols-outlined icon-cyan" aria-hidden="true">{feature.icon}</span>
                 <h4>{feature.title}</h4>
                 <p>{feature.body}</p>
               </div>
@@ -364,12 +376,21 @@ const copy = lang === 'en'
         </div>
 
         <!-- Slider handle -->
-        <div class="slider-handle" id="slider-handle" aria-hidden="true">
+        <button
+          class="slider-handle"
+          id="slider-handle"
+          type="button"
+          role="slider"
+          aria-label={lang === 'en' ? 'Adjust image comparison' : 'Ajustar comparacion de imagen'}
+          aria-valuemin="5"
+          aria-valuemax="95"
+          aria-valuenow="50"
+        >
           <div class="slider-arrows">
-            <span class="material-symbols-outlined">chevron_left</span>
-            <span class="material-symbols-outlined">chevron_right</span>
+            <span class="material-symbols-outlined" aria-hidden="true">chevron_left</span>
+            <span class="material-symbols-outlined" aria-hidden="true">chevron_right</span>
           </div>
-        </div>
+        </button>
       </div>
     </div>
   </section>
@@ -397,9 +418,9 @@ const copy = lang === 'en'
             <p class="bento-card-body">{t.verticals_v2.items[0].body}</p>
           </div>
           <div class="bento-footer">
-            <span class="material-symbols-outlined bento-icon">{t.verticals_v2.items[0].icon}</span>
+            <span class="material-symbols-outlined bento-icon" aria-hidden="true">{t.verticals_v2.items[0].icon}</span>
             <a class="bento-cta" href="#contact" data-contact-intent="enterprise">
-              {t.verticals_v2.items[0].cta} <span class="material-symbols-outlined">arrow_forward</span>
+              {t.verticals_v2.items[0].cta} <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span>
             </a>
           </div>
         </div>
@@ -416,7 +437,7 @@ const copy = lang === 'en'
             <h3 class="bento-card-title">{t.verticals_v2.items[1].title}</h3>
             <p class="bento-card-body">{t.verticals_v2.items[1].body}</p>
           </div>
-          <span class="material-symbols-outlined bento-icon">{t.verticals_v2.items[1].icon}</span>
+          <span class="material-symbols-outlined bento-icon" aria-hidden="true">{t.verticals_v2.items[1].icon}</span>
         </div>
 
         <!-- Card 3 – Ecosystem (medium-narrow) -->
@@ -431,7 +452,7 @@ const copy = lang === 'en'
             <h3 class="bento-card-title">{t.verticals_v2.items[2].title}</h3>
             <p class="bento-card-body">{t.verticals_v2.items[2].body}</p>
           </div>
-          <span class="material-symbols-outlined bento-icon">{t.verticals_v2.items[2].icon}</span>
+          <span class="material-symbols-outlined bento-icon" aria-hidden="true">{t.verticals_v2.items[2].icon}</span>
         </div>
 
         <!-- Card 4 – Supply Systems (medium-wide) -->
@@ -446,7 +467,7 @@ const copy = lang === 'en'
             <h3 class="bento-card-title">{t.verticals_v2.items[3].title}</h3>
             <p class="bento-card-body">{t.verticals_v2.items[3].body}</p>
           </div>
-          <span class="material-symbols-outlined bento-icon">{t.verticals_v2.items[3].icon}</span>
+          <span class="material-symbols-outlined bento-icon" aria-hidden="true">{t.verticals_v2.items[3].icon}</span>
         </div>
 
       </div>
@@ -579,11 +600,13 @@ const copy = lang === 'en'
               <span>{copy.form.useCaseLabel}</span>
               <textarea
                 name="message"
+                id="contact-message"
                 rows="4"
                 placeholder={copy.form.useCasePlaceholder}
               ></textarea>
             </label>
 
+            <input id="contact-source-cta" name="source_cta" type="hidden" value="Landing" />
             <input class="contact-honeypot" name="company_website" type="text" tabindex="-1" autocomplete="off" />
           </div>
 
@@ -658,6 +681,13 @@ const copy = lang === 'en'
   a { color: inherit; text-decoration: none; }
   button { cursor: pointer; border: none; background: none; font: inherit; }
   section[id] { scroll-margin-top: 7rem; }
+  :focus-visible {
+    outline: 2px solid #67e8f9;
+    outline-offset: 3px;
+  }
+  :is(a, button, input, select, textarea):focus-visible {
+    scroll-margin-top: 7rem;
+  }
 
   /* ── Noise overlay ── */
   .noise-overlay {
@@ -1797,9 +1827,31 @@ const copy = lang === 'en'
 <script>
   if (typeof window !== 'undefined') {
     window.addEventListener('DOMContentLoaded', () => {
+      const emitAnalyticsEvent = (name: string, detail: Record<string, unknown> = {}) => {
+        window.dispatchEvent(new CustomEvent('satscale:analytics', { detail: { event: name, ...detail } }));
+        const dataLayer = (window as typeof window & { dataLayer?: Array<Record<string, unknown>> }).dataLayer;
+        dataLayer?.push({ event: name, ...detail });
+      };
+
       const navbar = document.getElementById('navbar');
       const navLinks = Array.from(document.querySelectorAll<HTMLAnchorElement>('[data-nav-target]'));
       const sections = Array.from(document.querySelectorAll<HTMLElement>('section[id]'));
+      const ctaLinks = Array.from(document.querySelectorAll<HTMLAnchorElement>('[data-contact-intent]'));
+
+      ctaLinks.forEach((link) => {
+        link.addEventListener('click', () => {
+          emitAnalyticsEvent('cta_click', {
+            intent: link.dataset.contactIntent ?? 'info',
+            location: link.textContent?.trim() || 'unknown'
+          });
+        });
+      });
+
+      const whatsappLink = document.querySelector<HTMLAnchorElement>('.whatsapp-float');
+      whatsappLink?.addEventListener('click', () => {
+        emitAnalyticsEvent('whatsapp_click', { location: 'floating_button' });
+      });
+
       if (!navLinks.length || !sections.length) return;
 
       const setActive = (id: string) => {
@@ -1851,6 +1903,7 @@ const copy = lang === 'en'
           history.pushState(null, '', `#${id}`);
           setActive(id);
           scrollToSectionAnchor(id, 'smooth');
+          emitAnalyticsEvent('section_navigation', { target: id });
         });
       });
 
@@ -1879,6 +1932,12 @@ const copy = lang === 'en'
 <script>
   if (typeof window !== 'undefined') {
     window.addEventListener('DOMContentLoaded', () => {
+      const emitAnalyticsEvent = (name: string, detail: Record<string, unknown> = {}) => {
+        window.dispatchEvent(new CustomEvent('satscale:analytics', { detail: { event: name, ...detail } }));
+        const dataLayer = (window as typeof window & { dataLayer?: Array<Record<string, unknown>> }).dataLayer;
+        dataLayer?.push({ event: name, ...detail });
+      };
+
       const form = document.querySelector<HTMLFormElement>('#contact-form-v2');
       const status = document.querySelector<HTMLElement>('#contact-status-v2');
       const submit = form?.querySelector<HTMLButtonElement>('button[type="submit"]');
@@ -1937,12 +1996,13 @@ const copy = lang === 'en'
             ['Source', (data.get('source_cta') ?? '').toString()],
             ['Message', (data.get('message') ?? '').toString()]
           ];
-          const request = (data.get('request_type') ?? '').toString() || 'contact';
-          const subject = encodeURIComponent(`${subjectPrefix} - ${request}`);
-          const body = encodeURIComponent(fields.map(([label, value]) => `${label}: ${value}`).join('\n'));
-          setStatus(fallbackNotice, 'idle');
-          window.location.href = `mailto:${fallbackEmail}?subject=${subject}&body=${body}`;
-        };
+        const request = (data.get('request_type') ?? '').toString() || 'contact';
+        const subject = encodeURIComponent(`${subjectPrefix} - ${request}`);
+        const body = encodeURIComponent(fields.map(([label, value]) => `${label}: ${value}`).join('\n'));
+        setStatus(fallbackNotice, 'idle');
+        emitAnalyticsEvent('lead_fallback_mailto', { requestType: request });
+        window.location.href = `mailto:${fallbackEmail}?subject=${subject}&body=${body}`;
+      };
 
         const submitRequest = async () => {
           submit?.setAttribute('disabled', 'true');
@@ -1967,9 +2027,11 @@ const copy = lang === 'en'
             form.reset();
             applyIntent('demo', 'Conversion');
             setStatus(successMessage, 'success');
+            emitAnalyticsEvent('lead_submit_success', { requestType: (data.get('request_type') ?? '').toString() || 'contact' });
           } catch (error) {
             console.error(error);
             setStatus(errorMessage, 'error');
+            emitAnalyticsEvent('lead_submit_error', { requestType: (data.get('request_type') ?? '').toString() || 'contact' });
           } finally {
             submit?.removeAttribute('disabled');
             if (submit) submit.textContent = originalSubmit;
@@ -1989,8 +2051,12 @@ const copy = lang === 'en'
       const menu   = document.getElementById('mobile-menu') as HTMLElement | null;
       if (!burger || !menu) return;
 
+      const openLabel = burger.getAttribute('aria-label') ?? 'Open menu';
+      const closeLabel = burger.dataset.closeLabel ?? (document.documentElement.lang === 'en' ? 'Close menu' : 'Cerrar menu');
+
       const close = () => {
         burger.setAttribute('aria-expanded', 'false');
+        burger.setAttribute('aria-label', openLabel);
         menu.setAttribute('aria-hidden', 'true');
         document.body.style.overflow = '';
       };
@@ -2001,6 +2067,7 @@ const copy = lang === 'en'
           close();
         } else {
           burger.setAttribute('aria-expanded', 'true');
+          burger.setAttribute('aria-label', closeLabel);
           menu.setAttribute('aria-hidden', 'false');
           document.body.style.overflow = 'hidden';
         }
@@ -2030,13 +2097,20 @@ const copy = lang === 'en'
 
       let dragging = false;
       let pointerId: number | null = null;
+      let currentPct = 50;
+
+      const applyPercent = (pct: number) => {
+        pct = Math.max(5, Math.min(95, pct));
+        currentPct = pct;
+        front.style.clipPath = `inset(0 ${100 - pct}% 0 0)`;
+        handle.style.left = pct + '%';
+        handle.setAttribute('aria-valuenow', Math.round(pct).toString());
+      };
 
       const setPosition = (x: number) => {
         const rect = widget.getBoundingClientRect();
-        let pct = ((x - rect.left) / rect.width) * 100;
-        pct = Math.max(5, Math.min(95, pct));
-        front.style.clipPath = `inset(0 ${100 - pct}% 0 0)`;
-        handle.style.left = pct + '%';
+        const pct = ((x - rect.left) / rect.width) * 100;
+        applyPercent(pct);
       };
 
       const stopDragging = () => {
@@ -2058,6 +2132,23 @@ const copy = lang === 'en'
         setPosition(event.clientX);
       });
 
+      handle.addEventListener('keydown', (event) => {
+        if (event.key === 'ArrowLeft') {
+          event.preventDefault();
+          applyPercent(currentPct - 5);
+        } else if (event.key === 'ArrowRight') {
+          event.preventDefault();
+          applyPercent(currentPct + 5);
+        } else if (event.key === 'Home') {
+          event.preventDefault();
+          applyPercent(5);
+        } else if (event.key === 'End') {
+          event.preventDefault();
+          applyPercent(95);
+        }
+      });
+
+      applyPercent(currentPct);
       handle.addEventListener('pointerup', stopDragging);
       handle.addEventListener('pointercancel', stopDragging);
       window.addEventListener('pointerup', stopDragging);
