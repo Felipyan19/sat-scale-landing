@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="SatScale">
+  <title>SatScale</title>
+  <defs>
+    <linearGradient id="satScaleGradient" x1="18" y1="14" x2="82" y2="86" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#07111F" />
+      <stop offset="58%" stop-color="#1E40AF" />
+      <stop offset="100%" stop-color="#2DD4BF" />
+    </linearGradient>
+    <linearGradient id="satScaleGlow" x1="28" y1="24" x2="72" y2="76" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="1" />
+      <stop offset="100%" stop-color="#CCFBF1" stop-opacity="0.9" />
+    </linearGradient>
+  </defs>
+  <rect x="8" y="8" width="84" height="84" rx="24" fill="url(#satScaleGradient)" />
+  <path
+    d="M64 31c-4-3-10-5-16-4-8 1-15 7-15 15 0 9 8 12 17 14 9 2 14 5 14 11 0 7-7 12-16 13-7 1-13-1-18-4"
+    fill="none"
+    stroke="url(#satScaleGlow)"
+    stroke-width="12"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+  <path
+    d="M35 68c4 4 10 6 17 6 8 0 15-3 18-8"
+    fill="none"
+    stroke="#FFFFFF"
+    stroke-opacity="0.22"
+    stroke-width="5"
+    stroke-linecap="round"
+  />
+</svg>

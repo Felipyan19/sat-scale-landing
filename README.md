@@ -12,12 +12,14 @@ Landing bilingue en Astro para presentar SatScale y captar solicitudes de evalua
 ## Contacto
 
 El formulario usa `PUBLIC_CONTACT_FORM_ENDPOINT` si existe. Si no esta configurado, hace fallback a `mailto:contact@satscale.ai`.
-El boton flotante de WhatsApp usa `PUBLIC_WHATSAPP_NUMBER` y `PUBLIC_WHATSAPP_MESSAGE`. Si no los cambias, el sitio usa el numero `573107798107` y el mensaje por defecto para Sat Scale.
+El boton flotante de WhatsApp usa `PUBLIC_WHATSAPP_URL` si existe. Si no, construye el enlace con `PUBLIC_WHATSAPP_NUMBER` y `PUBLIC_WHATSAPP_MESSAGE`.
+Si no cambias el `.env.example`, queda un numero y un mensaje por defecto para Sat Scale.
 
 1. Copia `.env.example` a `.env`
 2. Define `PUBLIC_CONTACT_FORM_ENDPOINT` con tu endpoint de formulario
-3. Opcional: ajusta `PUBLIC_WHATSAPP_NUMBER` si quieres otro numero
-4. Opcional: ajusta `PUBLIC_WHATSAPP_MESSAGE` si quieres otro texto inicial
+3. Opcional: define `PUBLIC_WHATSAPP_URL` con una URL completa de WhatsApp
+4. Si no usas URL completa, define `PUBLIC_WHATSAPP_NUMBER` en formato internacional, solo con codigo de pais y numero
+5. Opcional: define `PUBLIC_WHATSAPP_MESSAGE` para precargar el mensaje inicial
 
 ## Docker
 
@@ -36,7 +38,7 @@ Comandos utiles:
 - `docker compose logs -f web`
 - `docker compose down`
 
-Nota: como Astro genera un sitio estatico, las variables `PUBLIC_CONTACT_FORM_ENDPOINT`, `PUBLIC_WHATSAPP_NUMBER` y `PUBLIC_WHATSAPP_MESSAGE` se incorporan en tiempo de build. Si cambias una de ellas, debes reconstruir con `docker compose up --build -d`.
+Nota: como Astro genera un sitio estatico, las variables `PUBLIC_CONTACT_FORM_ENDPOINT`, `PUBLIC_WHATSAPP_URL`, `PUBLIC_WHATSAPP_NUMBER` y `PUBLIC_WHATSAPP_MESSAGE` se incorporan en tiempo de build. Si cambias una de ellas, debes reconstruir con `docker compose up --build -d`.
 
 ## Rutas
 
