@@ -4,6 +4,8 @@ services:
       context: .
       args:
         PUBLIC_CONTACT_FORM_ENDPOINT: ${PUBLIC_CONTACT_FORM_ENDPOINT:-}
+        PUBLIC_WHATSAPP_NUMBER: ${PUBLIC_WHATSAPP_NUMBER:-}
+        PUBLIC_WHATSAPP_MESSAGE: ${PUBLIC_WHATSAPP_MESSAGE:-}
     ports:
       - "5050:80"
     restart: unless-stopped
